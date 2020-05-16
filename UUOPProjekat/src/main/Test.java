@@ -2,9 +2,12 @@ package main;
 
 import java.util.ArrayList;
 
+import ispis.UcitajAutomobile;
 import ispis.UcitajMusterije;
+import ispis.UcitajServisere;
 import model.Automobil;
 import model.Musterija;
+import model.Serviser;
 
 public class Test {
 
@@ -24,6 +27,19 @@ public class Test {
 		
 		for(Musterija musterija : musterije) {
 			System.out.println(musterija);
+		}
+		
+		//ArrayList<Automobil> automobili = UcitajAutomobile.prikaziAutomobile();
+		
+		//for(Automobil automobil : automobili) {
+			//System.out.println(automobili);
+		//}
+		System.out.println("\nCitanje iz datoteke 'serviseri.txt' : \n");
+		
+		ArrayList<Serviser> serviseri = UcitajServisere.prikaziServisere();
+		
+		for(Serviser serviser : serviseri) {
+			System.out.println(serviser);
 		}
 		
 	}	
