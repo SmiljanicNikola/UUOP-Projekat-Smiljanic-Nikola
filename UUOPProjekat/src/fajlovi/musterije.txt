@@ -1,0 +1,2 @@
+01|Stefan|Stefanovic|1005000900040|Muski|Ivanjska44|06544414|stefans|12345|30|1
+02|Ivana|Zingerovic|4141413333|Zenski|Domovska3|06341551|ivanaz|54321|45|1
