@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import CRUD.CRUDOperacije;
 
 import ispis.UcitajAdministratore;
 import ispis.UcitajAutomobile;
@@ -10,30 +11,36 @@ import model.Administrator;
 import model.Automobil;
 import model.Musterija;
 import model.Serviser;
+import upis.upisiMusterije;
 
 public class Test {
-
+	
+	//public static String ADMINISTRATORI_FAJL = "administratori.txt";
+	// static String AUTOMOBILI_FAJL = "automobili.txt";
+	//public static String MUSTERIJE_FAJL = "musterije.txt";
+	//public static String SERVISERI_FAJL = "serviseri.txt";
+	//public static String SERVISIAUTOMOBILA_FAJL = "servisiautomobila.txt";
+	//public static String SERVISNJEKNJIZICE_FAJL = "servisneknjizice.txt";
+	//public static String SERVISNIDELOVI_FAJL = "servisnidelovi.txt";
+	
+	
+	
+	
 	public static void main(String[] args) {
 	
-
-		Musterija musterija2 = new Musterija(1, "Stefan", "Lazic", "40005000", "Muski", "Gunduliceva2", "06541212", "stefanl", "6789", 2);
-		System.out.println("Podaci za musteriju su: " + musterija2);
 		
-		Automobil automobil2 = new Automobil(2, musterija2, "Audi", "A4", 2011, "2000cm3", "140KS", "Dizel");
-		System.out.println("Podaci o automobilu su: " + automobil2);
+		CRUDOperacije crudOperacije = new CRUDOperacije();
 		
 		System.out.println("\nCitanje iz datoteke 'musterije.txt' : \n");
 		
 		ArrayList<Musterija> musterije = UcitajMusterije.prikaziMusterije();
-		
 		for(Musterija musterija : musterije) {
 			System.out.println(musterija);
 		}
 		
 		System.out.println("\nCitanje iz datoteke 'serviseri.txt' : \n");
-		
+	
 		ArrayList<Serviser> serviseri = UcitajServisere.prikaziServisere();
-		
 		for(Serviser serviser : serviseri) {
 			System.out.println(serviser);
 		}
@@ -41,10 +48,22 @@ public class Test {
 		System.out.println("\n Citanje iz datoteke 'administratori.txt' : \n");
 		
 		ArrayList<Administrator> administratori = UcitajAdministratore.prikaziAdministratore();
-		
 		for(Administrator administrator: administratori) {
 			System.out.println(administrator);
 		}
 		
-	}	
+		System.out.println("\n U listi 'musterije' nalaze se sledece musterije: \n");
+		
+		//kreiramo objekat musterija1:
+		Musterija musterija1 = new Musterija(1, "Stefan", "Lodge", "51515", "ghaha", "adresaa", "telefon", "fafa", "loz", 14);
+		crudOperacije.dodajMusteriju(musterija1);
+		musterije.add(musterija1);
+		
+		for(Musterija musterija : musterije) {
+			System.out.println(musterija);
+		}
+		
+	}
+	    
+	
 }

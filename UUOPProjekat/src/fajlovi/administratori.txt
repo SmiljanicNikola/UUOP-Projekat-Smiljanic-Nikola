@@ -1,1 +1,2 @@
-003|Predrag|Nomeric|454455444|Muski|Skopovska 30|062-3363121|predragn|1234567|4515100
+02|Nenad|Petkovic|3141414|muski|Lovcenska19|064-3131515|nenadp|1234|35000
+03|Ivan|Ivanovic|031991941|Muski|Ivanska121b|064131212|ivani|4321|50000

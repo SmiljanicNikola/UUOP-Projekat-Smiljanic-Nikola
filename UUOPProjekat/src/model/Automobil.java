@@ -1,4 +1,4 @@
-package model;
+2package model;
 
 public class Automobil {
 	
