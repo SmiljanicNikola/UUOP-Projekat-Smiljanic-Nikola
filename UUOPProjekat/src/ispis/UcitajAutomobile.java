@@ -22,7 +22,7 @@ public class UcitajAutomobile {
 			while((line = reader.readLine()) != null) {
 				String[] lineSplit = (line.split("\\|"));
 				int id = Integer.parseInt(lineSplit[0]);
-				Object vlasnik = lineSplit[1];
+				String vlasnik = lineSplit[1];
 				String marka = lineSplit[2];
 				String model = lineSplit[3];
 				int godinaProizvodnje = Integer.parseInt(lineSplit[4]);

@@ -2,9 +2,11 @@ package main;
 
 import java.util.ArrayList;
 
+import ispis.UcitajAdministratore;
 import ispis.UcitajAutomobile;
 import ispis.UcitajMusterije;
 import ispis.UcitajServisere;
+import model.Administrator;
 import model.Automobil;
 import model.Musterija;
 import model.Serviser;
@@ -22,7 +24,6 @@ public class Test {
 		
 		System.out.println("\nCitanje iz datoteke 'musterije.txt' : \n");
 		
-		
 		ArrayList<Musterija> musterije = UcitajMusterije.prikaziMusterije();
 		
 		for(Musterija musterija : musterije) {
@@ -35,6 +36,14 @@ public class Test {
 		
 		for(Serviser serviser : serviseri) {
 			System.out.println(serviser);
+		}
+		
+		System.out.println("\n Citanje iz datoteke 'administratori.txt' : \n");
+		
+		ArrayList<Administrator> administratori = UcitajAdministratore.prikaziAdministratore();
+		
+		for(Administrator administrator: administratori) {
+			System.out.println(administrator);
 		}
 		
 	}	
