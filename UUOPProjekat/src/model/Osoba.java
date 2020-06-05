@@ -2,7 +2,7 @@ package model;
 
 public abstract class Osoba {
 	
-	protected int idOsoba;
+	protected int id;
 	protected String ime;
 	protected String prezime;
 	protected String jmbg;
@@ -13,7 +13,7 @@ public abstract class Osoba {
 	protected String lozinka;
 	
 	public Osoba() {
-		this.idOsoba = 0;
+		this.id = 0;
 		this.ime = "";
 		this.prezime = "";
 		this.jmbg = "";
@@ -24,10 +24,10 @@ public abstract class Osoba {
 		this.lozinka = "";
 	}
 
-	public Osoba(int idOsoba, String ime, String prezime, String jmbg, String pol, String adresa, String telefon,
+	public Osoba(int id, String ime, String prezime, String jmbg, String pol, String adresa, String telefon,
 			String korisnickoIme, String lozinka) {
 		super();
-		this.idOsoba = idOsoba;
+		this.id = id;
 		this.ime = ime;
 		this.prezime = prezime;
 		this.jmbg = jmbg;
@@ -38,12 +38,12 @@ public abstract class Osoba {
 		this.lozinka = lozinka;
 	}
 
-	public int getIdOsoba() {
-		return idOsoba;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdOsoba(int idOsoba) {
-		this.idOsoba = idOsoba;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getIme() {
@@ -112,7 +112,7 @@ public abstract class Osoba {
 
 	@Override
 	public String toString() {
-		return "Osoba [idOsoba=" + idOsoba + ", ime=" + ime + ", prezime=" + prezime + ", jmbg=" + jmbg + ", pol=" + pol
+		return "Osoba [id=" + id + ", ime=" + ime + ", prezime=" + prezime + ", jmbg=" + jmbg + ", pol=" + pol
 				+ ", adresa=" + adresa + ", telefon=" + telefon + ", korisnickoIme=" + korisnickoIme + ", lozinka="
 				+ lozinka + "]";
 	}

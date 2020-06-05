@@ -14,7 +14,7 @@ public class Test {
 	public static void main(String[] args) {
 	
 
-		Musterija musterija2 = new Musterija(1, "Stefan", "Lazic", "40005000", "Muski", "Gunduliceva2", "06541212", "stefanl", "6789",50, 2);
+		Musterija musterija2 = new Musterija(1, "Stefan", "Lazic", "40005000", "Muski", "Gunduliceva2", "06541212", "stefanl", "6789", 2);
 		System.out.println("Podaci za musteriju su: " + musterija2);
 		
 		Automobil automobil2 = new Automobil(2, musterija2, "Audi", "A4", 2011, "2000cm3", "140KS", "Dizel");
@@ -29,11 +29,6 @@ public class Test {
 			System.out.println(musterija);
 		}
 		
-		//ArrayList<Automobil> automobili = UcitajAutomobile.prikaziAutomobile();
-		
-		//for(Automobil automobil : automobili) {
-			//System.out.println(automobili);
-		//}
 		System.out.println("\nCitanje iz datoteke 'serviseri.txt' : \n");
 		
 		ArrayList<Serviser> serviseri = UcitajServisere.prikaziServisere();
