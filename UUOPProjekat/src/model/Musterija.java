@@ -32,5 +32,4 @@ public class Musterija extends Osoba {
 	}
 	
 	
-	
 }

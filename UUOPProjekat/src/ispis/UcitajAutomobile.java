@@ -22,8 +22,8 @@ public class UcitajAutomobile {
 			while((line = reader.readLine()) != null) {
 				String[] lineSplit = (line.split("\\|"));
 				int id = Integer.parseInt(lineSplit[0]);
-				String vlasnik = lineSplit[1];
-				Musterija vlasnik1 = Musterija(vlasnik);
+				String vlasnik1 = lineSplit[1];
+				Musterija vlasnik = Musterija parse(String vlasnik);
 				String marka = lineSplit[2];
 				String model = lineSplit[3];
 				int godinaProizvodnje = Integer.parseInt(lineSplit[4]);

@@ -63,6 +63,8 @@ public class Test {
 			System.out.println(musterija);
 		}
 		
+		
+		upis.upisiAdministratore.snimiAdministratore();
 	}
 	    
 	

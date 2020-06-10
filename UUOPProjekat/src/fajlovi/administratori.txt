@@ -1,2 +1,3 @@
-02|Nenad|Petkovic|3141414|1|Lovcenska19|064-3131515|nenadp|1234|35000
-03|Ivan|Ivanovic|031991941|1|Ivanska121b|064131212|ivani|4321|50000
+099|Anja|Anjovski|0010006000890|1|BulevaraPetrovica90|061416614|anjanj|87665|30
+0010|Minder|Ivkocender|051551|0|Ivanoviceva22|06419419|miniv|12345678|107
+4||daffa|fafa|fafa|fafaf|fafaf|faf|dd|400
