@@ -9,7 +9,7 @@ public class Musterija extends Osoba {
 		this.nagradniBodovi = 0;
 	}
 
-	public Musterija(int id, String ime, String prezime, String jmbg, String pol, String adresa, String telefon,
+	public Musterija(int id, String ime, String prezime, String jmbg, enumeracije.pol pol, String adresa, String telefon,
 			String korisnickoIme, String lozinka, int nagradniBodovi) {
 		super(id, ime, prezime, jmbg, pol, adresa, telefon, korisnickoIme, lozinka);
 	

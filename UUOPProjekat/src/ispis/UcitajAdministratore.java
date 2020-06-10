@@ -24,7 +24,8 @@ public class UcitajAdministratore {
 				String ime = lineSplit[1];
 				String prezime = lineSplit[2];
 				String jmbg = lineSplit[3];
-				String pol = lineSplit[4];
+				int indeksPola = Integer.parseInt(lineSplit[4]);
+				enumeracije.pol pol = enumeracije.pol.values()[indeksPola];
 				String adresa = lineSplit[5];
 				String telefon = lineSplit[6];
 				String korisnickoIme = lineSplit[7];

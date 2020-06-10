@@ -1,2 +1,2 @@
-03|Katarina|Petkovic|112350003040|Zenski|Marketska33|06951513|petkovick|24685|40000|Limar
-07|Mihajlo|Romanovic|141565121|Muski|Gradska131|06235155|mihajlor|97312|38000|Vulkanizer
+03|Katarina|Petkovic|112350003040|0|Marketska33|06951513|petkovick|24685|40000|Limar
+07|Mihajlo|Romanovic|141565121|1|Gradska131|06235155|mihajlor|97312|38000|Vulkanizer

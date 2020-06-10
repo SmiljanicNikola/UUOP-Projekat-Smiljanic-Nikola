@@ -6,7 +6,7 @@ public abstract class Osoba {
 	protected String ime;
 	protected String prezime;
 	protected String jmbg;
-	protected String pol;
+	protected enumeracije.pol pol;
 	protected String adresa;
 	protected String telefon;
 	protected String korisnickoIme;
@@ -17,14 +17,14 @@ public abstract class Osoba {
 		this.ime = "";
 		this.prezime = "";
 		this.jmbg = "";
-		this.pol = "";
+		this.pol = enumeracije.pol.muski;
 		this.adresa = "";
 		this.telefon = "";
 		this.korisnickoIme = "";
 		this.lozinka = "";
 	}
 
-	public Osoba(int id, String ime, String prezime, String jmbg, String pol, String adresa, String telefon,
+	public Osoba(int id, String ime, String prezime, String jmbg, enumeracije.pol pol, String adresa, String telefon,
 			String korisnickoIme, String lozinka) {
 		super();
 		this.id = id;
@@ -70,11 +70,12 @@ public abstract class Osoba {
 		this.jmbg = jmbg;
 	}
 
-	public String getPol() {
+
+	public enumeracije.pol getPol() {
 		return pol;
 	}
 
-	public void setPol(String pol) {
+	public void setPol(enumeracije.pol pol) {
 		this.pol = pol;
 	}
 

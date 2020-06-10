@@ -1,2 +1,2 @@
-02|Nenad|Petkovic|3141414|muski|Lovcenska19|064-3131515|nenadp|1234|35000
-03|Ivan|Ivanovic|031991941|Muski|Ivanska121b|064131212|ivani|4321|50000
+02|Nenad|Petkovic|3141414|1|Lovcenska19|064-3131515|nenadp|1234|35000
+03|Ivan|Ivanovic|031991941|1|Ivanska121b|064131212|ivani|4321|50000

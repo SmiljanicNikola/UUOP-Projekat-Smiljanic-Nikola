@@ -11,12 +11,16 @@ public class Serviser extends Osoba {
 		this.specijalizacija = "";
 	}
 
-	public Serviser(int id, String ime, String prezime, String jmbg, String pol, String adresa, String telefon,
+	
+
+	public Serviser(int id, String ime, String prezime, String jmbg, enumeracije.pol pol, String adresa, String telefon,
 			String korisnickoIme, String lozinka, double plata, String specijalizacija) {
 		super(id, ime, prezime, jmbg, pol, adresa, telefon, korisnickoIme, lozinka);
 		this.plata = plata;
 		this.specijalizacija = specijalizacija;
 	}
+
+
 
 	public double getPlata() {
 		return plata;

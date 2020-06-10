@@ -33,8 +33,8 @@ public class Test {
 		
 		System.out.println("\nCitanje iz datoteke 'musterije.txt' : \n");
 		
-		ArrayList<Musterija> musterije = UcitajMusterije.prikaziMusterije();
-		for(Musterija musterija : musterije) {
+		ArrayList<Musterija> ucitaneMusterije = UcitajMusterije.prikaziMusterije();
+		for(Musterija musterija : ucitaneMusterije) {
 			System.out.println(musterija);
 		}
 		
@@ -52,14 +52,14 @@ public class Test {
 			System.out.println(administrator);
 		}
 		
-		System.out.println("\n U listi 'musterije' nalaze se sledece musterije: \n");
+		System.out.println("\n U listi 'ucitaneMusterije' nalaze se sledece musterije: \n");
 		
-		//kreiramo objekat musterija1:
-		Musterija musterija1 = new Musterija(1, "Stefan", "Lodge", "51515", "ghaha", "adresaa", "telefon", "fafa", "loz", 14);
-		crudOperacije.dodajMusteriju(musterija1);
-		musterije.add(musterija1);
+
+		//Musterija musterija1 = new Musterija(1, "Stefan", "Lodge", "51515", "ghaha", "adresaa", "telefon", "fafa", "loz", 14);
+		//crudOperacije.dodajMusteriju(musterija1);
+		//ucitaneMusterije.add(musterija1);
 		
-		for(Musterija musterija : musterije) {
+		for(Musterija musterija : ucitaneMusterije) {
 			System.out.println(musterija);
 		}
 		
