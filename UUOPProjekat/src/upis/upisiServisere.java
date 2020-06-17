@@ -6,16 +6,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
-import model.Musterija;
+public class upisiServisere {
 
-public class upisiMusterije {
-	
 	public static String ucitajIzFajla() {
 		String sadrzaj = "";
-		File file = new File("src/fajlovi/musterije.txt");
+		File file = new File("src/fajlovi/serviseri.txt");
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			String line;
@@ -30,7 +27,7 @@ public class upisiMusterije {
 		return sadrzaj;
 	}
 	
-	public static void snimiMusterije() {
+	public static void snimiServisere(){
 		
 		Scanner scanner = new Scanner(System.in);
 	
@@ -61,23 +58,25 @@ public class upisiMusterije {
 		System.out.println("Unesite lozinku: ");
 		String lozinka = scanner.next();
 		
-		System.out.println("Unesite nagradne bodove: ");
-		int nagradniBodovi = scanner.nextInt(); 
-		scanner.hasNextLine();
-	
+		System.out.println("Unesite platu: ");
+		int plata = scanner.nextInt(); 
+		
+		System.out.println("Unesite specijalizaciju (Unesite: 0-Automehanicar , 1-autoelektricar, 2-vulkanizer, 3-limar)");
+		String specijalizacija = scanner.next(); 
+		
 		scanner.close();
 		String stari = ucitajIzFajla();
-		String sadrzaj = id + "|" + ime + "|" + prezime + "|" + jmbg + "|" + pol + "|" + adresa + "|" + telefon + "|" + korisnickoIme + "|" + lozinka + "|" + nagradniBodovi;
-		
+		String sadrzaj = id + "|" + ime + "|" + prezime + "|" + jmbg + "|" + pol + "|" + adresa + "|" + telefon + "|" + korisnickoIme + "|" + lozinka + "|" + plata + "|" + specijalizacija;
+	
 		try {
 			
-			File upisUFajl = new File("src/fajlovi/musterije.txt");
+			File upisUFajl = new File("src/fajlovi/serviseri.txt");
 			BufferedWriter writer = new BufferedWriter(new FileWriter(upisUFajl));
 			writer.write(stari + sadrzaj);
 			writer.close();
 					}
 				catch(IOException e) {
 					System.out.println("Greska!");
-		}
+		}	
 	}
 }

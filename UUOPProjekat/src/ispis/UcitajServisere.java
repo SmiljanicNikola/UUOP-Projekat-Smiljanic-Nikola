@@ -33,7 +33,9 @@ public class UcitajServisere {
 			String korisnickoIme = lineSplit[7];
 			String lozinka = lineSplit[8];
 			double plata = Double.parseDouble(lineSplit[9]);
-			String specijalizacija = lineSplit[10];	
+			int indeksSpecijalizacije = Integer.parseInt(lineSplit[10]);
+			enumeracije.specijalizacija specijalizacija = enumeracije.specijalizacija.values()[indeksSpecijalizacije];
+			
 			Serviser serviser1 = new Serviser(id, ime, prezime, jmbg, pol, adresa, brojTelefona, korisnickoIme, lozinka, plata, specijalizacija);
 			serviseri.add(serviser1);
 		}

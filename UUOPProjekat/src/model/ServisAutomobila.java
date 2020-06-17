@@ -11,7 +11,7 @@ public class ServisAutomobila {
 	public String terminServisa;
 	public String kratakOpis;
 	public List<ServisniDeo> listaDelova;
-	public boolean statusServisa;
+	public enumeracije.statusServisa statusServisa;
 	
 	public ServisAutomobila() {
 		this.id = 0;
@@ -20,11 +20,13 @@ public class ServisAutomobila {
 		this.terminServisa = "";
 		this.kratakOpis = "";
 		this.listaDelova = new ArrayList<ServisniDeo>();
-		this.statusServisa = false;
+		this.statusServisa = enumeracije.statusServisa.aktivan;
 	}
 
+	
+
 	public ServisAutomobila(int id, Automobil servisiraniAutomobil, Serviser serviser, String terminServisa,
-			String kratakOpis, List<ServisniDeo> listaDelova, boolean statusServisa) {
+			String kratakOpis, List<ServisniDeo> listaDelova, enumeracije.statusServisa statusServisa) {
 		super();
 		this.id = id;
 		this.servisiraniAutomobil = servisiraniAutomobil;
@@ -83,11 +85,11 @@ public class ServisAutomobila {
 		this.listaDelova = listaDelova;
 	}
 
-	public boolean isStatusServisa() {
+	public enumeracije.statusServisa getStatusServisa() {
 		return statusServisa;
 	}
 
-	public void setStatusServisa(boolean statusServisa) {
+	public void setStatusServisa(enumeracije.statusServisa statusServisa) {
 		this.statusServisa = statusServisa;
 	}
 

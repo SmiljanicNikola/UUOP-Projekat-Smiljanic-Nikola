@@ -1,5 +1,9 @@
 package model;
 
+import java.util.ArrayList;
+
+import ispis.UcitajMusterije;
+
 public class Musterija extends Osoba {
 	
 	public int nagradniBodovi;
@@ -30,6 +34,6 @@ public class Musterija extends Osoba {
 				+ ", prezime=" + prezime + ", jmbg=" + jmbg + ", pol=" + pol + ", adresa=" + adresa + ", telefon="
 				+ telefon + ", korisnickoIme=" + korisnickoIme + ", lozinka=" + lozinka + "]";
 	}
-	
+
 	
 }

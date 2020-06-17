@@ -52,6 +52,13 @@ public class Test {
 			System.out.println(administrator);
 		}
 		
+		System.out.println("\n Citanje iz datoteke 'automobili.txt' : \n");
+		ArrayList<Automobil> automobili = UcitajAutomobile.prikaziAutomobile();
+		for(Automobil automobil : automobili) {
+			System.out.println(automobil);
+		}
+		
+		
 		System.out.println("\n U listi 'ucitaneMusterije' nalaze se sledece musterije: \n");
 		
 
@@ -62,8 +69,8 @@ public class Test {
 		for(Musterija musterija : ucitaneMusterije) {
 			System.out.println(musterija);
 		}
-		
-		
+	
+		//upis.upisiServisere.snimiServisere();
 		upis.upisiAdministratore.snimiAdministratore();
 	}
 	    

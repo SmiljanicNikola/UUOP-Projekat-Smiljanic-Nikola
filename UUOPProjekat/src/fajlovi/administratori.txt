@@ -1,3 +1,2 @@
-099|Anja|Anjovski|0010006000890|1|BulevaraPetrovica90|061416614|anjanj|87665|30
-0010|Minder|Ivkocender|051551|0|Ivanoviceva22|06419419|miniv|12345678|107
-4||daffa|fafa|fafa|fafaf|fafaf|faf|dd|400
+9|Nenad|Mihajlovski|4058811|0|Kaplareva9|0649838131|nenadm|987654|48000
+11|Mirko|Mirkovic|09485885|0|PetrovMol4|064948833|mirkom|1234567|48000

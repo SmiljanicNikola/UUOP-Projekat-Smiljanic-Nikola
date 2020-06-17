@@ -1,6 +1,6 @@
 package enumeracije;
 
 public enum statusServisa {
-	aktivan,
+	aktivan, 
 	neaktivan
 }

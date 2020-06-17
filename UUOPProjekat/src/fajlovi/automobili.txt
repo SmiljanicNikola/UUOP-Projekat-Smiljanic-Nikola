@@ -1,1 +1,2 @@
-00|Anja|Ford|Raptor|2014|3000cm3|290KS|Dizel
+00|Anja|Ford|Raptor|2014|3000cm3|290KS|0
+02|Minder|Mercedes|W220|2013|2000cm3|190KS|1

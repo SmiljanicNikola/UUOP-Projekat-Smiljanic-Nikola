@@ -9,7 +9,7 @@ public class Automobil {
 	public int godinaProizvodnje;
 	public String zapreminaMotora;
 	public String snagaMotora;
-	public String vrstaGoriva;
+	public enumeracije.vrstaGoriva vrstaGoriva;
 	
 	public Automobil() {
 		this.id = 0;
@@ -19,11 +19,11 @@ public class Automobil {
 		this.godinaProizvodnje = 0;
 		this.zapreminaMotora = "";
 		this.snagaMotora = "";
-		this.vrstaGoriva = "";
+		this.vrstaGoriva = enumeracije.vrstaGoriva.dizel;
 	}
 
 	public Automobil(int id, Musterija vlasnik, String marka, String model, int godinaProizvodnje,
-			String zapreminaMotora, String snagaMotora, String vrstaGoriva) {
+			String zapreminaMotora, String snagaMotora, enumeracije.vrstaGoriva vrstaGoriva) {
 		super();
 		this.id = id;
 		this.vlasnik = vlasnik;
@@ -91,11 +91,12 @@ public class Automobil {
 		this.snagaMotora = snagaMotora;
 	}
 
-	public String getVrstaGoriva() {
+
+	public enumeracije.vrstaGoriva getVrstaGoriva() {
 		return vrstaGoriva;
 	}
 
-	public void setVrstaGoriva(String vrstaGoriva) {
+	public void setVrstaGoriva(enumeracije.vrstaGoriva vrstaGoriva) {
 		this.vrstaGoriva = vrstaGoriva;
 	}
 

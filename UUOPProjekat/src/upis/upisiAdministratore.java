@@ -12,7 +12,7 @@ public class upisiAdministratore {
 
 	public static String ucitajIzFajla() {
 		String sadrzaj = "";
-		File file = new File("src/fajlovi/musterije.txt");
+		File file = new File("src/fajlovi/administratori.txt");
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			String line;
@@ -33,31 +33,30 @@ public class upisiAdministratore {
 	
 		System.out.println("Unesite id: ");
 		int id = scanner.nextInt();
-		scanner.hasNextLine();
 		
 		System.out.println("Unesite ime: ");
-		String ime = scanner.nextLine();
+		String ime = scanner.next();
 		
 		System.out.println("Unesite prezime: ");
-		String prezime = scanner.nextLine();
+		String prezime = scanner.next();
 		
 		System.out.println("Unesite jmbg: ");
-		String jmbg = scanner.nextLine();
+		String jmbg = scanner.next();
 		
-		System.out.println("Unesite pol: ");
-		String pol = scanner.nextLine();
+		System.out.println("Unesite pol (Unesite broj 0 za muski ili broj 1 za zenski: ");
+		int pol = scanner.nextInt();
 		
 		System.out.println("Unesite adresu: ");
-		String adresa = scanner.nextLine();
+		String adresa = scanner.next();
 		
 		System.out.println("Unesite telefon: ");
-		String telefon = scanner.nextLine();
+		String telefon = scanner.next();
 		
 		System.out.println("Unesite korisnickoIme: ");
-		String korisnickoIme = scanner.nextLine();
+		String korisnickoIme = scanner.next();
 		
 		System.out.println("Unesite lozinku: ");
-		String lozinka = scanner.nextLine();
+		String lozinka = scanner.next();
 		
 		System.out.println("Unesite platu: ");
 		int plata = scanner.nextInt(); 
