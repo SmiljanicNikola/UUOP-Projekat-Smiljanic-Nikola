@@ -2,7 +2,7 @@ package main;
 
 import java.util.ArrayList;
 import CRUD.CRUDOperacije;
-
+import gui.LoginProzorMusterija;
 import ispis.UcitajAdministratore;
 import ispis.UcitajAutomobile;
 import ispis.UcitajMusterije;
@@ -58,20 +58,24 @@ public class Test {
 			System.out.println(automobil);
 		}
 		
-		
-		System.out.println("\n U listi 'ucitaneMusterije' nalaze se sledece musterije: \n");
-		
 
 		//Musterija musterija1 = new Musterija(1, "Stefan", "Lodge", "51515", "ghaha", "adresaa", "telefon", "fafa", "loz", 14);
 		//crudOperacije.dodajMusteriju(musterija1);
 		//ucitaneMusterije.add(musterija1);
+		
+		System.out.println("\n U listi 'ucitaneMusterije' nalaze se sledece musterije: \n");
 		
 		for(Musterija musterija : ucitaneMusterije) {
 			System.out.println(musterija);
 		}
 	
 		//upis.upisiServisere.snimiServisere();
-		upis.upisiAdministratore.snimiAdministratore();
+		//upis.upisiAdministratore.snimiAdministratore();
+		//upis.upisiMusterije.snimiMusterije();
+		
+		//LoginProzor lp = new LoginProzor();
+		//lp.setVisible(true);
+		
 	}
 	    
 	
