@@ -1,2 +1,2 @@
 099|Anja|Anjovski|0010006000890|1|BulevaraPetrovica90|061416614|anjanj|87665|30
-0010|Minder|Ivkocender|051551|0|Ivanovicesva22|06419419|miniv|12345678|107
+010|Minder|Ivkocender|051551|0|Ivanovicesva22|06419419|miniv|12345678|107

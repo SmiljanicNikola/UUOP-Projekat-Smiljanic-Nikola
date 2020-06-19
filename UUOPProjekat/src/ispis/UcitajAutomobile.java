@@ -9,11 +9,14 @@ import java.util.ArrayList;
 import model.Administrator;
 import model.Automobil;
 import model.Musterija;
+import CRUD.CRUDOperacije;
+
 
 public class UcitajAutomobile {
 	
+	CRUDOperacije crudoperacije = new CRUDOperacije();
+	
 	public static ArrayList<Automobil> prikaziAutomobile() {
-		
 		
 		ArrayList<Automobil> automobili = new ArrayList<Automobil>();
 		try {
@@ -24,7 +27,7 @@ public class UcitajAutomobile {
 				String[] lineSplit = (line.split("\\|"));
 				int id = Integer.parseInt(lineSplit[0]);
 				String vlasnikId = lineSplit[1];
-				Musterija vlasnik = nadjiMusteriju(vlasnikId);
+				Musterija vlasnik = CRUDOperacije.nadjiMusteriju(vlasnikId);
 				String marka = lineSplit[2];
 				String model = lineSplit[3];
 				int godinaProizvodnje = Integer.parseInt(lineSplit[4]);
@@ -41,17 +44,16 @@ public class UcitajAutomobile {
 		}
 		return automobili;
 	}
+
+		//private static Musterija nadjiMusteriju(String vlasnikId) {
 	
-	
-	private static Musterija nadjiMusteriju(String vlasnikId) {
-		ArrayList<Musterija> musterije = UcitajMusterije.prikaziMusterije();
-	
-		for(Musterija musterija : musterije) {
-			if(musterija instanceof Musterija) {
-				return musterija;
-			}
-		}
-		return null;
-	}
+		//ArrayList<Musterija> musterije = UcitajMusterije.prikaziMusterije();
+		//for(Musterija musterija : musterije) {
+		//if(musterija.getId() == Integer.parseInt(vlasnikId) && musterija instanceof Musterija) {
+		//		return musterija;
+		///	}
+		//}
+		//return null;
+	//}
 
 }

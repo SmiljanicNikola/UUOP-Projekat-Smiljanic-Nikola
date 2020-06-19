@@ -7,10 +7,12 @@ import ispis.UcitajAdministratore;
 import ispis.UcitajAutomobile;
 import ispis.UcitajMusterije;
 import ispis.UcitajServisere;
+import ispis.UcitajServisneKnjizice;
 import model.Administrator;
 import model.Automobil;
 import model.Musterija;
 import model.Serviser;
+import model.ServisnaKnjizica;
 import upis.upisiMusterije;
 
 public class Test {
@@ -53,21 +55,26 @@ public class Test {
 		}
 		
 		System.out.println("\n Citanje iz datoteke 'automobili.txt' : \n");
-		ArrayList<Automobil> automobili = UcitajAutomobile.prikaziAutomobile();
-		for(Automobil automobil : automobili) {
+		ArrayList<Automobil> ucitaniAutomobili = UcitajAutomobile.prikaziAutomobile();
+		for(Automobil automobil : ucitaniAutomobili) {
 			System.out.println(automobil);
 		}
 		
+		System.out.println("Citanje iz datoteke 'servisneknjizice.txt' : \n");
+		ArrayList<ServisnaKnjizica> servisneknjizice = UcitajServisneKnjizice.prikaziServisneKnjizice();
+		for(ServisnaKnjizica servisnaknjizica : servisneknjizice) {
+			System.out.println(servisnaknjizica);
+		}
 
 		//Musterija musterija1 = new Musterija(1, "Stefan", "Lodge", "51515", "ghaha", "adresaa", "telefon", "fafa", "loz", 14);
 		//crudOperacije.dodajMusteriju(musterija1);
 		//ucitaneMusterije.add(musterija1);
 		
-		System.out.println("\n U listi 'ucitaneMusterije' nalaze se sledece musterije: \n");
+		//System.out.println("\n U listi 'ucitaneMusterije' nalaze se sledece musterije: \n");
 		
-		for(Musterija musterija : ucitaneMusterije) {
-			System.out.println(musterija);
-		}
+		//for(Musterija musterija : ucitaneMusterije) {
+		//	System.out.println(musterija);
+		//}
 	
 		//upis.upisiServisere.snimiServisere();
 		//upis.upisiAdministratore.snimiAdministratore();

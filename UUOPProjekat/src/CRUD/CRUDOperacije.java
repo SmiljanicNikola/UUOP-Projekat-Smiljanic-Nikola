@@ -3,22 +3,25 @@ package CRUD;
 import java.util.ArrayList;
 
 import ispis.UcitajAdministratore;
+import ispis.UcitajAutomobile;
 import ispis.UcitajMusterije;
 import ispis.UcitajServisere;
 import model.Administrator;
+import model.Automobil;
 import model.Musterija;
 import model.Osoba;
 import model.Serviser;
 
 public class CRUDOperacije {
 	
-	ArrayList<Musterija> ucitaneMusterije = UcitajMusterije.prikaziMusterije();
-	ArrayList<Serviser> ucitaniServiseri = UcitajServisere.prikaziServisere();
-	ArrayList<Administrator> ucitaniAdministratori = UcitajAdministratore.prikaziAdministratore();
-	
 	private ArrayList<Musterija> musterije;
 	private ArrayList<Serviser> serviseri;
 	private ArrayList<Administrator> administratori; 
+	
+	private ArrayList<Serviser> ucitaniServiseri = UcitajServisere.prikaziServisere();
+	private ArrayList<Administrator> ucitaniAdministratori = UcitajAdministratore.prikaziAdministratore();
+	private ArrayList<Automobil> ucitaniAutomobili = UcitajAutomobile.prikaziAutomobile();
+	
 	
 	public CRUDOperacije() {
 		this.musterije = new ArrayList<Musterija>();
@@ -41,6 +44,7 @@ public class CRUDOperacije {
 	}
 	
 	public Musterija login(String korisnickoIme, String lozinka) {
+		ArrayList<Musterija> ucitaneMusterije = UcitajMusterije.prikaziMusterije();
 		for(Musterija musterija : ucitaneMusterije) {
 			if(musterija.getKorisnickoIme().equalsIgnoreCase(korisnickoIme) && musterija.getLozinka().contentEquals(lozinka)) {
 				return musterija;
@@ -66,4 +70,34 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
+	
+	//public Automobil nadjiAutomobil(String id) {
+		///for (Automobil automobil : ucitaniAutomobili) {
+		//	if(automobil.getId() == Integer.parseInt(id) && automobil instanceof Automobil) {	
+			//	}
+			//}
+		//return null;
+		//}
+	///
+	public static Musterija nadjiMusteriju(String vlasnikId) {
+		
+		ArrayList<Musterija> musterije = UcitajMusterije.prikaziMusterije();
+		for(Musterija musterija : musterije) {
+		if(musterija.getId() == Integer.parseInt(vlasnikId) && musterija instanceof Musterija) {
+				return musterija;
+			}
+		}
+		return null;
+	}
+	public static Automobil nadjiAutomobil(String automobilId) {
+		ArrayList<Automobil> automobili = UcitajAutomobile.prikaziAutomobile();
+		for(Automobil automobil : automobili) {
+			if(automobil.getId() == Integer.parseInt(automobilId) && automobil instanceof Automobil) {
+				return automobil;
+			}
+		}
+		return null;
+	}
+	
 }
+	
