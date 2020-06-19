@@ -21,6 +21,7 @@ public class CRUDOperacije {
 	private ArrayList<Serviser> ucitaniServiseri = UcitajServisere.prikaziServisere();
 	private ArrayList<Administrator> ucitaniAdministratori = UcitajAdministratore.prikaziAdministratore();
 	private ArrayList<Automobil> ucitaniAutomobili = UcitajAutomobile.prikaziAutomobile();
+	private ArrayList<Musterija> ucitani = UcitajMusterije.prikaziMusterije();
 	
 	
 	public CRUDOperacije() {
@@ -30,7 +31,7 @@ public class CRUDOperacije {
 		}
 	
 	public ArrayList< Musterija> getMusterije(){
-		return musterije;
+		return ucitani;
 	}
 	
 	public void dodajMusteriju(Musterija musterija) {
@@ -79,11 +80,11 @@ public class CRUDOperacije {
 		//return null;
 		//}
 	///
-	public static Musterija nadjiMusteriju(String vlasnikId) {
+	public static Musterija nadjiMusteriju(String id) {
 		
 		ArrayList<Musterija> musterije = UcitajMusterije.prikaziMusterije();
 		for(Musterija musterija : musterije) {
-		if(musterija.getId() == Integer.parseInt(vlasnikId) && musterija instanceof Musterija) {
+		if(musterija.getId() == Integer.parseInt(id) && musterija instanceof Musterija) {
 				return musterija;
 			}
 		}
@@ -100,4 +101,4 @@ public class CRUDOperacije {
 	}
 	
 }
-	
+	//promenio sam u nadji musterija vlasnikId u id!!!
