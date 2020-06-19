@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 
 import CRUD.CRUDOperacije;
 import model.Administrator;
+import model.Musterija;
 import model.Serviser;
 import net.miginfocom.swing.MigLayout;
 
@@ -25,6 +26,8 @@ public class LoginProzorAdministrator extends JFrame {
 	private JButton btnCancel = new JButton("Cancel");
 	
 	private CRUDOperacije crudoperacije;
+	private Musterija prijavljeni;
+	private Serviser prijavljeniServiser;
 	
 	public LoginProzorAdministrator(CRUDOperacije crudoperacije) {
 		this.crudoperacije = crudoperacije;
@@ -80,8 +83,8 @@ public class LoginProzorAdministrator extends JFrame {
 						System.out.println(prijavljeniAdministrator);
 						LoginProzorAdministrator.this.dispose();
 						LoginProzorAdministrator.this.setVisible(false);
-						GlavniProzor gp = new GlavniProzor(crudoperacije, prijavljeniAdministrator);
-						gp.setVisible(true);
+						GlavniProzorAdministrator gpa = new GlavniProzorAdministrator(crudoperacije, prijavljeniAdministrator);
+						gpa.setVisible(true);
 					}
 				}
 			}

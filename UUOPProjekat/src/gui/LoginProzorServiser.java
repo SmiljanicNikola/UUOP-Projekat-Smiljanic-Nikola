@@ -79,8 +79,8 @@ public class LoginProzorServiser extends JFrame {
 						System.out.println(prijavljeniServiser);
 						LoginProzorServiser.this.dispose();
 						LoginProzorServiser.this.setVisible(false);
-						GlavniProzor gp = new GlavniProzor(crudoperacije, prijavljeniServiser);
-						gp.setVisible(true);
+						GlavniProzorServiser gps = new GlavniProzorServiser(crudoperacije, prijavljeniServiser);
+						gps.setVisible(true);
 					}
 				}
 			}

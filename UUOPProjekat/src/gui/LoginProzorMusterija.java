@@ -81,8 +81,8 @@ public class LoginProzorMusterija extends JFrame {
 						System.out.println(prijavljeni);
 						LoginProzorMusterija.this.dispose();
 						LoginProzorMusterija.this.setVisible(false);
-						GlavniProzor gp = new GlavniProzor(crudoperacije, prijavljeni);
-						gp.setVisible(true);
+						GlavniProzorMusterija gpm = new GlavniProzorMusterija(crudoperacije, prijavljeni);
+						gpm.setVisible(true);
 					}
 				}
 			}

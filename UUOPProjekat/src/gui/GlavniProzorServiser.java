@@ -10,7 +10,7 @@ import model.Administrator;
 import model.Musterija;
 import model.Serviser;
 
-public class GlavniProzor extends JFrame {
+public class GlavniProzorServiser extends JFrame {
 	
 	private JMenuBar mainMenu = new JMenuBar();
 	private JMenu automobilMenu= new JMenu("Automobil");
@@ -23,34 +23,10 @@ public class GlavniProzor extends JFrame {
 	private Serviser prijavljeniServiser;
 	private Administrator prijavljeniAdministrator;
 	
-	public GlavniProzor(CRUDOperacije crudoperacije, Musterija prijavljeni) {
-		this.crudoperacije = crudoperacije;
-		this.prijavljeni = prijavljeni;
-		setTitle("Musterija: " + prijavljeni.getKorisnickoIme());
-		setSize(500, 500);
-		setResizable(false);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setLocationRelativeTo(null);
-		initMenu();
-		initActions();
-	}
-	
-	public GlavniProzor(CRUDOperacije crudoperacije, Serviser prijavljeniServiser) {
+	public GlavniProzorServiser(CRUDOperacije crudoperacije, Serviser prijavljeniServiser) {
 		this.crudoperacije = crudoperacije;
 		this.prijavljeniServiser = prijavljeniServiser;
 		setTitle("Serviser: " + prijavljeniServiser.getKorisnickoIme());
-		setSize(500, 500);
-		setResizable(false);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setLocationRelativeTo(null);
-		initMenu();
-		initActions();
-	}
-	
-	public GlavniProzor(CRUDOperacije crudoperacije, Administrator prijavljeniAdministrator) {
-		this.crudoperacije = crudoperacije;
-		this.prijavljeniAdministrator = prijavljeniAdministrator;
-		setTitle("Administrator: " + prijavljeniAdministrator.getKorisnickoIme());
 		setSize(500, 500);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
