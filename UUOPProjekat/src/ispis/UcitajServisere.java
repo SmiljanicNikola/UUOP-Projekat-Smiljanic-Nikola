@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import enumeracije.Pol;
+import enumeracije.specijalizacija;
 import model.Serviser;
 
 public class UcitajServisere {
@@ -26,15 +28,13 @@ public class UcitajServisere {
 			String ime = lineSplit[1];
 			String prezime = lineSplit[2];
 			String jmbg = lineSplit[3];
-			int indeksPola = Integer.parseInt(lineSplit[4]);
-			enumeracije.Pol pol = enumeracije.Pol.values()[indeksPola];
+			Pol pol = enumeracije.Pol.valueOf(lineSplit[4]);
 			String adresa = lineSplit[5];
 			String brojTelefona = lineSplit[6];
 			String korisnickoIme = lineSplit[7];
 			String lozinka = lineSplit[8];
 			double plata = Double.parseDouble(lineSplit[9]);
-			int indeksSpecijalizacije = Integer.parseInt(lineSplit[10]);
-			enumeracije.specijalizacija specijalizacija = enumeracije.specijalizacija.values()[indeksSpecijalizacije];
+			specijalizacija specijalizacija = enumeracije.specijalizacija.valueOf(lineSplit[10]);
 			
 			Serviser serviser1 = new Serviser(id, ime, prezime, jmbg, pol, adresa, brojTelefona, korisnickoIme, lozinka, plata, specijalizacija);
 			serviseri.add(serviser1);
