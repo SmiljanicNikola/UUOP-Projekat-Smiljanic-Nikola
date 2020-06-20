@@ -11,6 +11,7 @@ import javax.swing.JMenuItem;
 import CRUD.CRUDOperacije;
 import gui.formeZaPrikaz.ProzorPrikazAdministratora;
 import gui.formeZaPrikaz.ProzorPrikazMusterija;
+import gui.formeZaPrikaz.ProzorPrikazServisera;
 import model.Administrator;
 import model.Musterija;
 import model.Serviser;
@@ -18,8 +19,8 @@ import model.Serviser;
 public class GlavniProzorAdministrator extends JFrame {
 
 	private JMenuBar mainMenu = new JMenuBar();
-	private JMenu serviserMenu= new JMenu("Serviser");
-	private JMenuItem serviserItem = new JMenuItem("Serviser"); 
+	private JMenu serviseriMenu= new JMenu("Serviseri");
+	private JMenuItem serviseriItem = new JMenuItem("Serviseri"); 
 	private JMenu servisneknjiziceMenu = new JMenu("servisne knjizice");
 	private JMenu musterijeMenu = new JMenu("Musterije");
 	private JMenuItem musterijeItem = new JMenuItem("Musterije");
@@ -46,8 +47,8 @@ public class GlavniProzorAdministrator extends JFrame {
 	
 	private void initMenu() {
 		setJMenuBar(mainMenu);
-		mainMenu.add(serviserMenu);
-		serviserMenu.add(serviserItem);
+		mainMenu.add(serviseriMenu);
+		serviseriMenu.add(serviseriItem);
 		mainMenu.add(musterijeMenu);
 		musterijeMenu.add(musterijeItem);
 		mainMenu.add(administratoriMenu);
@@ -70,6 +71,15 @@ public class GlavniProzorAdministrator extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ProzorPrikazAdministratora ppa = new ProzorPrikazAdministratora(Crudoperacije);
 				ppa.setVisible(true);
+				
+			}
+		});
+		serviseriItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ProzorPrikazServisera pps = new ProzorPrikazServisera(Crudoperacije);
+				pps.setVisible(true);
 				
 			}
 		});
