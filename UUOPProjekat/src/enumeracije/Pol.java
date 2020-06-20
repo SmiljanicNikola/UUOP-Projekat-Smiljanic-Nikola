@@ -1,6 +1,6 @@
 package enumeracije;
 
-public enum pol {
+public enum Pol {
 	muski,
 	zenski
 }

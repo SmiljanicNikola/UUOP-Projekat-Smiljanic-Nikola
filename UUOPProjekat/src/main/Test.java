@@ -82,7 +82,6 @@ public class Test {
 		
 		//LoginProzor lp = new LoginProzor();
 		//lp.setVisible(true);
-			
 	}
 	    
 	

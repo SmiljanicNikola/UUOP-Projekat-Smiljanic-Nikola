@@ -13,7 +13,7 @@ public class Serviser extends Osoba {
 
 	
 
-	public Serviser(int id, String ime, String prezime, String jmbg, enumeracije.pol pol, String adresa, String telefon,
+	public Serviser(int id, String ime, String prezime, String jmbg, enumeracije.Pol pol, String adresa, String telefon,
 			String korisnickoIme, String lozinka, double plata, enumeracije.specijalizacija specijalizacija) {
 		super(id, ime, prezime, jmbg, pol, adresa, telefon, korisnickoIme, lozinka);
 		this.plata = plata;

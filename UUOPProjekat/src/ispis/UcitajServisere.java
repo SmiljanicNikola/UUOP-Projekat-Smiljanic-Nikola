@@ -27,7 +27,7 @@ public class UcitajServisere {
 			String prezime = lineSplit[2];
 			String jmbg = lineSplit[3];
 			int indeksPola = Integer.parseInt(lineSplit[4]);
-			enumeracije.pol pol = enumeracije.pol.values()[indeksPola];
+			enumeracije.Pol pol = enumeracije.Pol.values()[indeksPola];
 			String adresa = lineSplit[5];
 			String brojTelefona = lineSplit[6];
 			String korisnickoIme = lineSplit[7];

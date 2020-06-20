@@ -27,10 +27,10 @@ public class ProzorPrikazMusterija extends JFrame {
 	private DefaultTableModel tableModel;
 	private JTable musterijeTabela;
 	
-	private CRUDOperacije crudoperacije;
+	CRUDOperacije Crudoperacije = new CRUDOperacije();
 	
-	public ProzorPrikazMusterija(CRUDOperacije crudoperacije) { 
-		this.crudoperacije = crudoperacije;
+	public ProzorPrikazMusterija(CRUDOperacije Crudoperacije) { 
+		this.Crudoperacije = Crudoperacije;
 		setTitle("Musterije");
 		setSize(600,450);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -56,10 +56,10 @@ public class ProzorPrikazMusterija extends JFrame {
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 		
 		String[] zaglavlje = new String[] {"id", "ime", "prezime", "jmbg", "pol", "adresa", "telefon", "korisnickoIme", "lozinka", "nagradniBodovi"};
-		Object[][] sadrzaj = new Object[crudoperacije.getMusterije().size()][zaglavlje.length];
+		Object[][] sadrzaj = new Object[Crudoperacije.getMusterije().size()][zaglavlje.length];
 		
-		for(int i = 0; i<crudoperacije.getMusterije().size(); i++) {
-			Musterija musterija = crudoperacije.getMusterije().get(i);
+		for(int i = 0; i<Crudoperacije.getMusterije().size(); i++) {
+			Musterija musterija = Crudoperacije.getMusterije().get(i);
 			sadrzaj[i][0] = musterija.getId();
 			sadrzaj[i][1] = musterija.getIme();
 			sadrzaj[i][2] = musterija.getPrezime();
@@ -88,7 +88,7 @@ public class ProzorPrikazMusterija extends JFrame {
 	}
 	
 	private void initActions() {
-		btnDelete.addActionListener(new ActionListener() {
+			btnDelete.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -96,50 +96,52 @@ public class ProzorPrikazMusterija extends JFrame {
 				if(red == -1) {
 					JOptionPane.showMessageDialog(null, "Morate selektovati zeljeni red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
 				} else {
-					String id = tableModel.getValueAt(red, 0).toString();
-					Musterija musterija = crudoperacije.nadjiMusteriju(id);
-					
+					String korisnickoIme = tableModel.getValueAt(red, 7).toString();
+					Musterija musterija = Crudoperacije.nadjiMusteriju(korisnickoIme);
+			
 					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da obrisete musteriju ?", "Potvrda brisanja", JOptionPane.YES_NO_OPTION);
 					if(izbor == JOptionPane.YES_OPTION) {
+						musterija.setId(-1);
 						tableModel.removeRow(red);
+						Crudoperacije.snimiMusterije();
 						
+						}
 					}
-				}
 				
-			}
-		});
+				}
+			});
 		
-		btnAdd.addActionListener(new ActionListener() {
+			btnAdd.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				MusterijeForma mf = new MusterijeForma(crudoperacije, null);
+				MusterijeForma mf = new MusterijeForma(Crudoperacije, null);
 				mf.setVisible(true);
 				
-			}
-		});
-		btnEdit.addActionListener(new ActionListener() {
+				}
+			});
+			btnEdit.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				int red = musterijeTabela.getSelectedRow();
-				if(red == -1) {
-					JOptionPane.showMessageDialog(null, "Morate selektovati zeljeni red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
-				} else {
-					String id = tableModel.getValueAt(red, 0).toString();
-					Musterija musterija = crudoperacije.nadjiMusteriju(id);
-					if(musterija == null) {
-						JOptionPane.showConfirmDialog(null, "Greska prilikom pronalazenja prodavca sa tim Id-om", "Greska", JOptionPane.WARNING_MESSAGE);
+				public void actionPerformed(ActionEvent e) {
+					int red = musterijeTabela.getSelectedRow();
+					if(red == -1) {
+						JOptionPane.showMessageDialog(null, "Morate selektovati zeljeni red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
 					} else {
-						MusterijeForma mf = new MusterijeForma(crudoperacije, musterija);
-						mf.setVisible(true);
+						String korisnickoIme = tableModel.getValueAt(red, 7).toString();
+						Musterija musterija = Crudoperacije.nadjiMusteriju(korisnickoIme);
+						if(musterija == null) {
+						JOptionPane.showConfirmDialog(null, "Greska prilikom pronalazenja prodavca sa tim Id-om", "Greska", JOptionPane.WARNING_MESSAGE);
+						} else {
+							MusterijeForma mf = new MusterijeForma(Crudoperacije, musterija);
+							mf.setVisible(true);
+						}
 					}
-				}
 				
-			}
-		});
+				}
+			});
 		
+		}
+	
+	
 	}
-	
-	
-}

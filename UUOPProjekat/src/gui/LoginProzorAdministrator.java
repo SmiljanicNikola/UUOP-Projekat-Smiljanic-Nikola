@@ -27,7 +27,6 @@ public class LoginProzorAdministrator extends JFrame {
 	
 	private CRUDOperacije crudoperacije;
 	private Musterija prijavljeni;
-	private Serviser prijavljeniServiser;
 	
 	public LoginProzorAdministrator(CRUDOperacije crudoperacije) {
 		this.crudoperacije = crudoperacije;

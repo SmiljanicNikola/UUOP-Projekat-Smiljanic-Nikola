@@ -1,5 +1,8 @@
 package CRUD;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 import ispis.UcitajAdministratore;
@@ -14,35 +17,45 @@ import model.Serviser;
 
 public class CRUDOperacije {
 	
-	private ArrayList<Musterija> musterije;
-	private ArrayList<Serviser> serviseri;
-	private ArrayList<Administrator> administratori; 
+	//private ArrayList<Musterija> musterije;
+	//private ArrayList<Serviser> serviseri;
+	//private ArrayList<Administrator> administratori; 
 	
 	private ArrayList<Serviser> ucitaniServiseri = UcitajServisere.prikaziServisere();
 	private ArrayList<Administrator> ucitaniAdministratori = UcitajAdministratore.prikaziAdministratore();
 	private ArrayList<Automobil> ucitaniAutomobili = UcitajAutomobile.prikaziAutomobile();
 	private ArrayList<Musterija> ucitani = UcitajMusterije.prikaziMusterije();
 	
-	
 	public CRUDOperacije() {
-		this.musterije = new ArrayList<Musterija>();
-		this.serviseri = new ArrayList<Serviser>();
-		this.administratori = new ArrayList<Administrator>();
+		//this.musterije = new ArrayList<Musterija>();
+		//this.serviseri = new ArrayList<Serviser>();
+		//this.ucitaniAdministratori = new ArrayList<Administrator>();
 		}
+	
+	
+	public ArrayList<Administrator> getAdministratore(){
+		return ucitaniAdministratori;
+	}
 	
 	public ArrayList< Musterija> getMusterije(){
 		return ucitani;
 	}
 	
 	public void dodajMusteriju(Musterija musterija) {
-		this.musterije.add(musterija);
- 
+		this.ucitani.add(musterija);
 
 	}
 	
-	public void obrisiMusteriju(Musterija musterija1) {
-		this.musterije.remove(musterija1);
+	public void DodajAdministratora(Administrator administrator) {
+		this.ucitaniAdministratori.add(administrator);
 	}
+	
+	
+	public void obrisiMusteriju(Musterija musterija1) {
+		
+		this.ucitani.remove(musterija1);
+	}
+	
 	
 	public Musterija login(String korisnickoIme, String lozinka) {
 		ArrayList<Musterija> ucitaneMusterije = UcitajMusterije.prikaziMusterije();
@@ -54,6 +67,7 @@ public class CRUDOperacije {
 		return null;
 	}
 	
+	
 	public Serviser loginServiser(String korisnickoIme, String lozinka) {
 		for(Serviser serviser : ucitaniServiseri) {
 			if(serviser.getKorisnickoIme().equalsIgnoreCase(korisnickoIme) && serviser.getLozinka().contentEquals(lozinka)) {
@@ -62,6 +76,7 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
+	
 	
 	public Administrator loginAdministrator(String korisnickoIme, String lozinka) {
 		for(Administrator administrator : ucitaniAdministratori) {
@@ -72,6 +87,39 @@ public class CRUDOperacije {
 		return null;
 	}
 	
+	
+	public void snimiMusterije() {
+		try {
+			File file = new File("src/fajlovi/musterije.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for(Musterija musterija : ucitani) {
+				sadrzaj += musterija.getId() + "|" + musterija.getIme() + "|" + musterija.getPrezime() + "|" + musterija.getJmbg() + "|" + musterija.getPol() + "|" +  musterija.getAdresa() + "|" + musterija.getTelefon() + "|" + musterija.getKorisnickoIme() + "|" + musterija.getLozinka() + "|" + musterija.getNagradniBodovi() + "\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void snimiAdministratore() {
+		try {
+			File file = new File("src/fajlovi/administratori.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for(Administrator administrator : ucitaniAdministratori) {
+				sadrzaj += administrator.getId() + "|" + administrator.getIme() + "|" + administrator.getPrezime() + "|" + administrator.getJmbg() + "|" + administrator.getPol() + "|" +  administrator.getAdresa() + "|" + administrator.getTelefon() + "|" + administrator.getKorisnickoIme() + "|" + administrator.getLozinka() + "|" + administrator.getPlata() + "\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	//public Automobil nadjiAutomobil(String id) {
 		///for (Automobil automobil : ucitaniAutomobili) {
 		//	if(automobil.getId() == Integer.parseInt(id) && automobil instanceof Automobil) {	
@@ -79,8 +127,9 @@ public class CRUDOperacije {
 			//}
 		//return null;
 		//}
-	///
-	public static Musterija nadjiMusteriju(String id) {
+	
+	
+	public static Musterija nadjiMusteriju2(String id) {
 		
 		ArrayList<Musterija> musterije = UcitajMusterije.prikaziMusterije();
 		for(Musterija musterija : musterije) {
@@ -90,6 +139,9 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
+	
+	
+	
 	public static Automobil nadjiAutomobil(String automobilId) {
 		ArrayList<Automobil> automobili = UcitajAutomobile.prikaziAutomobile();
 		for(Automobil automobil : automobili) {
@@ -99,6 +151,22 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
+	public Administrator nadjiAdministratora(String korisnickoIme) {
+		for(Administrator administrator : ucitaniAdministratori) {
+			if(administrator.getKorisnickoIme().equals(korisnickoIme)) {
+				return administrator;
+			}
+		}
+		return null;
+	}
+	public Musterija nadjiMusteriju(String korisnickoIme) {
+		for(Musterija musterija : ucitani) {
+			if(musterija.getKorisnickoIme().equals(korisnickoIme)) {
+				return musterija;
+			}
+		}
+		return null;
+	}
 	
 }
-	//promenio sam u nadji musterija vlasnikId u id!!!
+	//promenio sam u nadji musterija vlasnikId u iD

@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+
+import enumeracije.Pol;
 import model.Musterija;
 import java.io.IOException;
 
@@ -24,8 +26,7 @@ public class UcitajMusterije {
 			String ime = lineSplit[1];
 			String prezime = lineSplit[2];
 			String jmbg = lineSplit[3];
-			int indeksPola = Integer.parseInt(lineSplit[4]);
-			enumeracije.pol pol = enumeracije.pol.values()[indeksPola];
+			Pol pol = enumeracije.Pol.valueOf(lineSplit[4]);
 			String adresa = lineSplit[5];
 			String brojTelefona = lineSplit[6];
 			String korisnickoIme = lineSplit[7];

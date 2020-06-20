@@ -14,17 +14,14 @@ import javax.swing.JTextField;
 
 import CRUD.CRUDOperacije;
 import enumeracije.Pol;
+import ispis.UcitajAdministratore;
 import ispis.UcitajMusterije;
+import model.Administrator;
 import model.Musterija;
-import model.Osoba;
 import net.miginfocom.swing.MigLayout;
 
+public class AdministratoriForma extends JFrame {
 
-
-
-
-public class MusterijeForma extends JFrame {
-	
 	private JLabel lblId = new JLabel("Id");
 	private JTextField txtId = new JTextField(8);
 	private JLabel lblIme = new JLabel("Ime");
@@ -43,22 +40,21 @@ public class MusterijeForma extends JFrame {
 	private JTextField txtkorisnickoIme = new JTextField(20);
 	private JLabel lblSifra = new JLabel("Sifra");
 	private JPasswordField pfSifra = new JPasswordField(20);
-	private JLabel lblnagradniBodovi = new JLabel("Nagradni bodovi");
-	private JTextField txtnagradniBodovi = new JTextField(10);
+	private JLabel lblPlata = new JLabel("Plata");
+	private JTextField txtPlata = new JTextField(10);
 	private JButton btnOk = new JButton("Ok");
 	private JButton btnCancel = new JButton("Cancel");
-	
-	private Musterija musterija;
-	CRUDOperacije Crudoperacije = new CRUDOperacije();
 
-	
-	public MusterijeForma(CRUDOperacije Crudoperacije, Musterija musterija) {
+	CRUDOperacije Crudoperacije = new CRUDOperacije();
+	private Administrator administrator;
+
+	public AdministratoriForma(CRUDOperacije Crudoperacije, Administrator administrator) {
 		this.Crudoperacije = Crudoperacije;
-		this.musterija = musterija;
-		if(musterija == null) {
-			setTitle("Dodavanje musterije");
+		this.administrator = administrator;
+		if (administrator == null) {
+			setTitle("Dodavanje administratora");
 		} else {
-			 setTitle("Izmena podataka - " + musterija.getId());
+			setTitle("Izmena podataka - " + administrator.getId());
 		}
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -67,15 +63,15 @@ public class MusterijeForma extends JFrame {
 		setResizable(false);
 		pack();
 	}
-	
+
 	public void initGUI() {
-		MigLayout layout = new MigLayout("wrap 2","[][]", "[][][][][]20[]");
+		MigLayout layout = new MigLayout("wrap 2", "[][]", "[][][][][]20[]");
 		setLayout(layout);
-		
-		if(musterija != null) {
+
+		if (administrator != null) {
 			popuniPolja();
 		}
-		
+
 		add(lblId);
 		add(txtId);
 		add(lblIme);
@@ -94,121 +90,119 @@ public class MusterijeForma extends JFrame {
 		add(txtkorisnickoIme);
 		add(lblSifra);
 		add(pfSifra);
-		add(lblnagradniBodovi);
-		add(txtnagradniBodovi);
+		add(lblPlata);
+		add(txtPlata);
 		add(new JLabel());
 		add(btnOk, "split 2");
 		add(btnCancel);
-		
-		
 	}
-	
+
 	public void initActions() {
 		btnOk.addActionListener(new ActionListener() {
-			private ArrayList<Musterija> ucitani = UcitajMusterije.prikaziMusterije();
+		
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(validacija()) {
+				if (validacija()) {
 					int id = Integer.parseInt(txtId.getText().trim());
 					String ime = txtIme.getText().trim();
 					String prezime = txtPrezime.getText().trim();
 					String jmbg = txtJmbg.getText().trim();
-					Pol pol = (Pol)cbPol.getSelectedItem();
+					Pol pol = (Pol) cbPol.getSelectedItem();
 					String adresa = txtAdresa.getText().trim();
 					String telefon = txtTelefon.getText().trim();
 					String korisnickoIme = txtkorisnickoIme.getText().trim();
 					String sifra = new String(pfSifra.getPassword()).trim();
-					int nagradniBodovi = Integer.parseInt(txtnagradniBodovi.getText().trim());
-					
-					if(musterija == null) { //Dodaj:
-					Musterija musterija = new Musterija(id, ime, prezime, jmbg, pol, adresa, telefon, korisnickoIme, sifra, nagradniBodovi);
-					Crudoperacije.dodajMusteriju(musterija);
-					} else { //Izmeni:
-						musterija.setId(id);
-						musterija.setIme(ime);
-						musterija.setPrezime(prezime);
-						musterija.setJmbg(jmbg);
-						musterija.setPol(pol);
-						musterija.setAdresa(adresa);
-						musterija.setTelefon(telefon);
-						musterija.setKorisnickoIme(korisnickoIme);
-						musterija.setLozinka(sifra);
-						musterija.setNagradniBodovi(nagradniBodovi);
+					double plata = Double.parseDouble(txtPlata.getText().trim());
+
+					if (administrator == null) { 
+						Administrator administrator = new Administrator(id, ime, prezime, jmbg, pol, adresa, telefon,
+								korisnickoIme, sifra, plata);
+								Crudoperacije.DodajAdministratora(administrator);
+					} else { 
+						administrator.setId(id);
+						administrator.setIme(ime);
+						administrator.setPrezime(prezime);
+						administrator.setJmbg(jmbg);
+						administrator.setPol(pol);
+						administrator.setAdresa(adresa);
+						administrator.setTelefon(telefon);
+						administrator.setKorisnickoIme(korisnickoIme);
+						administrator.setLozinka(sifra);
+						administrator.setPlata(plata);
 					}
-					 Crudoperacije.snimiMusterije();
-					 MusterijeForma.this.dispose();
-					 MusterijeForma.this.setVisible(false);
+					
+					Crudoperacije.snimiAdministratore();
+					AdministratoriForma.this.dispose();
+					AdministratoriForma.this.setVisible(false);
 				}
-				
 			}
 		});
 	}
-	
+
 	private void popuniPolja() {
-		txtId.setText(String.valueOf(musterija.getId()));
-		txtIme.setText(musterija.getIme());
-		txtPrezime.setText(musterija.getPrezime());
-		txtJmbg.setText(musterija.getJmbg());
-		cbPol.setSelectedItem(musterija.getPol());
-		txtAdresa.setText(musterija.getAdresa());
-		txtTelefon.setText(musterija.getTelefon());
-		txtkorisnickoIme.setText(musterija.getKorisnickoIme());
-		pfSifra.setText(musterija.getLozinka());
-		txtnagradniBodovi.setText(String.valueOf(musterija.getNagradniBodovi()));
-		
+		txtId.setText(String.valueOf(administrator.getId()));
+		txtIme.setText(administrator.getIme());
+		txtPrezime.setText(administrator.getPrezime());
+		txtJmbg.setText(administrator.getJmbg());
+		cbPol.setSelectedItem(administrator.getPol());
+		txtAdresa.setText(administrator.getAdresa());
+		txtTelefon.setText(administrator.getTelefon());
+		txtkorisnickoIme.setText(administrator.getKorisnickoIme());
+		pfSifra.setText(administrator.getLozinka());
+		txtPlata.setText(String.valueOf(administrator.getPlata()));
+
 	}
-	
+
 	private boolean validacija() {
 		boolean ok = true;
 		String poruka = "Molimo popraviti sledece greske u unosu: \n";
-		
+
 		try {
 			Integer.parseInt(txtId.getText().trim());
-		} catch(NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			poruka += "Id mora biti broj \n";
 			ok = false;
 		}
-		
-		if(txtIme.getText().trim().equals("")) {
+
+		if (txtIme.getText().trim().equals("")) {
 			poruka += "Unesite ime \n";
 			ok = false;
 		}
-		if(txtPrezime.getText().trim().equals("")) {
+		if (txtPrezime.getText().trim().equals("")) {
 			poruka += "Unesite prezime \n";
 			ok = false;
 		}
-		if(txtJmbg.getText().trim().equals("")) {
+		if (txtJmbg.getText().trim().equals("")) {
 			poruka += "Unesite jmbg \n";
 			ok = false;
 		}
-		if(txtAdresa.getText().trim().equals("")) {
+		if (txtAdresa.getText().trim().equals("")) {
 			poruka += "Unesite adresu \n";
 			ok = false;
 		}
-		if(txtTelefon.getText().trim().equals("")) {
+		if (txtTelefon.getText().trim().equals("")) {
 			poruka += "Unesite telefon \n";
 			ok = false;
 		}
-		if(txtkorisnickoIme.getText().trim().equals("")) {
+		if (txtkorisnickoIme.getText().trim().equals("")) {
 			poruka += "Unesite korisniko ime \n";
 			ok = false;
 		}
 		String sifra = new String(pfSifra.getPassword()).trim();
-		if(sifra.equals("")) {
+		if (sifra.equals("")) {
 			poruka += "Unesite sifru \n";
 			ok = false;
 		}
 		try {
-			Integer.parseInt(txtnagradniBodovi.getText().trim());
-		} catch(NumberFormatException e) {
-			poruka += "Atribut 'nagradni bodovi' mora biti broj \n";
+			Double.parseDouble(txtPlata.getText().trim());
+		} catch (NumberFormatException e) {
+			poruka += "Atribut plata mora biti broj \n";
 			ok = false;
 		}
-		if(ok == false) {
-			JOptionPane.showMessageDialog(null, poruka, "neispravni podaci", JOptionPane.WARNING_MESSAGE);	
+		if (ok == false) {
+			JOptionPane.showMessageDialog(null, poruka, "neispravni podaci", JOptionPane.WARNING_MESSAGE);
 		}
 		return ok;
 	}
-	
-	
+
 }

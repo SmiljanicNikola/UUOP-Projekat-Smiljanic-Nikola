@@ -9,6 +9,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import CRUD.CRUDOperacije;
+import gui.formeZaPrikaz.ProzorPrikazAdministratora;
 import gui.formeZaPrikaz.ProzorPrikazMusterija;
 import model.Administrator;
 import model.Musterija;
@@ -17,16 +18,19 @@ import model.Serviser;
 public class GlavniProzorAdministrator extends JFrame {
 
 	private JMenuBar mainMenu = new JMenuBar();
-	private JMenu automobilMenu= new JMenu("Automobil");
-	private JMenuItem nekiItem = new JMenuItem("Neki"); 
+	private JMenu serviserMenu= new JMenu("Serviser");
+	private JMenuItem serviserItem = new JMenuItem("Serviser"); 
 	private JMenu servisneknjiziceMenu = new JMenu("servisne knjizice");
 	private JMenu musterijeMenu = new JMenu("Musterije");
 	private JMenuItem musterijeItem = new JMenuItem("Musterije");
+	private JMenu administratoriMenu = new JMenu("Administratori");
+	private JMenuItem administratoriItem = new JMenuItem("Administratori");
 	
 	private CRUDOperacije crudoperacije;
 	private Musterija prijavljeni;
 	private Serviser prijavljeniServiser;
 	private Administrator prijavljeniAdministrator;
+	CRUDOperacije Crudoperacije = new CRUDOperacije();
 	
 	public GlavniProzorAdministrator(CRUDOperacije crudoperacije, Administrator prijavljeniAdministrator) {
 		this.crudoperacije = crudoperacije;
@@ -42,10 +46,12 @@ public class GlavniProzorAdministrator extends JFrame {
 	
 	private void initMenu() {
 		setJMenuBar(mainMenu);
-		mainMenu.add(automobilMenu);
-		automobilMenu.add(nekiItem);
+		mainMenu.add(serviserMenu);
+		serviserMenu.add(serviserItem);
 		mainMenu.add(musterijeMenu);
 		musterijeMenu.add(musterijeItem);
+		mainMenu.add(administratoriMenu);
+		administratoriMenu.add(administratoriItem);
 		
 	}
 	
@@ -56,6 +62,15 @@ public class GlavniProzorAdministrator extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ProzorPrikazMusterija ppm = new ProzorPrikazMusterija(crudoperacije);
 				ppm.setVisible(true);
+			}
+		});
+		administratoriItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ProzorPrikazAdministratora ppa = new ProzorPrikazAdministratora(Crudoperacije);
+				ppa.setVisible(true);
+				
 			}
 		});
 	}
