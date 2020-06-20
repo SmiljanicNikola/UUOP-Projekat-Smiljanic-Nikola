@@ -37,8 +37,16 @@ public class CRUDOperacije {
 		return ucitaniAdministratori;
 	}
 	
+	public ArrayList<Serviser> getServisere(){
+		return ucitaniServiseri;
+	}
+	
 	public ArrayList< Musterija> getMusterije(){
 		return ucitani;
+	}
+	
+	public void dodajServisera(Serviser serviser) {
+		this.ucitaniServiseri.add(serviser);
 	}
 	
 	public void dodajMusteriju(Musterija musterija) {
@@ -87,6 +95,20 @@ public class CRUDOperacije {
 		return null;
 	}
 	
+	public void snimiServisere() {
+		try {
+			File file = new File("src/fajlovi/serviseri.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for(Serviser serviser : ucitaniServiseri) {
+				sadrzaj += serviser.getId() + "|" + serviser.getIme() + "|" + serviser.getPrezime() + "|" + serviser.getJmbg() + "|" + serviser.getPol() + "|" +  serviser.getAdresa() + "|" + serviser.getTelefon() + "|" + serviser.getKorisnickoIme() + "|" + serviser.getLozinka() + "|" + serviser.getPlata() + "|" + serviser.getSpecijalizacija() + "\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public void snimiMusterije() {
 		try {
@@ -141,7 +163,6 @@ public class CRUDOperacije {
 	}
 	
 	
-	
 	public static Automobil nadjiAutomobil(String automobilId) {
 		ArrayList<Automobil> automobili = UcitajAutomobile.prikaziAutomobile();
 		for(Automobil automobil : automobili) {
@@ -151,6 +172,7 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
+	
 	public Administrator nadjiAdministratora(String korisnickoIme) {
 		for(Administrator administrator : ucitaniAdministratori) {
 			if(administrator.getKorisnickoIme().equals(korisnickoIme)) {
@@ -159,10 +181,20 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
+	
 	public Musterija nadjiMusteriju(String korisnickoIme) {
 		for(Musterija musterija : ucitani) {
 			if(musterija.getKorisnickoIme().equals(korisnickoIme)) {
 				return musterija;
+			}
+		}
+		return null;
+	}
+	
+	public Serviser nadjiServisera(String korisnickoIme) {
+		for(Serviser serviser : ucitaniServiseri) {
+			if(serviser.getKorisnickoIme().equals(korisnickoIme)) {
+				return serviser;
 			}
 		}
 		return null;
