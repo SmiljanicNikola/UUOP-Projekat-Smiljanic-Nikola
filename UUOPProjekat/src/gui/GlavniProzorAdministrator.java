@@ -13,6 +13,8 @@ import gui.formeZaPrikaz.ProzorPrikazAdministratora;
 import gui.formeZaPrikaz.ProzorPrikazAutomobila;
 import gui.formeZaPrikaz.ProzorPrikazMusterija;
 import gui.formeZaPrikaz.ProzorPrikazServisera;
+import gui.formeZaPrikaz.ProzorPrikazServisnihDelova;
+import gui.formeZaPrikaz.ProzorPrikazServisnihKnjizica;
 import model.Administrator;
 import model.Musterija;
 import model.Serviser;
@@ -101,6 +103,24 @@ public class GlavniProzorAdministrator extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ProzorPrikazAutomobila ppauto = new ProzorPrikazAutomobila(Crudoperacije);
 				ppauto.setVisible(true);
+				
+			}
+		});
+		servisneknjiziceItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ProzorPrikazServisnihKnjizica ppsk = new ProzorPrikazServisnihKnjizica(Crudoperacije);
+				ppsk.setVisible(true);
+				
+			}
+		});
+		servisnideloviItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ProzorPrikazServisnihDelova ppsd = new ProzorPrikazServisnihDelova(Crudoperacije);
+				ppsd.setVisible(true);
 				
 			}
 		});

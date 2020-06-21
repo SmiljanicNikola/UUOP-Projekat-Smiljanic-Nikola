@@ -137,6 +137,15 @@ public class AdministratoriForma extends JFrame {
 				}
 			}
 		});
+		btnCancel.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				AdministratoriForma.this.dispose();
+				AdministratoriForma.this.setVisible(false);
+				
+			}
+		});
 	}
 
 	private void popuniPolja() {

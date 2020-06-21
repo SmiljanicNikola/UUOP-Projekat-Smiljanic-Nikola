@@ -107,9 +107,8 @@ public class ProzorPrikazAutomobila extends JFrame {
 				if(red == -1) {
 					JOptionPane.showMessageDialog(null, "Morate da odabere red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
 				} else {
-					
-					String automobilId = tableModel.getValueAt(red, 0).toString();
-					Automobil automobil = Crudoperacije.nadjiAutomobil(automobilId);
+					int id = (int) tableModel.getValueAt(red, 0);
+					Automobil automobil = Crudoperacije.nadjiAutomobil(id);
 					
 					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da obrisete automobil?", "Potvrda", JOptionPane.YES_NO_OPTION);
 					if(izbor == JOptionPane.YES_OPTION) {
@@ -129,8 +128,8 @@ public class ProzorPrikazAutomobila extends JFrame {
 				if(red == -1) {
 					JOptionPane.showMessageDialog(null, "Morate da odabere red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
 				} else {
-					String automobilId = tableModel.getValueAt(red, 0).toString();
-					Automobil automobil = Crudoperacije.nadjiAutomobil(automobilId);
+					int id = (int) tableModel.getValueAt(red, 0);
+					Automobil automobil = Crudoperacije.nadjiAutomobil(id);
 					if(automobil == null) {
 						JOptionPane.showMessageDialog(null, "Greska prilikom pronalazenja administratora", "Greska", JOptionPane.WARNING_MESSAGE);
 					} else {

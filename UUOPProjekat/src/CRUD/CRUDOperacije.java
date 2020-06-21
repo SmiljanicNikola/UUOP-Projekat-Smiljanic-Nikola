@@ -4,16 +4,24 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.List;
 
+import gui.formeZaDodavanjeIIzmenu.ServisneKnjiziceForma;
 import ispis.UcitajAdministratore;
 import ispis.UcitajAutomobile;
 import ispis.UcitajMusterije;
+import ispis.UcitajServiseAutomobila;
 import ispis.UcitajServisere;
+import ispis.UcitajServisneDelove;
+import ispis.UcitajServisneKnjizice;
 import model.Administrator;
 import model.Automobil;
 import model.Musterija;
 import model.Osoba;
+import model.ServisAutomobila;
 import model.Serviser;
+import model.ServisnaKnjizica;
+import model.ServisniDeo;
 
 public class CRUDOperacije {
 	
@@ -22,16 +30,26 @@ public class CRUDOperacije {
 	//private ArrayList<Administrator> administratori; 
 	
 	private ArrayList<Automobil> ucitaniAutomobili = UcitajAutomobile.prikaziAutomobile();
-	private ArrayList<Serviser> ucitaniServiseri = UcitajServisere.prikaziServisere();
+	private static ArrayList<Serviser> ucitaniServiseri = UcitajServisere.prikaziServisere();
 	private ArrayList<Administrator> ucitaniAdministratori = UcitajAdministratore.prikaziAdministratore();
 	private static ArrayList<Musterija> ucitani = UcitajMusterije.prikaziMusterije();
-	
+	private ArrayList<ServisnaKnjizica> ucitaneServisneKnjizice = UcitajServisneKnjizice.prikaziServisneKnjizice();
+	private ArrayList<ServisAutomobila> ucitaniServisi = UcitajServiseAutomobila.prikaziServiseAutomobila();
+	private ArrayList<ServisniDeo> ucitaniDelovi = UcitajServisneDelove.prikaziServisneDelove();
 	
 	public CRUDOperacije() {
 		//this.musterije = new ArrayList<Musterija>();
 		//this.serviseri = new ArrayList<Serviser>();
 		//this.ucitaniAdministratori = new ArrayList<Administrator>();
 		}
+	
+	public ArrayList<ServisniDeo> getServisniDeo(){
+		return ucitaniDelovi;
+	}
+	
+	public ArrayList<ServisnaKnjizica> getServisneKnjizice(){
+		return ucitaneServisneKnjizice;
+	}
 	
 	public ArrayList<Automobil> getAutomobile(){
 		return ucitaniAutomobili;
@@ -49,8 +67,16 @@ public class CRUDOperacije {
 		return ucitani;
 	}
 	
+	public void dodajServisniDeo(ServisniDeo servisnideo) {
+		this.ucitaniDelovi.add(servisnideo);
+	}
+	
 	public void dodajAutomobil(Automobil automobil) {
 		this.ucitaniAutomobili.add(automobil);
+	}
+	
+	public void dodajServisnuKnjizicu(ServisnaKnjizica servisnaknjKnjizica) {
+		this.ucitaneServisneKnjizice.add(servisnaknjKnjizica);
 	}
 	
 	public void dodajServisera(Serviser serviser) {
@@ -118,6 +144,21 @@ public class CRUDOperacije {
 		}
 	}
 	
+	public void snimiServisneDelove() {
+		try {
+			File file = new File("src/fajlovi/servisnidelovi.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for(ServisniDeo servisnideo : ucitaniDelovi) {
+				sadrzaj += servisnideo.getId() + "|" + servisnideo.getMarkaAutomobila() + "|" + servisnideo.getModelAutomobila() + "|" + servisnideo.getCena() +  "|" + servisnideo.getNazivDela()  + "\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void snimiAutomobile() {
 		try {
 			File file = new File("src/fajlovi/automobili.txt");
@@ -148,6 +189,20 @@ public class CRUDOperacije {
 		}
 	}
 	
+	public void snimiServisneKnjizice(){
+		try {
+			File file = new File("src/fajlovi/servisneknjizice.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for(ServisnaKnjizica servisnaknjizica : ucitaneServisneKnjizice) {
+				sadrzaj += servisnaknjizica.getId() + "|" + servisnaknjizica.getVlasnistvo() + "|" + servisnaknjizica.getObavljeniServisi() + "\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public void snimiAdministratore() {
 		try {
@@ -186,10 +241,27 @@ public class CRUDOperacije {
 	}
 	
 	//
-	public Automobil nadjiAutomobil(String automobilId) {
+	public static Automobil nadjiAutomobil(String automobilId) {
 		ArrayList<Automobil> automobili = UcitajAutomobile.prikaziAutomobile();
 		for(Automobil automobil : automobili) {
 			if((automobil.getId() == Integer.parseInt(automobilId))) {
+				return automobil;
+			}
+		}
+		return null;
+	}
+	public ServisniDeo nadjiDeo(int id) {
+		for(ServisniDeo servisnideo : ucitaniDelovi) {
+			if(servisnideo.getId() == id) {
+				return servisnideo;
+			}
+		}
+		return null;
+	}
+	
+	public Automobil nadjiAutomobil(int id) {
+		for(Automobil automobil : ucitaniAutomobili) {
+			if(automobil.getId() == id) {
 				return automobil;
 			}
 		}
@@ -205,6 +277,15 @@ public class CRUDOperacije {
 		return null;
 	}
 	
+	public ServisnaKnjizica nadjiServisnuKnjizicu(int servisnaId) {
+		for(ServisnaKnjizica servisnaknjizica : ucitaneServisneKnjizice) {
+			if(servisnaknjizica.getId() == servisnaId) {
+				return servisnaknjizica;
+			}
+		}
+		return null;
+	}
+
 	public static Musterija nadjiMusteriju(String korisnickoIme) {
 		for(Musterija musterija : ucitani) {
 			if(musterija.getKorisnickoIme().equals(korisnickoIme)) {
@@ -213,12 +294,23 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
+
 	
-	public Serviser nadjiServisera(String korisnickoIme) {
+	public static Serviser nadjiServisera(String korisnickoIme) {
 		for(Serviser serviser : ucitaniServiseri) {
 			if(serviser.getKorisnickoIme().equals(korisnickoIme)) {
 				return serviser;
 			}
+		}
+		return null;
+	}
+
+	public List<ServisAutomobila> nadjiServise(int servisId) {
+		for(ServisAutomobila servisautomobila : ucitaniServisi) {
+			if(servisautomobila.getId() == (servisId)) {
+				return (List<ServisAutomobila>) servisautomobila;
+			}
+			
 		}
 		return null;
 	}

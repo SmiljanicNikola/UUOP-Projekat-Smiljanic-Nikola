@@ -7,24 +7,21 @@ public class ServisnaKnjizica {
 	
 	public int id;
 	public Automobil vlasnistvo;
-	public List<ServisAutomobila> listaObavljenihServisa;
+	public String obavljeniServisi;
 	
 	public ServisnaKnjizica() {
 		this.id = 0;
 		this.vlasnistvo = new Automobil();
-		this.listaObavljenihServisa = new ArrayList<ServisAutomobila>();
+		this.obavljeniServisi = "";
 
 	}
-
-	
-
-
-	public ServisnaKnjizica(int id, Automobil vlasnistvo, List<ServisAutomobila> listaObavljenihServisa) {
+	public ServisnaKnjizica(int id, Automobil vlasnistvo, String obavljeniServisi) {
 		super();
 		this.id = id;
 		this.vlasnistvo = vlasnistvo;
-		this.listaObavljenihServisa = listaObavljenihServisa;
+		this.obavljeniServisi = obavljeniServisi;
 	}
+
 
 
 
@@ -45,20 +42,22 @@ public class ServisnaKnjizica {
 		this.vlasnistvo = vlasnistvo;
 	}
 
-	public List<ServisAutomobila> getListaObavljenihServisa() {
-		return listaObavljenihServisa;
+	
+
+
+	public String getObavljeniServisi() {
+		return obavljeniServisi;
 	}
-
-	public void setListaObavljenihServisa(List<ServisAutomobila> listaObavljenihServisa) {
-		this.listaObavljenihServisa = listaObavljenihServisa;
+	public void setObavljeniServisi(String obavljeniServisi) {
+		this.obavljeniServisi = obavljeniServisi;
 	}
-
-
 	@Override
 	public String toString() {
-		return "ServisnaKnjizica [id=" + id + ", vlasnistvo=" + vlasnistvo + ", listaObavljenihServisa="
-				+ listaObavljenihServisa + "]";
+		return "ServisnaKnjizica [id=" + id + ", vlasnistvo=" + vlasnistvo + ", obavljeniServisi=" + obavljeniServisi
+				+ "]";
 	}
+	
+	
 
 	
 	

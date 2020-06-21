@@ -108,7 +108,7 @@ public class AutomobiliForma extends JFrame {
 				if (validacija()) {
 					int id = Integer.parseInt(txtId.getText().trim());
 					String korisnickoIme = txtVlasnik.getText().trim();
-					Musterija vlasnik = Crudoperacije.nadjiMusteriju(korisnickoIme);
+					Musterija vlasnik = CRUDOperacije.nadjiMusteriju(korisnickoIme);
 					marka marka = (marka) cbMarka.getSelectedItem();
 					model model = (model) cbModel.getSelectedItem();
 					int godinaProizvodnje = Integer.parseInt(txtgodinaProizvodnje.getText().trim());
@@ -134,6 +134,15 @@ public class AutomobiliForma extends JFrame {
 					AutomobiliForma.this.setVisible(false);
 					
 			}}
+		});
+		btnCancel.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				AutomobiliForma.this.dispose();
+				AutomobiliForma.this.setVisible(false);
+				
+			}
 		});
 	}
 	

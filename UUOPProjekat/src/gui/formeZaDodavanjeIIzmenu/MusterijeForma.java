@@ -142,6 +142,15 @@ public class MusterijeForma extends JFrame {
 				
 			}
 		});
+		btnCancel.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MusterijeForma.this.dispose();
+				MusterijeForma.this.setVisible(false);
+				
+			}
+		});
 	}
 	
 	private void popuniPolja() {
