@@ -10,6 +10,7 @@ import javax.swing.JMenuItem;
 
 import CRUD.CRUDOperacije;
 import gui.formeZaPrikaz.ProzorPrikazAdministratora;
+import gui.formeZaPrikaz.ProzorPrikazAutomobila;
 import gui.formeZaPrikaz.ProzorPrikazMusterija;
 import gui.formeZaPrikaz.ProzorPrikazServisera;
 import model.Administrator;
@@ -21,11 +22,15 @@ public class GlavniProzorAdministrator extends JFrame {
 	private JMenuBar mainMenu = new JMenuBar();
 	private JMenu serviseriMenu= new JMenu("Serviseri");
 	private JMenuItem serviseriItem = new JMenuItem("Serviseri"); 
-	private JMenu servisneknjiziceMenu = new JMenu("servisne knjizice");
 	private JMenu musterijeMenu = new JMenu("Musterije");
 	private JMenuItem musterijeItem = new JMenuItem("Musterije");
 	private JMenu administratoriMenu = new JMenu("Administratori");
 	private JMenuItem administratoriItem = new JMenuItem("Administratori");
+	private JMenu ostaloMenu = new JMenu("Ostalo");
+	private JMenuItem automobiliItem = new JMenuItem("Automobili");
+	private JMenuItem servisneknjiziceItem = new JMenuItem("Servisne knjizice");
+	private JMenuItem servisnideloviItem = new JMenuItem("Servisni delovi");
+	private JMenuItem servisiautomobilaItem = new JMenuItem("Servisi automobila");
 	
 	private CRUDOperacije crudoperacije;
 	private Musterija prijavljeni;
@@ -53,6 +58,13 @@ public class GlavniProzorAdministrator extends JFrame {
 		musterijeMenu.add(musterijeItem);
 		mainMenu.add(administratoriMenu);
 		administratoriMenu.add(administratoriItem);
+		mainMenu.add(ostaloMenu);
+		ostaloMenu.add(automobiliItem);
+		ostaloMenu.add(servisnideloviItem);
+		ostaloMenu.add(servisneknjiziceItem);
+		ostaloMenu.add(servisiautomobilaItem);
+		
+		
 		
 	}
 	
@@ -80,6 +92,15 @@ public class GlavniProzorAdministrator extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ProzorPrikazServisera pps = new ProzorPrikazServisera(Crudoperacije);
 				pps.setVisible(true);
+				
+			}
+		});
+		automobiliItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ProzorPrikazAutomobila ppauto = new ProzorPrikazAutomobila(Crudoperacije);
+				ppauto.setVisible(true);
 				
 			}
 		});

@@ -21,10 +21,11 @@ public class CRUDOperacije {
 	//private ArrayList<Serviser> serviseri;
 	//private ArrayList<Administrator> administratori; 
 	
+	private ArrayList<Automobil> ucitaniAutomobili = UcitajAutomobile.prikaziAutomobile();
 	private ArrayList<Serviser> ucitaniServiseri = UcitajServisere.prikaziServisere();
 	private ArrayList<Administrator> ucitaniAdministratori = UcitajAdministratore.prikaziAdministratore();
-	private ArrayList<Automobil> ucitaniAutomobili = UcitajAutomobile.prikaziAutomobile();
-	private ArrayList<Musterija> ucitani = UcitajMusterije.prikaziMusterije();
+	private static ArrayList<Musterija> ucitani = UcitajMusterije.prikaziMusterije();
+	
 	
 	public CRUDOperacije() {
 		//this.musterije = new ArrayList<Musterija>();
@@ -32,6 +33,9 @@ public class CRUDOperacije {
 		//this.ucitaniAdministratori = new ArrayList<Administrator>();
 		}
 	
+	public ArrayList<Automobil> getAutomobile(){
+		return ucitaniAutomobili;
+	}
 	
 	public ArrayList<Administrator> getAdministratore(){
 		return ucitaniAdministratori;
@@ -43,6 +47,10 @@ public class CRUDOperacije {
 	
 	public ArrayList< Musterija> getMusterije(){
 		return ucitani;
+	}
+	
+	public void dodajAutomobil(Automobil automobil) {
+		this.ucitaniAutomobili.add(automobil);
 	}
 	
 	public void dodajServisera(Serviser serviser) {
@@ -110,6 +118,21 @@ public class CRUDOperacije {
 		}
 	}
 	
+	public void snimiAutomobile() {
+		try {
+			File file = new File("src/fajlovi/automobili.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for(Automobil automobil : ucitaniAutomobili) {
+				sadrzaj += automobil.getId() + "|" + automobil.getVlasnik() + "|" + automobil.getMarka() + "|" + automobil.getModel() + "|" + automobil.getGodinaProizvodnje() + "|" +  automobil.getZapreminaMotora() + "|" + automobil.getSnagaMotora() + "|" + automobil.getVrstaGoriva() + "\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void snimiMusterije() {
 		try {
 			File file = new File("src/fajlovi/musterije.txt");
@@ -151,22 +174,22 @@ public class CRUDOperacije {
 		//}
 	
 	
-	public static Musterija nadjiMusteriju2(String id) {
+	public Musterija nadjiMusteriju2(String vlasnikId) {
 		
 		ArrayList<Musterija> musterije = UcitajMusterije.prikaziMusterije();
 		for(Musterija musterija : musterije) {
-		if(musterija.getId() == Integer.parseInt(id) && musterija instanceof Musterija) {
+		if(musterija.getId() == Integer.parseInt(vlasnikId) && musterija instanceof Musterija) {
 				return musterija;
 			}
 		}
 		return null;
 	}
 	
-	
-	public static Automobil nadjiAutomobil(String automobilId) {
+	//
+	public Automobil nadjiAutomobil(String automobilId) {
 		ArrayList<Automobil> automobili = UcitajAutomobile.prikaziAutomobile();
 		for(Automobil automobil : automobili) {
-			if(automobil.getId() == Integer.parseInt(automobilId) && automobil instanceof Automobil) {
+			if((automobil.getId() == Integer.parseInt(automobilId))) {
 				return automobil;
 			}
 		}
@@ -182,7 +205,7 @@ public class CRUDOperacije {
 		return null;
 	}
 	
-	public Musterija nadjiMusteriju(String korisnickoIme) {
+	public static Musterija nadjiMusteriju(String korisnickoIme) {
 		for(Musterija musterija : ucitani) {
 			if(musterija.getKorisnickoIme().equals(korisnickoIme)) {
 				return musterija;

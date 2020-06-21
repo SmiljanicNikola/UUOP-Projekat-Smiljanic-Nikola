@@ -1,22 +1,27 @@
 package model;
 
+import enumeracije.marka;
+import enumeracije.model;
+
 public class ServisniDeo {
 
 	public int id;
-	public String markaAutomobila;
-	public String modelAutomobila;
+	public enumeracije.marka markaAutomobila;
+	public enumeracije.model modelAutomobila;
 	public int cena;
 	public String nazivDela;
 	
 	public ServisniDeo() {
 		this.id = 0;
-		this.markaAutomobila = "";
-		this.modelAutomobila = "";
+		this.markaAutomobila = enumeracije.marka.mercedes;
+		this.modelAutomobila = enumeracije.model.W220;
 		this.cena = 0;
 		this.nazivDela = "";
 	}
 
-	public ServisniDeo(int id, String markaAutomobila, String modelAutomobila, int cena, String nazivDela) {
+	
+
+	public ServisniDeo(int id, marka markaAutomobila, model modelAutomobila, int cena, String nazivDela) {
 		super();
 		this.id = id;
 		this.markaAutomobila = markaAutomobila;
@@ -33,21 +38,24 @@ public class ServisniDeo {
 		this.id = id;
 	}
 
-	public String getMarkaAutomobila() {
+	public enumeracije.marka getMarkaAutomobila() {
 		return markaAutomobila;
 	}
 
-	public void setMarkaAutomobila(String markaAutomobila) {
+	public void setMarkaAutomobila(enumeracije.marka markaAutomobila) {
 		this.markaAutomobila = markaAutomobila;
 	}
 
-	public String getModelAutomobila() {
+	public enumeracije.model getModelAutomobila() {
 		return modelAutomobila;
 	}
 
-	public void setModelAutomobila(String modelAutomobila) {
+
+	public void setModelAutomobila(enumeracije.model modelAutomobila) {
 		this.modelAutomobila = modelAutomobila;
 	}
+
+
 
 	public int getCena() {
 		return cena;
@@ -65,11 +73,16 @@ public class ServisniDeo {
 		this.nazivDela = nazivDela;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "ServisniDeo [id=" + id + ", markaAutomobila=" + markaAutomobila + ", modelAutomobila=" + modelAutomobila
 				+ ", cena=" + cena + ", nazivDela=" + nazivDela + "]";
 	}
+
+
+	
 	
 	
 	

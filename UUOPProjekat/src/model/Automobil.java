@@ -4,25 +4,26 @@ public class Automobil {
 	
 	public int id;
 	public Musterija vlasnik;
-	public String marka;
-	public String model;
+	public enumeracije.marka marka;
+	public enumeracije.model model;
 	public int godinaProizvodnje;
 	public String zapreminaMotora;
 	public String snagaMotora;
-	public enumeracije.vrstaGoriva vrstaGoriva;
+	public enumeracije.vrstaGoriva vrstaGoriva;	
 	
 	public Automobil() {
 		this.id = 0;
 		this.vlasnik = new Musterija();
-		this.marka = "";
-		this.model = "";
+		this.marka = enumeracije.marka.mercedes;
+		this.model = enumeracije.model.W220;
 		this.godinaProizvodnje = 0;
 		this.zapreminaMotora = "";
 		this.snagaMotora = "";
 		this.vrstaGoriva = enumeracije.vrstaGoriva.dizel;
 	}
 
-	public Automobil(int id, Musterija vlasnik, String marka, String model, int godinaProizvodnje,
+	
+	public Automobil(int id, Musterija vlasnik, enumeracije.marka marka, enumeracije.model model, int godinaProizvodnje,
 			String zapreminaMotora, String snagaMotora, enumeracije.vrstaGoriva vrstaGoriva) {
 		super();
 		this.id = id;
@@ -51,21 +52,27 @@ public class Automobil {
 		this.vlasnik = vlasnik;
 	}
 
-	public String getMarka() {
+	
+
+	public enumeracije.marka getMarka() {
 		return marka;
 	}
 
-	public void setMarka(String marka) {
+
+	public void setMarka(enumeracije.marka marka) {
 		this.marka = marka;
 	}
 
-	public String getModel() {
+
+	public enumeracije.model getModel() {
 		return model;
 	}
 
-	public void setModel(String model) {
+
+	public void setModel(enumeracije.model model) {
 		this.model = model;
 	}
+
 
 	public int getGodinaProizvodnje() {
 		return godinaProizvodnje;
@@ -100,12 +107,15 @@ public class Automobil {
 		this.vrstaGoriva = vrstaGoriva;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Automobil [id=" + id + ", vlasnik=" + vlasnik + ", marka=" + marka + ", model=" + model
 				+ ", godinaProizvodnje=" + godinaProizvodnje + ", zapreminaMotora=" + zapreminaMotora + ", snagaMotora="
 				+ snagaMotora + ", vrstaGoriva=" + vrstaGoriva + "]";
 	}
+
+	
 	
 	
 	

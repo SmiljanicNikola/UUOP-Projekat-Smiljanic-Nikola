@@ -13,7 +13,11 @@ public class ServisnaKnjizica {
 		this.id = 0;
 		this.vlasnistvo = new Automobil();
 		this.listaObavljenihServisa = new ArrayList<ServisAutomobila>();
+
 	}
+
+	
+
 
 	public ServisnaKnjizica(int id, Automobil vlasnistvo, List<ServisAutomobila> listaObavljenihServisa) {
 		super();
@@ -21,6 +25,9 @@ public class ServisnaKnjizica {
 		this.vlasnistvo = vlasnistvo;
 		this.listaObavljenihServisa = listaObavljenihServisa;
 	}
+
+
+
 
 	public int getId() {
 		return id;
@@ -46,11 +53,15 @@ public class ServisnaKnjizica {
 		this.listaObavljenihServisa = listaObavljenihServisa;
 	}
 
+
 	@Override
 	public String toString() {
 		return "ServisnaKnjizica [id=" + id + ", vlasnistvo=" + vlasnistvo + ", listaObavljenihServisa="
 				+ listaObavljenihServisa + "]";
 	}
+
+	
+	
 	
 	
 	

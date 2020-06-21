@@ -16,25 +16,26 @@ import javax.swing.table.DefaultTableModel;
 
 import CRUD.CRUDOperacije;
 import gui.formeZaDodavanjeIIzmenu.AdministratoriForma;
-import gui.formeZaDodavanjeIIzmenu.ServiseriForma;
+import gui.formeZaDodavanjeIIzmenu.AutomobiliForma;
 import model.Administrator;
-import model.Serviser;
+import model.Automobil;
 
-public class ProzorPrikazServisera extends JFrame {
-	
+public class ProzorPrikazAutomobila extends JFrame {
+
 	private JToolBar mainToolbar = new JToolBar();
 	private JButton btnAdd = new JButton();
 	private JButton btnEdit = new JButton();
 	private JButton btnDelete = new JButton();
 	private DefaultTableModel tableModel;
-	private JTable serviseriTabela;
-	
+	private JTable automobiliTabela;
+
 	CRUDOperacije Crudoperacije = new CRUDOperacije();
+	private Automobil automobil;
 	
-	public ProzorPrikazServisera(CRUDOperacije Crudoperacije) {
+	public ProzorPrikazAutomobila(CRUDOperacije Crudoperacije) {
 		this.Crudoperacije = Crudoperacije;
-		setTitle("Serviseri");
-		setSize(600,450);
+		setTitle("Automobili");
+		setSize(850,450);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		initGUI();
@@ -42,7 +43,7 @@ public class ProzorPrikazServisera extends JFrame {
 		
 	}
 	
-	private void initGUI() {
+	public void initGUI() {
 		ImageIcon addIcon = new ImageIcon(getClass().getResource("/slike/add.gif"));
 		btnAdd.setIcon(addIcon);
 		ImageIcon editIcon = new ImageIcon(getClass().getResource("/slike/edit.gif"));
@@ -56,89 +57,90 @@ public class ProzorPrikazServisera extends JFrame {
 		add(mainToolbar, BorderLayout.NORTH);
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 		
-		String[] zaglavlje = new String[] {"id", "ime", "prezime", "jmbg", "pol", "adresa", "telefon", "korisnickoIme", "lozinka", "plata", "specijalizacija"};
-		Object[][] sadrzaj = new Object[Crudoperacije.getServisere().size()][zaglavlje.length];
+		String[] zaglavlje = new String[] {"id", "vlasnik", "marka", "model", "godina proizvodnje", "zapremina", "snaga Motora", "Vrsta goriva"};
+		Object[][] sadrzaj = new Object[Crudoperacije.getAutomobile().size()][zaglavlje.length];
 		
-		for(int i = 0; i<Crudoperacije.getServisere().size(); i++) {
-			Serviser serviser = Crudoperacije.getServisere().get(i);
-			sadrzaj[i][0] = serviser.getId();
-			sadrzaj[i][1] = serviser.getIme();
-			sadrzaj[i][2] = serviser.getPrezime();
-			sadrzaj[i][3] = serviser.getJmbg();
-			sadrzaj[i][4] = serviser.getPol();
-			sadrzaj[i][5] = serviser.getAdresa();
-			sadrzaj[i][6] = serviser.getTelefon();
-			sadrzaj[i][7] = serviser.getKorisnickoIme();
-			sadrzaj[i][8] = serviser.getLozinka();
-			sadrzaj[i][9] = serviser.getPlata();
-			sadrzaj[i][10] = serviser.getSpecijalizacija();
+		for(int i = 0; i<Crudoperacije.getAutomobile().size(); i++) {
+			Automobil automobil = Crudoperacije.getAutomobile().get(i);
+			sadrzaj[i][0] = automobil.getId();
+			sadrzaj[i][1] = automobil.getVlasnik();
+			sadrzaj[i][2] = automobil.getMarka();
+			sadrzaj[i][3] = automobil.getModel();
+			sadrzaj[i][4] = automobil.getGodinaProizvodnje();
+			sadrzaj[i][5] = automobil.getZapreminaMotora();
+			sadrzaj[i][6] = automobil.getSnagaMotora();
+			sadrzaj[i][7] = automobil.getVrstaGoriva();
 			
 		}
+		
 		tableModel = new DefaultTableModel(sadrzaj, zaglavlje);
-		serviseriTabela = new JTable(tableModel);
+		automobiliTabela = new JTable(tableModel);
 		
-		serviseriTabela.setRowSelectionAllowed(true);
-		serviseriTabela.setColumnSelectionAllowed(false);
-		serviseriTabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		serviseriTabela.setDefaultEditor(Object.class, null);
-		serviseriTabela.getTableHeader().setReorderingAllowed(false);
+		automobiliTabela.setRowSelectionAllowed(true);
+		automobiliTabela.setColumnSelectionAllowed(false);
+		automobiliTabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		automobiliTabela.setDefaultEditor(Object.class, null);
+		automobiliTabela.getTableHeader().setReorderingAllowed(false);
 		
-		
-		JScrollPane scrollPane = new JScrollPane(serviseriTabela);
+		JScrollPane scrollPane = new JScrollPane(automobiliTabela);
 		add(scrollPane, BorderLayout.CENTER);
 	}
 	
 	public void initActions() {
 		btnAdd.addActionListener(new ActionListener() {
 			
+			private Automobil automobil;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ServiseriForma sf = new ServiseriForma(Crudoperacije, null);
-				sf.setVisible(true);
+				AutomobiliForma autof = new AutomobiliForma(Crudoperacije, automobil);
+				autof.setVisible(true);
+				
 				
 			}
 		});
 		btnDelete.addActionListener(new ActionListener() {
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int red = serviseriTabela.getSelectedRow();
+				int red = automobiliTabela.getSelectedRow();
 				if(red == -1) {
 					JOptionPane.showMessageDialog(null, "Morate da odabere red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
 				} else {
 					
-					String korisnickoIme = tableModel.getValueAt(red, 7).toString();
-					Serviser serviser = Crudoperacije.nadjiServisera(korisnickoIme);
+					String automobilId = tableModel.getValueAt(red, 0).toString();
+					Automobil automobil = Crudoperacije.nadjiAutomobil(automobilId);
 					
-					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da obrisete servisera?", "Potvrda", JOptionPane.YES_NO_OPTION);
+					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da obrisete automobil?", "Potvrda", JOptionPane.YES_NO_OPTION);
 					if(izbor == JOptionPane.YES_OPTION) {
-						serviser.setId(-1);
+						automobil.setId(-1);
 						tableModel.removeRow(red);
-						Crudoperacije.snimiServisere();
+						Crudoperacije.snimiAutomobile();
 					}
 				}
 				
 			}
 		});
 		btnEdit.addActionListener(new ActionListener() {
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int red = serviseriTabela.getSelectedRow();
+				int red = automobiliTabela.getSelectedRow();
 				if(red == -1) {
 					JOptionPane.showMessageDialog(null, "Morate da odabere red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
 				} else {
-					String korisnickoIme = tableModel.getValueAt(red, 7).toString();
-					Serviser serviser = Crudoperacije.nadjiServisera(korisnickoIme);
-					if(serviser == null) {
+					String automobilId = tableModel.getValueAt(red, 0).toString();
+					Automobil automobil = Crudoperacije.nadjiAutomobil(automobilId);
+					if(automobil == null) {
 						JOptionPane.showMessageDialog(null, "Greska prilikom pronalazenja administratora", "Greska", JOptionPane.WARNING_MESSAGE);
 					} else {
-						ServiseriForma sf = new ServiseriForma(Crudoperacije, serviser);
-						sf.setVisible(true);
+						AutomobiliForma af = new AutomobiliForma(Crudoperacije, automobil);
+						af.setVisible(true);
 					}
 				}
 				
 			}
 		});
 	}
-	
 	
 }

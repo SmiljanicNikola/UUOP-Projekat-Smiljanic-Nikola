@@ -30,6 +30,7 @@ public class ProzorPrikazAdministratora extends JFrame {
 	private DefaultTableModel tableModel;
 	private JTable administratoriTabela;
 
+	
 	CRUDOperacije Crudoperacije = new CRUDOperacije();
 	
 	public ProzorPrikazAdministratora(CRUDOperacije Crudoperacije) {

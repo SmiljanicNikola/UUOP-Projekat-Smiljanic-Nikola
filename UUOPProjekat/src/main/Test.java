@@ -6,13 +6,17 @@ import gui.LoginProzorMusterija;
 import ispis.UcitajAdministratore;
 import ispis.UcitajAutomobile;
 import ispis.UcitajMusterije;
+import ispis.UcitajServiseAutomobila;
 import ispis.UcitajServisere;
+import ispis.UcitajServisneDelove;
 import ispis.UcitajServisneKnjizice;
 import model.Administrator;
 import model.Automobil;
 import model.Musterija;
+import model.ServisAutomobila;
 import model.Serviser;
 import model.ServisnaKnjizica;
+import model.ServisniDeo;
 import upis.upisiMusterije;
 
 public class Test {
@@ -30,7 +34,6 @@ public class Test {
 	
 	public static void main(String[] args) {
 	
-		
 		CRUDOperacije crudOperacije = new CRUDOperacije();
 		
 		System.out.println("\nCitanje iz datoteke 'musterije.txt' : \n");
@@ -60,10 +63,25 @@ public class Test {
 			System.out.println(automobil);
 		}
 		
+		System.out.println("\n");
 		System.out.println("Citanje iz datoteke 'servisneknjizice.txt' : \n");
 		ArrayList<ServisnaKnjizica> servisneknjizice = UcitajServisneKnjizice.prikaziServisneKnjizice();
 		for(ServisnaKnjizica servisnaknjizica : servisneknjizice) {
 			System.out.println(servisnaknjizica);
+		}
+		
+		System.out.println("\n");
+		System.out.println("Citanje iz datoteke 'servisnidelovi.txt : \n");
+		ArrayList<ServisniDeo> servisnidelovi = UcitajServisneDelove.prikaziServisneDelove();
+		for(ServisniDeo servisnideo : servisnidelovi ) {
+			System.out.println(servisnideo);
+		}
+		
+		System.out.println("\n");
+		System.out.println("Citanje iz datoteke 'servisiautomobila.txt : \n");
+		ArrayList<ServisAutomobila> servisiautomobila = UcitajServiseAutomobila.prikaziServiseAutomobila();
+		for(ServisAutomobila servisautomobila : servisiautomobila ) {
+			System.out.println(servisautomobila);
 		}
 
 		//Musterija musterija1 = new Musterija(1, "Stefan", "Lodge", "51515", "ghaha", "adresaa", "telefon", "fafa", "loz", 14);

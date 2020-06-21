@@ -30,7 +30,6 @@ public class UcitajServisneKnjizice {
 			String automobilId = lineSplit[1];
 			Automobil vlasnistvo = crudoperacije.nadjiAutomobil(automobilId);
 			ArrayList<ServisAutomobila> listaObavljenihServisa = new ArrayList<ServisAutomobila>();
-			
 			ServisnaKnjizica servisna1 = new ServisnaKnjizica(id, vlasnistvo, listaObavljenihServisa);
 			servisneknjizice.add(servisna1);	
 		}

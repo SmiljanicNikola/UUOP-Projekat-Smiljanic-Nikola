@@ -1,0 +1,2 @@
+001|mercedes|GLS|12000|akumulator
+002|bmw|X5|18000|tocak

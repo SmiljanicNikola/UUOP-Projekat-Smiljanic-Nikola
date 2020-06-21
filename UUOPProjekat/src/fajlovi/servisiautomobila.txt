@@ -1,0 +1,2 @@
+01|4|mionag|14.06.2020|Treba da se zameni tocak|tocak,felne,kapice|aktivan
+02|0|ivann|19.07.2020|Zamena akumulatora|akumulator|aktivan
