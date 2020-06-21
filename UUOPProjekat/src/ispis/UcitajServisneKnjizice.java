@@ -16,11 +16,10 @@ import model.ServisnaKnjizica;
 public class UcitajServisneKnjizice {
 
 	public static ArrayList<ServisnaKnjizica> prikaziServisneKnjizice() { 
-		
-		CRUDOperacije crudoperacije = new CRUDOperacije();
 	
 	ArrayList<ServisnaKnjizica> servisneknjizice = new ArrayList<ServisnaKnjizica>();
 	try {
+		
 		File file = new File("src/fajlovi/servisneknjizice.txt");
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 		String line;
@@ -28,9 +27,9 @@ public class UcitajServisneKnjizice {
 			String[] lineSplit = (line.split("\\|"));
 			int id = Integer.parseInt(lineSplit[0]);
 			String automobilId = lineSplit[1];
-			Automobil vlasnistvo = crudoperacije.nadjiAutomobil(automobilId);
-			ArrayList<ServisAutomobila> listaObavljenihServisa = new ArrayList<ServisAutomobila>();
-			ServisnaKnjizica servisna1 = new ServisnaKnjizica(id, vlasnistvo, listaObavljenihServisa);
+			Automobil vlasnistvo = CRUDOperacije.nadjiAutomobil(automobilId);
+			String obavljeniServisi = lineSplit[2];
+			ServisnaKnjizica servisna1 = new ServisnaKnjizica(id, vlasnistvo, obavljeniServisi);
 			servisneknjizice.add(servisna1);	
 		}
 			reader.close();

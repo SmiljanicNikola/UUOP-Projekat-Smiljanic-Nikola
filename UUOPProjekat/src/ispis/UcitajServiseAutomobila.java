@@ -19,7 +19,6 @@ public class UcitajServiseAutomobila {
 	
 public static ArrayList<ServisAutomobila> prikaziServiseAutomobila() { 
 		
-		CRUDOperacije crudoperacije = new CRUDOperacije();
 	
 	ArrayList<ServisAutomobila> servisiautomobila = new ArrayList<ServisAutomobila>();
 	try {
@@ -30,9 +29,9 @@ public static ArrayList<ServisAutomobila> prikaziServiseAutomobila() {
 			String[] lineSplit = (line.split("\\|"));
 			int id = Integer.parseInt(lineSplit[0]);
 			String automobilId = lineSplit[1];
-			Automobil servisiraniAutomobil = crudoperacije.nadjiAutomobil(automobilId);
+			Automobil servisiraniAutomobil = CRUDOperacije.nadjiAutomobil(automobilId);
 			String korisnickoIme = lineSplit[2];
-			Serviser serviser = crudoperacije.nadjiServisera(korisnickoIme);
+			Serviser serviser = CRUDOperacije.nadjiServisera(korisnickoIme);
 			String terminServisa = lineSplit[3];
 			String kratakOpis = lineSplit[4];
 			String delovi = lineSplit[5];

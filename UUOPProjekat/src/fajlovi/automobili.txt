@@ -1,3 +1,3 @@
 0|null|bmw|X5|2014|3000cm3|290KS|dizel
 2|null|mercedes|W220|2013|2000cm3|190KS|dizel
-4|null|bmw|X5|2005|3000|300KS|dizel
+-1|null|bmw|X5|2005|2500|300KS|dizel

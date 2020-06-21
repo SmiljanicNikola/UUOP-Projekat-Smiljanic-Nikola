@@ -1,2 +1,5 @@
-001|mercedes|GLS|12000|akumulator
-002|bmw|X5|18000|tocak
+1|mercedes|GLS|12000|sasija
+2|bmw|X5|18000|hladnjak
+4|mercedes|W220|12000|karburator
+5|mercedes|W220|14000|akumulatorr
+-1|mercedes|W220|120|ipakne

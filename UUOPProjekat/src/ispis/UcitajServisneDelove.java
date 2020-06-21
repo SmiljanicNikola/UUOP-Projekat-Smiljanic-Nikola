@@ -17,8 +17,6 @@ import model.ServisniDeo;
 public class UcitajServisneDelove {
 	
 public static ArrayList<ServisniDeo> prikaziServisneDelove() { 
-		
-		CRUDOperacije crudoperacije = new CRUDOperacije();
 	
 	ArrayList<ServisniDeo> servisnidelovi = new ArrayList<ServisniDeo>();
 	try {
@@ -31,8 +29,8 @@ public static ArrayList<ServisniDeo> prikaziServisneDelove() {
 			marka marka = enumeracije.marka.valueOf(lineSplit[1]);
 			model model = enumeracije.model.valueOf(lineSplit[2]);
 			int cena = Integer.parseInt(lineSplit[3]);
-			String naziv = lineSplit[4];
-			ServisniDeo servisnideo1 = new ServisniDeo(id, marka, model, cena, naziv);
+			String nazivDela = lineSplit[4];
+			ServisniDeo servisnideo1 = new ServisniDeo(id, marka, model, cena, nazivDela);
 			servisnidelovi.add(servisnideo1);	
 		}
 			reader.close();
