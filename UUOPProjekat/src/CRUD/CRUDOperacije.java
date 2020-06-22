@@ -339,4 +339,4 @@ public class CRUDOperacije {
 
 	
 }
-	//promenio sam u nadji musterija vlasnikId u iD
+
