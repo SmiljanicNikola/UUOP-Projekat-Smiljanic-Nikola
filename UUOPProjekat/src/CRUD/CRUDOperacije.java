@@ -43,6 +43,10 @@ public class CRUDOperacije {
 		//this.ucitaniAdministratori = new ArrayList<Administrator>();
 		}
 	
+	public ArrayList<ServisAutomobila> getServiseAutomobila(){
+		return ucitaniServisi;
+	}
+	
 	public ArrayList<ServisniDeo> getServisniDeo(){
 		return ucitaniDelovi;
 	}
@@ -65,6 +69,10 @@ public class CRUDOperacije {
 	
 	public ArrayList< Musterija> getMusterije(){
 		return ucitani;
+	}
+	
+	public void dodajServisAutomobila(ServisAutomobila servisautomobila) {
+		this.ucitaniServisi.add(servisautomobila);
 	}
 	
 	public void dodajServisniDeo(ServisniDeo servisnideo) {
@@ -204,6 +212,21 @@ public class CRUDOperacije {
 		}
 	}
 	
+	public void snimiServiseAutomobila() {
+		try {
+			File file = new File("src/fajlovi/servisiautomobila.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for(ServisAutomobila servisautomobila : ucitaniServisi) {
+				sadrzaj += servisautomobila.getId() + "|" + servisautomobila.getServisiraniAutomobil() + "|" + servisautomobila.getServiser() + "|" + servisautomobila.getTerminServisa() + "|" + servisautomobila.getKratakOpis() + "|" +  servisautomobila.getDelovi() + "|" + servisautomobila.getStatusServisa()  + "\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void snimiAdministratore() {
 		try {
 			File file = new File("src/fajlovi/administratori.txt");
@@ -285,6 +308,14 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
+	public ServisAutomobila nadjiServiseAutomobila(int id) {
+		for(ServisAutomobila servisautomobila : ucitaniServisi) {
+			if(servisautomobila.getId() == id) {
+				return servisautomobila;
+			}
+		}
+		return null;
+	}
 
 	public static Musterija nadjiMusteriju(String korisnickoIme) {
 		for(Musterija musterija : ucitani) {
@@ -305,15 +336,7 @@ public class CRUDOperacije {
 		return null;
 	}
 
-	public List<ServisAutomobila> nadjiServise(int servisId) {
-		for(ServisAutomobila servisautomobila : ucitaniServisi) {
-			if(servisautomobila.getId() == (servisId)) {
-				return (List<ServisAutomobila>) servisautomobila;
-			}
-			
-		}
-		return null;
-	}
+
 	
 }
 	//promenio sam u nadji musterija vlasnikId u iD

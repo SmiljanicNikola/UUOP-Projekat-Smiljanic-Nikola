@@ -1,5 +1,8 @@
 package gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -13,10 +16,10 @@ import model.Serviser;
 public class GlavniProzorMusterija extends JFrame {
 	
 	private JMenuBar mainMenu = new JMenuBar();
-	private JMenu automobilMenu= new JMenu("Automobil");
-	private JMenuItem nekiItem = new JMenuItem("Neki"); 
-	private JMenu servisneknjiziceMenu = new JMenu("servisne knjizice");
-	private JMenuItem servoItem = new JMenuItem("servo");
+	private JMenu izlazMenu= new JMenu("Izlaz");
+	private JMenuItem izlazItem = new JMenuItem("Izlaz"); 
+	private JMenu mogucnostiMenu = new JMenu("Mogucnosti");
+	private JMenuItem zakaziteservisItem = new JMenuItem("Zakazite Servis");
 	
 	private CRUDOperacije crudoperacije;
 	private Musterija prijavljeni;
@@ -37,14 +40,22 @@ public class GlavniProzorMusterija extends JFrame {
 	
 	private void initMenu() {
 		setJMenuBar(mainMenu);
-		mainMenu.add(automobilMenu);
-		automobilMenu.add(nekiItem);
-		mainMenu.add(servisneknjiziceMenu);
-		servisneknjiziceMenu.add(servoItem);
+		mainMenu.add(izlazMenu);
+		izlazMenu.add(izlazItem);
+		mainMenu.add(mogucnostiMenu);
+		mogucnostiMenu.add(zakaziteservisItem);
 	}
 	
 	private void initActions() {
-		
+		izlazItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				GlavniProzorMusterija.this.dispose();
+				GlavniProzorMusterija.this.setVisible(false);
+				
+			}
+		});
 	}
 	
 }

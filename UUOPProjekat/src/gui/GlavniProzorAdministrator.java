@@ -12,6 +12,7 @@ import CRUD.CRUDOperacije;
 import gui.formeZaPrikaz.ProzorPrikazAdministratora;
 import gui.formeZaPrikaz.ProzorPrikazAutomobila;
 import gui.formeZaPrikaz.ProzorPrikazMusterija;
+import gui.formeZaPrikaz.ProzorPrikazServisaAutomobila;
 import gui.formeZaPrikaz.ProzorPrikazServisera;
 import gui.formeZaPrikaz.ProzorPrikazServisnihDelova;
 import gui.formeZaPrikaz.ProzorPrikazServisnihKnjizica;
@@ -33,6 +34,8 @@ public class GlavniProzorAdministrator extends JFrame {
 	private JMenuItem servisneknjiziceItem = new JMenuItem("Servisne knjizice");
 	private JMenuItem servisnideloviItem = new JMenuItem("Servisni delovi");
 	private JMenuItem servisiautomobilaItem = new JMenuItem("Servisi automobila");
+	private JMenu izlazMenu= new JMenu("Izlaz");
+	private JMenuItem izlazItem = new JMenuItem("Izlaz"); 
 	
 	private CRUDOperacije crudoperacije;
 	private Musterija prijavljeni;
@@ -54,6 +57,8 @@ public class GlavniProzorAdministrator extends JFrame {
 	
 	private void initMenu() {
 		setJMenuBar(mainMenu);
+		mainMenu.add(izlazMenu);
+		izlazMenu.add(izlazItem);
 		mainMenu.add(serviseriMenu);
 		serviseriMenu.add(serviseriItem);
 		mainMenu.add(musterijeMenu);
@@ -121,6 +126,24 @@ public class GlavniProzorAdministrator extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ProzorPrikazServisnihDelova ppsd = new ProzorPrikazServisnihDelova(Crudoperacije);
 				ppsd.setVisible(true);
+				
+			}
+		});
+		servisiautomobilaItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ProzorPrikazServisaAutomobila ppsa = new ProzorPrikazServisaAutomobila(Crudoperacije);
+				ppsa.setVisible(true);
+				
+			}
+		});
+		izlazItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				GlavniProzorAdministrator.this.dispose();
+				GlavniProzorAdministrator.this.setVisible(false);
 				
 			}
 		});

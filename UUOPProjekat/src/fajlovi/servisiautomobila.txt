@@ -1,2 +1,3 @@
-01|4|mionag|14.06.2020|Treba da se zameni tocak|tocak,felne,kapice|aktivan
-02|0|ivann|19.07.2020|Zamena akumulatora|akumulator|aktivan
+1|2|ivann|05.07.2020|Dodavanje novog tocka sa novim felnama|tocak,felne,kapice|aktivan
+2|0|mionag|05.09.2020|Zamena hladnjaka|Hladnjak|aktivan
+3|7|ivann|07.07.2020|zamena multimedije i zamena farova|nova multimedija, novi farovi, polir|aktivan

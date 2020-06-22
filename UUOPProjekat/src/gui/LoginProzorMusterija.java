@@ -50,7 +50,7 @@ public class LoginProzorMusterija extends JFrame {
 		add(btnOk,"split2");
 		add(btnCancel);
 		
-		getRootPane().setDefaultButton(btnOk);
+		getRootPane().setDefaultButton(btnOk);  //Za enter
 	}
 	
 	public void initActions() {

@@ -1,11 +1,16 @@
 package gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import CRUD.CRUDOperacije;
+import gui.formeZaDodavanjeIIzmenu.ServiseriForma;
+import gui.zaServisera.PrikazZaServisera;
 import model.Administrator;
 import model.Musterija;
 import model.Serviser;
@@ -13,10 +18,11 @@ import model.Serviser;
 public class GlavniProzorServiser extends JFrame {
 	
 	private JMenuBar mainMenu = new JMenuBar();
-	private JMenu automobilMenu= new JMenu("Automobil");
-	private JMenuItem nekiItem = new JMenuItem("Neki"); 
-	private JMenu servisneknjiziceMenu = new JMenu("servisne knjizice");
-	private JMenuItem servoItem = new JMenuItem("servo");
+	private JMenu ServisiMenu= new JMenu("Servisi");
+	private JMenuItem pregledIKreiranjeItem = new JMenuItem("Pregled i kreiranje servisa");
+	private JMenu izlazMenu= new JMenu("Izlaz");
+	private JMenuItem izlazItem = new JMenuItem("Izlaz"); 
+
 	
 	private CRUDOperacije crudoperacije;
 	private Musterija prijavljeni;
@@ -37,13 +43,32 @@ public class GlavniProzorServiser extends JFrame {
 	
 	private void initMenu() {
 		setJMenuBar(mainMenu);
-		mainMenu.add(automobilMenu);
-		automobilMenu.add(nekiItem);
-		mainMenu.add(servisneknjiziceMenu);
-		servisneknjiziceMenu.add(servoItem);
+		mainMenu.add(izlazMenu);
+		izlazMenu.add(izlazItem);
+		mainMenu.add(ServisiMenu);
+		ServisiMenu.add(pregledIKreiranjeItem);
+		
 	}
 	
 	private void initActions() {
+		pregledIKreiranjeItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PrikazZaServisera pzs = new PrikazZaServisera(crudoperacije);
+				pzs.setVisible(true);
+				
+			}
+		});
+		izlazItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				GlavniProzorServiser.this.dispose();
+				GlavniProzorServiser.this.setVisible(false);
+				
+			}
+		});
 		
 	}
 	
