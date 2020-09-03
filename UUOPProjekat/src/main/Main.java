@@ -46,8 +46,8 @@ public class Main {
 		IzborLogina il = new IzborLogina();
 		il.setVisible(true);
 		
-		
-		
+		//test
+				
 	}
 
 }

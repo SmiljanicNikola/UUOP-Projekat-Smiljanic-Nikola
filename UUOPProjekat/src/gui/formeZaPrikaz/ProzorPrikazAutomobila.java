@@ -57,7 +57,7 @@ public class ProzorPrikazAutomobila extends JFrame {
 		add(mainToolbar, BorderLayout.NORTH);
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 		
-		String[] zaglavlje = new String[] {"id", "vlasnik", "marka", "model", "godina proizvodnje", "zapremina", "snaga Motora", "Vrsta goriva"};
+		String[] zaglavlje = new String[] {"id", "vlasnik", "marka", "model", "godina proizvodnje", "zapremina", "snaga Motora",  "Vrsta goriva"};
 		Object[][] sadrzaj = new Object[Crudoperacije.getAutomobile().size()][zaglavlje.length];
 		
 		for(int i = 0; i<Crudoperacije.getAutomobile().size(); i++) {
