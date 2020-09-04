@@ -116,7 +116,10 @@ public class Automobil {
 	}
 
 	
-	
+	public String toFile() {
+		return String.format("%d|%s|%s|%s|%d|%s|%s|%d", id, vlasnik.korisnickoIme, marka, model, godinaProizvodnje, zapreminaMotora,
+				snagaMotora, vrstaGoriva);
+	}
 	
 	
 }

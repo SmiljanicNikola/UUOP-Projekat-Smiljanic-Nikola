@@ -3,3 +3,4 @@
 -1|Momir|Momirovski|403000020|muski|Adresovska30|069538182|momirm|1234|32000.0|limar
 -1|Nikolaj|Sergejevic|104000300|muski|Ivkovska30|065-43920124|nikolajs|12345|47900.0|automehanicar
 5|Milovan|Stefanovic|19004040|muski|Narodnog fronta 39|069322399|milovans|135|40000.0|limar
+6|Mirko|Jurkovic|90010004000|muski|Prerdiri43|065915123|mirkoj|12345|50000.0|vulkanizer

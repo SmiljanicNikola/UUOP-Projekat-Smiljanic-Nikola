@@ -38,12 +38,14 @@ public class GlavniProzorAdministrator extends JFrame {
 	private JMenuItem izlazItem = new JMenuItem("Izlaz"); 
 	
 	private CRUDOperacije crudoperacije;
-	private Musterija prijavljeni;
+	//private Musterija prijavljeni;
 	private Serviser prijavljeniServiser;
 	private Administrator prijavljeniAdministrator;
 	CRUDOperacije Crudoperacije = new CRUDOperacije();
+	private Musterija musterija;
+	//private Administrator admin;
 	
-	public GlavniProzorAdministrator(CRUDOperacije crudoperacije, Administrator prijavljeniAdministrator) {
+	public GlavniProzorAdministrator(CRUDOperacije crudoperacije, Administrator prijavljeniAdministrator, Musterija musterija) {
 		this.crudoperacije = crudoperacije;
 		this.prijavljeniAdministrator = prijavljeniAdministrator;
 		setTitle("Administrator: " + prijavljeniAdministrator.getKorisnickoIme());
@@ -106,7 +108,7 @@ public class GlavniProzorAdministrator extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ProzorPrikazAutomobila ppauto = new ProzorPrikazAutomobila(Crudoperacije);
+				ProzorPrikazAutomobila ppauto = new ProzorPrikazAutomobila(Crudoperacije, prijavljeniAdministrator, musterija);
 				ppauto.setVisible(true);
 				
 			}

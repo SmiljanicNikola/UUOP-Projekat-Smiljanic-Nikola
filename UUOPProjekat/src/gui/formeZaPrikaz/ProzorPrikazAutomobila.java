@@ -19,6 +19,8 @@ import gui.formeZaDodavanjeIIzmenu.AdministratoriForma;
 import gui.formeZaDodavanjeIIzmenu.AutomobiliForma;
 import model.Administrator;
 import model.Automobil;
+import model.Musterija;
+import model.ServisAutomobila;
 
 public class ProzorPrikazAutomobila extends JFrame {
 
@@ -30,10 +32,13 @@ public class ProzorPrikazAutomobila extends JFrame {
 	private JTable automobiliTabela;
 
 	CRUDOperacije Crudoperacije = new CRUDOperacije();
-	private Automobil automobil;
+	public Automobil automobil;
+	public ServisAutomobila servisautomobila;
+	public Administrator admin;
 	
-	public ProzorPrikazAutomobila(CRUDOperacije Crudoperacije) {
+	public ProzorPrikazAutomobila(CRUDOperacije Crudoperacije, Administrator admin, Musterija musterija) {
 		this.Crudoperacije = Crudoperacije;
+		this.admin = admin;
 		setTitle("Automobili");
 		setSize(850,450);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -63,7 +68,7 @@ public class ProzorPrikazAutomobila extends JFrame {
 		for(int i = 0; i<Crudoperacije.getAutomobile().size(); i++) {
 			Automobil automobil = Crudoperacije.getAutomobile().get(i);
 			sadrzaj[i][0] = automobil.getId();
-			sadrzaj[i][1] = automobil.getVlasnik();
+			sadrzaj[i][1] = automobil.getVlasnik().getKorisnickoIme();
 			sadrzaj[i][2] = automobil.getMarka();
 			sadrzaj[i][3] = automobil.getModel();
 			sadrzaj[i][4] = automobil.getGodinaProizvodnje();

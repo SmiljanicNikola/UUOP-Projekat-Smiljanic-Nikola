@@ -26,7 +26,7 @@ public class LoginProzorAdministrator extends JFrame {
 	private JButton btnCancel = new JButton("Cancel");
 	
 	private CRUDOperacije crudoperacije;
-	private Musterija prijavljeni;
+	private Musterija musterija;
 	
 	public LoginProzorAdministrator(CRUDOperacije crudoperacije) {
 		this.crudoperacije = crudoperacije;
@@ -82,7 +82,7 @@ public class LoginProzorAdministrator extends JFrame {
 						System.out.println(prijavljeniAdministrator);
 						LoginProzorAdministrator.this.dispose();
 						LoginProzorAdministrator.this.setVisible(false);
-						GlavniProzorAdministrator gpa = new GlavniProzorAdministrator(crudoperacije, prijavljeniAdministrator);
+						GlavniProzorAdministrator gpa = new GlavniProzorAdministrator(crudoperacije, prijavljeniAdministrator, musterija);
 						gpa.setVisible(true);
 					}
 				}

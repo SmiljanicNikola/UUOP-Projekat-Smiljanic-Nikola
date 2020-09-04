@@ -1,3 +1,3 @@
-1|2|ivann|05.07.2020|Dodavanje novog tocka sa novim felnama|tocak,felne,kapice|aktivan
-2|0|mionag|05.09.2020|Zamena hladnjaka|Hladnjak|aktivan
-3|7|ivann|07.07.2020|zamena multimedije i zamena farova|nova multimedija, novi farovi, polir|aktivan
+1|2|mionag|05.07.2020|Dodavanje novog tocka sa novim felna|hladjak|aktivan
+3|0|2|07.07.2020|zamena multimedije i zamena farova|nova multimedija, novi farovi, polir|aktivan
+4|2|5|05.07.2020|rqrq|tockic|aktivan

@@ -64,8 +64,8 @@ public class ProzorPrikazServisaAutomobila extends JFrame {
 		for(int i = 0; i<Crudoperacije.getServiseAutomobila().size(); i++) {
 			ServisAutomobila servisautomobila = Crudoperacije.getServiseAutomobila().get(i);
 			sadrzaj[i][0] = servisautomobila.getId();
-			sadrzaj[i][1] = servisautomobila.getServisiraniAutomobil();
-			sadrzaj[i][2] = servisautomobila.getServiser();
+			sadrzaj[i][1] = servisautomobila.getServisiraniAutomobil().getId();
+			sadrzaj[i][2] = servisautomobila.getServiser().getIme();
 			sadrzaj[i][3] = servisautomobila.getTerminServisa();
 			sadrzaj[i][4] = servisautomobila.getKratakOpis();
 			sadrzaj[i][5] = servisautomobila.getDelovi();

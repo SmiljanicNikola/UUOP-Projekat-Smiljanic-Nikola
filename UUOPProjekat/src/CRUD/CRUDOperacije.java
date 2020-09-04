@@ -43,6 +43,10 @@ public class CRUDOperacije {
 		//this.ucitaniAdministratori = new ArrayList<Administrator>();
 		}
 	
+	//public ArrayList<Musterija> getMusterije2() {
+		//return this.getMusterije();
+	//}
+	
 	public ArrayList<ServisAutomobila> getServiseAutomobila(){
 		return ucitaniServisi;
 	}
@@ -316,12 +320,26 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
+	
+	//public Musterija nadjiMusteriju(String oznaka) {
+	//	for(Korisnik musterija : korisnici) {
+	//		if(musterija.getOznaka().equals(oznaka) && musterija instanceof Musterija) return (Musterija) musterija;
+	////	}
+		//return null;
+	//}
 
 	public static Musterija nadjiMusteriju(String korisnickoIme) {
 		for(Musterija musterija : ucitani) {
-			if(musterija.getKorisnickoIme().equals(korisnickoIme)) {
+			if(musterija.getKorisnickoIme().equals(korisnickoIme) && musterija instanceof Musterija) {
 				return musterija;
 			}
+		}
+		return null;
+	}
+	
+	public Musterija nadjiMusterijuPoKorisnickom(String korisnickoIme) {
+		for(Musterija musterija: ucitani) {
+			if(musterija.getKorisnickoIme().equals(korisnickoIme)) return musterija;
 		}
 		return null;
 	}
