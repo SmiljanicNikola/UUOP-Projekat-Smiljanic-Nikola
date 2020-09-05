@@ -43,10 +43,10 @@ public class GlavniProzorServiser extends JFrame {
 	
 	private void initMenu() {
 		setJMenuBar(mainMenu);
-		mainMenu.add(izlazMenu);
-		izlazMenu.add(izlazItem);
 		mainMenu.add(ServisiMenu);
 		ServisiMenu.add(pregledIKreiranjeItem);
+		mainMenu.add(izlazMenu);
+		izlazMenu.add(izlazItem);
 		
 	}
 	

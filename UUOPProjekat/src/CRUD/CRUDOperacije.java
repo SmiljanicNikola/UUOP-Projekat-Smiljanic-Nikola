@@ -286,8 +286,9 @@ public class CRUDOperacije {
 		return null;
 	}
 	
-	public Automobil nadjiAutomobil(int id) {
-		for(Automobil automobil : ucitaniAutomobili) {
+	public static Automobil nadjiAutomobil(int id) {
+		ArrayList<Automobil> automobili = UcitajAutomobile.prikaziAutomobile();
+		for(Automobil automobil : automobili) {
 			if(automobil.getId() == id) {
 				return automobil;
 			}

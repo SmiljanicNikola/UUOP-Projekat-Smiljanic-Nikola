@@ -16,10 +16,11 @@ import model.Serviser;
 public class GlavniProzorMusterija extends JFrame {
 	
 	private JMenuBar mainMenu = new JMenuBar();
-	private JMenu izlazMenu= new JMenu("Izlaz");
-	private JMenuItem izlazItem = new JMenuItem("Izlaz"); 
 	private JMenu mogucnostiMenu = new JMenu("Mogucnosti");
 	private JMenuItem zakaziteservisItem = new JMenuItem("Zakazite Servis");
+	private JMenu izlazMenu= new JMenu("Izlaz");
+	private JMenuItem izlazItem = new JMenuItem("Izlaz"); 
+
 	
 	private CRUDOperacije crudoperacije;
 	private Musterija prijavljeni;
@@ -40,10 +41,10 @@ public class GlavniProzorMusterija extends JFrame {
 	
 	private void initMenu() {
 		setJMenuBar(mainMenu);
-		mainMenu.add(izlazMenu);
-		izlazMenu.add(izlazItem);
 		mainMenu.add(mogucnostiMenu);
 		mogucnostiMenu.add(zakaziteservisItem);
+		mainMenu.add(izlazMenu);
+		izlazMenu.add(izlazItem);
 	}
 	
 	private void initActions() {
