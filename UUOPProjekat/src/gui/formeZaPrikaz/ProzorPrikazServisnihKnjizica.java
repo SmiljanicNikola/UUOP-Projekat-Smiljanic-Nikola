@@ -64,7 +64,7 @@ public class ProzorPrikazServisnihKnjizica extends JFrame {
 		for(int i = 0; i<Crudoperacije.getServisneKnjizice().size(); i++) {
 			ServisnaKnjizica servisnaknjizica = Crudoperacije.getServisneKnjizice().get(i);
 			sadrzaj[i][0] = servisnaknjizica.getId();
-			sadrzaj[i][1] = servisnaknjizica.getVlasnistvo();
+			sadrzaj[i][1] = servisnaknjizica.getVlasnistvo().getMarka() + " " + servisnaknjizica.getVlasnistvo().getModel();
 			sadrzaj[i][2] = servisnaknjizica.getObavljeniServisi();
 		}
 		tableModel = new DefaultTableModel(sadrzaj, zaglavlje);

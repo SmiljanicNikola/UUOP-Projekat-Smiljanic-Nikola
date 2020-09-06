@@ -162,7 +162,7 @@ public class CRUDOperacije {
 			BufferedWriter br = new BufferedWriter(new FileWriter(file));
 			String sadrzaj = "";
 			for(ServisniDeo servisnideo : ucitaniDelovi) {
-				sadrzaj += servisnideo.getId() + "|" + servisnideo.getMarkaAutomobila() + "|" + servisnideo.getModelAutomobila() + "|" + servisnideo.getCena() +  "|" + servisnideo.getNazivDela()  + "\n";
+				sadrzaj += servisnideo.getId() + "|" + servisnideo.getMarkaAutomobila() + "|" + servisnideo.getModelAutomobila() + "|" + servisnideo.getCena() +  "|" + servisnideo.getNazivDela()  + "|" + servisnideo.getServis().getId() + "|" + servisnideo.getIsDeleted() + "\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -177,7 +177,7 @@ public class CRUDOperacije {
 			BufferedWriter br = new BufferedWriter(new FileWriter(file));
 			String sadrzaj = "";
 			for(Automobil automobil : ucitaniAutomobili) {
-				sadrzaj += automobil.getId() + "|" + automobil.getVlasnik() + "|" + automobil.getMarka() + "|" + automobil.getModel() + "|" + automobil.getGodinaProizvodnje() + "|" +  automobil.getZapreminaMotora() + "|" + automobil.getSnagaMotora() + "|" + automobil.getVrstaGoriva() + "\n";
+				sadrzaj += automobil.getId() + "|" + automobil.getVlasnik().getKorisnickoIme() + "|" + automobil.getMarka() + "|" + automobil.getModel() + "|" + automobil.getGodinaProizvodnje() + "|" +  automobil.getZapreminaMotora() + "|" + automobil.getSnagaMotora() + "|" + automobil.getVrstaGoriva() + "\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -222,7 +222,7 @@ public class CRUDOperacije {
 			BufferedWriter br = new BufferedWriter(new FileWriter(file));
 			String sadrzaj = "";
 			for(ServisAutomobila servisautomobila : ucitaniServisi) {
-				sadrzaj += servisautomobila.getId() + "|" + servisautomobila.getServisiraniAutomobil() + "|" + servisautomobila.getServiser() + "|" + servisautomobila.getTerminServisa() + "|" + servisautomobila.getKratakOpis() + "|" +  servisautomobila.getDelovi() + "|" + servisautomobila.getStatusServisa()  + "\n";
+				sadrzaj += servisautomobila.getId() + "|" + servisautomobila.getServisiraniAutomobil().getId() + "|" + servisautomobila.getServiser().getKorisnickoIme() + "|" + servisautomobila.getTerminServisa() + "|" + servisautomobila.getKratakOpis() + "|" +  servisautomobila.getDelovi() + "|" + servisautomobila.getStatusServisa()  + "\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -254,6 +254,8 @@ public class CRUDOperacije {
 			//}
 		//return null;
 		//}
+	
+	
 	
 	
 	public Musterija nadjiMusteriju2(String vlasnikId) {
@@ -313,6 +315,7 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
+	
 	public ServisAutomobila nadjiServiseAutomobila(int id) {
 		for(ServisAutomobila servisautomobila : ucitaniServisi) {
 			if(servisautomobila.getId() == id) {
@@ -322,6 +325,15 @@ public class CRUDOperacije {
 		return null;
 	}
 	
+	public static ServisAutomobila nadjiServiseAutomobila2(int servisId) {
+		ArrayList<ServisAutomobila> ucitaniServisi = UcitajServiseAutomobila.prikaziServiseAutomobila();
+		for(ServisAutomobila servisautomobila : ucitaniServisi) {
+			if(servisautomobila.getId() == servisId) {
+				return servisautomobila;
+			}
+		}
+		return null;
+	}
 	//public Musterija nadjiMusteriju(String oznaka) {
 	//	for(Korisnik musterija : korisnici) {
 	//		if(musterija.getOznaka().equals(oznaka) && musterija instanceof Musterija) return (Musterija) musterija;

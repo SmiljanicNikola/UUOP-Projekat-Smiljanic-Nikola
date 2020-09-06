@@ -19,6 +19,7 @@ import gui.formeZaDodavanjeIIzmenu.AdministratoriForma;
 import gui.formeZaDodavanjeIIzmenu.ServisniDeloviForma;
 import model.Administrator;
 import model.Automobil;
+import model.ServisAutomobila;
 import model.ServisniDeo;
 
 public class ProzorPrikazServisnihDelova extends JFrame {
@@ -32,6 +33,9 @@ public class ProzorPrikazServisnihDelova extends JFrame {
 
 	
 	CRUDOperacije Crudoperacije = new CRUDOperacije();
+	//public Administrator admin;
+	//public ServisAutomobila servisauta;
+	//private ServisniDeo servisnideo;
 	
 	public ProzorPrikazServisnihDelova(CRUDOperacije Crudoperacije) {
 		this.Crudoperacije = Crudoperacije;
@@ -58,7 +62,7 @@ public class ProzorPrikazServisnihDelova extends JFrame {
 		add(mainToolbar, BorderLayout.NORTH);
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 		
-		String[] zaglavlje = new String[] {"id", "Marka automobila", "Model automobila", "cena", "naziv dela"};
+		String[] zaglavlje = new String[] {"id", "Marka automobila", "Model automobila", "cena", "naziv dela", "servisId", "Kratak opis"};
 		Object[][] sadrzaj = new Object[Crudoperacije.getServisniDeo().size()][zaglavlje.length];
 		
 		for(int i = 0; i<Crudoperacije.getServisniDeo().size(); i++) {
@@ -68,6 +72,8 @@ public class ProzorPrikazServisnihDelova extends JFrame {
 			sadrzaj[i][2] = servisnideo.getModelAutomobila();
 			sadrzaj[i][3] = servisnideo.getCena();
 			sadrzaj[i][4] = servisnideo.getNazivDela();
+			sadrzaj[i][5] = servisnideo.getServis().getId();
+			sadrzaj[i][6] = servisnideo.getServis().getKratakOpis();
 		}
 		tableModel = new DefaultTableModel(sadrzaj, zaglavlje);
 		servisniDeloviTabela = new JTable(tableModel);

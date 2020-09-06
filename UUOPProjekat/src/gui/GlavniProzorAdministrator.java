@@ -18,6 +18,7 @@ import gui.formeZaPrikaz.ProzorPrikazServisnihDelova;
 import gui.formeZaPrikaz.ProzorPrikazServisnihKnjizica;
 import model.Administrator;
 import model.Musterija;
+import model.ServisAutomobila;
 import model.Serviser;
 
 public class GlavniProzorAdministrator extends JFrame {
@@ -43,7 +44,7 @@ public class GlavniProzorAdministrator extends JFrame {
 	private Administrator prijavljeniAdministrator;
 	CRUDOperacije Crudoperacije = new CRUDOperacije();
 	private Musterija musterija;
-	//private Administrator admin;
+	private ServisAutomobila servisauta;
 	
 	public GlavniProzorAdministrator(CRUDOperacije crudoperacije, Administrator prijavljeniAdministrator, Musterija musterija) {
 		this.crudoperacije = crudoperacije;
@@ -59,8 +60,6 @@ public class GlavniProzorAdministrator extends JFrame {
 	
 	private void initMenu() {
 		setJMenuBar(mainMenu);
-		mainMenu.add(izlazMenu);
-		izlazMenu.add(izlazItem);
 		mainMenu.add(serviseriMenu);
 		serviseriMenu.add(serviseriItem);
 		mainMenu.add(musterijeMenu);
@@ -72,6 +71,8 @@ public class GlavniProzorAdministrator extends JFrame {
 		ostaloMenu.add(servisnideloviItem);
 		ostaloMenu.add(servisneknjiziceItem);
 		ostaloMenu.add(servisiautomobilaItem);
+		mainMenu.add(izlazMenu);
+		izlazMenu.add(izlazItem);
 		
 		
 		

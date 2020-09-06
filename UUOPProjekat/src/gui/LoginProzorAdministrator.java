@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import CRUD.CRUDOperacije;
 import model.Administrator;
 import model.Musterija;
+import model.ServisAutomobila;
 import model.Serviser;
 import net.miginfocom.swing.MigLayout;
 
@@ -27,6 +28,7 @@ public class LoginProzorAdministrator extends JFrame {
 	
 	private CRUDOperacije crudoperacije;
 	private Musterija musterija;
+	private ServisAutomobila servisauta;
 	
 	public LoginProzorAdministrator(CRUDOperacije crudoperacije) {
 		this.crudoperacije = crudoperacije;

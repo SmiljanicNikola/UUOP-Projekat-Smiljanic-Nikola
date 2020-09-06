@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ServisAutomobila {
 
 	public int id;
@@ -101,7 +102,10 @@ public class ServisAutomobila {
 				+ ", statusServisa=" + statusServisa + "]";
 	}
 
-
+	public String toFile() {
+		return String.format("%s|%s|%s|%s|%s|%s|%.2f|%d", id, servisiraniAutomobil.getId(), serviser.getKorisnickoIme(), 
+				terminServisa, kratakOpis, delovi, statusServisa);
+	}
 	
 
 	

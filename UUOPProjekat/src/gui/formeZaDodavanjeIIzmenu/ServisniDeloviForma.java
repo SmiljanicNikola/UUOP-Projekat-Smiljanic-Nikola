@@ -15,6 +15,8 @@ import enumeracije.Pol;
 import enumeracije.marka;
 import enumeracije.model;
 import model.Administrator;
+import model.Automobil;
+import model.ServisAutomobila;
 import model.ServisniDeo;
 import net.miginfocom.swing.MigLayout;
 
@@ -30,6 +32,10 @@ public class ServisniDeloviForma extends JFrame {
 	private JTextField txtCena = new JTextField(10);
 	private JLabel lblnazivDela = new JLabel("Naziv dela");
 	private JTextField txtnazivDela = new JTextField(15);
+	
+	private JLabel lblServis = new JLabel("Servis");
+	private JComboBox<Integer> cbServis = new JComboBox<Integer>();
+	
 	private JButton btnOk = new JButton("Ok");
 	private JButton btnCancel = new JButton("Cancel");
 	
@@ -56,6 +62,11 @@ public class ServisniDeloviForma extends JFrame {
 		MigLayout layout = new MigLayout("wrap 2", "[][]", "[][][][][]20[]");
 		setLayout(layout);
 
+		for(ServisAutomobila servis : Crudoperacije.getServiseAutomobila()) {
+			if(servis instanceof ServisAutomobila) cbServis.addItem(servis.getId());
+		}
+
+		
 		if (servisnideo != null) {
 			popuniPolja();
 		}
@@ -70,6 +81,8 @@ public class ServisniDeloviForma extends JFrame {
 		add(txtCena);
 		add(lblnazivDela);
 		add(txtnazivDela);
+		add(lblServis);
+		add(cbServis);
 		add(btnOk, "split 2");
 		add(btnCancel);
 	}
@@ -85,9 +98,11 @@ public class ServisniDeloviForma extends JFrame {
 					model model = (enumeracije.model) cbModel.getSelectedItem();
 					int cena = Integer.parseInt(txtCena.getText().trim());
 					String nazivDela = txtnazivDela.getText().trim();
-
+					Integer servisId = (Integer) cbServis.getSelectedItem();
+					ServisAutomobila servis = CRUDOperacije.nadjiServiseAutomobila2(servisId);
+					Integer isDeleted = 0;
 					if (servisnideo == null) { 
-						ServisniDeo servisnideo = new ServisniDeo(id, marka, model, cena, nazivDela);
+						ServisniDeo servisnideo = new ServisniDeo(id, marka, model, cena, nazivDela, servis, isDeleted);
 						Crudoperacije.dodajServisniDeo(servisnideo);
 					} else {
 						servisnideo.setId(id);
@@ -95,6 +110,8 @@ public class ServisniDeloviForma extends JFrame {
 						servisnideo.setModelAutomobila(model);
 						servisnideo.setCena(cena);
 						servisnideo.setNazivDela(nazivDela);
+						servisnideo.setServis(servis);
+						servisnideo.setIsDeleted(isDeleted);
 					}
 					 Crudoperacije.snimiServisneDelove();
 					 ServisniDeloviForma.this.dispose();
@@ -120,7 +137,11 @@ public class ServisniDeloviForma extends JFrame {
 		cbModel.setSelectedItem(servisnideo.getMarkaAutomobila());
 		txtCena.setText(String.valueOf(servisnideo.getCena()));
 		txtnazivDela.setText(servisnideo.getNazivDela());
-	
+		if(servisnideo.getServis() == null) {
+			cbServis.setSelectedItem("--");
+		} else {
+			cbServis.setSelectedItem(servisnideo.getServis().getId());
+		}
 	}
 	
 	private boolean validacija() {

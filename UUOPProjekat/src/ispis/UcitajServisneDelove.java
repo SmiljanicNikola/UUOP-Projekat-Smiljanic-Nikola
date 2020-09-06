@@ -30,7 +30,10 @@ public static ArrayList<ServisniDeo> prikaziServisneDelove() {
 			model model = enumeracije.model.valueOf(lineSplit[2]);
 			int cena = Integer.parseInt(lineSplit[3]);
 			String nazivDela = lineSplit[4];
-			ServisniDeo servisnideo1 = new ServisniDeo(id, marka, model, cena, nazivDela);
+			int servisId = Integer.parseInt(lineSplit[5]);
+			ServisAutomobila servis = CRUDOperacije.nadjiServiseAutomobila2(servisId);
+			int isDeleted = Integer.parseInt(lineSplit[6]);
+			ServisniDeo servisnideo1 = new ServisniDeo(id, marka, model, cena, nazivDela, servis, isDeleted);
 			servisnidelovi.add(servisnideo1);	
 		}
 			reader.close();
