@@ -4,3 +4,4 @@
 3|milani|bmw|X5|2004|2997|200kW|dizel
 12|milani|mercedes|W220|2005|300|400kW|dizel
 1|stefanp|audi|A6|2010|2999cm3|200kW|dizel
+4|ivanp|mercedes|GLS|2018|3000|300HP|dizel

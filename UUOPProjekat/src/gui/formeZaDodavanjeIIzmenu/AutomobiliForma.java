@@ -118,7 +118,7 @@ public class AutomobiliForma extends JFrame {
 					//String servKorIme = (String) cbServiser.getSelectedItem();
 					//Serviser serviser = (Serviser) servAutomobila.nadjiKorisnikaPoKorIme(servKorIme);
 					String korisnickoIme = (String) cbVlasnik.getSelectedItem();
-					Musterija vlasnik = (Musterija) Crudoperacije.nadjiMusteriju(korisnickoIme);
+					Musterija vlasnik = CRUDOperacije.nadjiMusteriju(korisnickoIme);
 					marka marka = (marka) cbMarka.getSelectedItem();
 					model model = (model) cbModel.getSelectedItem();
 					int godinaProizvodnje = Integer.parseInt(txtgodinaProizvodnje.getText().trim());
@@ -128,8 +128,8 @@ public class AutomobiliForma extends JFrame {
 
 					if (automobil == null) { 
 						Automobil automobil = new Automobil(id, vlasnik, marka, model, godinaProizvodnje, zapreminaMotora, snagaMotora, vrstaGoriva);
-							Crudoperacije.dodajAutomobil(automobil);
-					}else { 
+						Crudoperacije.dodajAutomobil(automobil);
+					} else { 
 						automobil.setId(id);
 						automobil.setVlasnik(vlasnik);
 						automobil.setMarka(marka);
@@ -139,11 +139,11 @@ public class AutomobiliForma extends JFrame {
 						automobil.setSnagaMotora(snagaMotora);
 						automobil.setVrstaGoriva(vrstaGoriva);
 					}
-					Crudoperacije.snimiAutomobile();
-					AutomobiliForma.this.dispose();
-					AutomobiliForma.this.setVisible(false);
-					
-			}}
+					 Crudoperacije.snimiAutomobile();
+					 AutomobiliForma.this.dispose();
+					 AutomobiliForma.this.setVisible(false);
+				}	
+			}
 		});
 		btnCancel.addActionListener(new ActionListener() {
 			
