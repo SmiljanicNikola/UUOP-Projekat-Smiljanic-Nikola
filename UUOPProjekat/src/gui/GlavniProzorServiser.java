@@ -55,7 +55,7 @@ public class GlavniProzorServiser extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PrikazZaServisera pzs = new PrikazZaServisera(crudoperacije);
+				PrikazZaServisera pzs = new PrikazZaServisera(crudoperacije,prijavljeniServiser);
 				pzs.setVisible(true);
 				
 			}

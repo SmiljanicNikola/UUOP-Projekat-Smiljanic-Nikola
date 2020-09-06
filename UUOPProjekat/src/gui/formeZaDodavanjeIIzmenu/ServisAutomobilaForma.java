@@ -124,7 +124,7 @@ public class ServisAutomobilaForma extends JFrame {
 					enumeracije.statusServisa statusServisa =  (enumeracije.statusServisa) cbStatusServisa.getSelectedItem();
 
 					if (servisautomobila == null) { 
-						ServisAutomobila servisautomobila = new ServisAutomobila(automobilId, servisiraniAutomobil, serviser, terminServisa, kratakOpis, delovi, statusServisa);
+						ServisAutomobila servisautomobila = new ServisAutomobila(id, servisiraniAutomobil, serviser, terminServisa, kratakOpis, delovi, statusServisa);
 								Crudoperacije.dodajServisAutomobila(servisautomobila);
 					}  else { 
 						servisautomobila.setId(automobilId);

@@ -51,6 +51,10 @@ public class CRUDOperacije {
 		return ucitaniServisi;
 	}
 	
+	public ArrayList<ServisAutomobila> getServiseAutomobila2(int id){
+		return ucitaniServisi;
+	}
+	
 	public ArrayList<ServisniDeo> getServisniDeo(){
 		return ucitaniDelovi;
 	}
