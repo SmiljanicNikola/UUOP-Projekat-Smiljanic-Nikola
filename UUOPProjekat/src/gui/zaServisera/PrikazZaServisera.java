@@ -14,7 +14,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import CRUD.CRUDOperacije;
+import gui.formeZaDodavanjeIIzmenu.ServisAutomobilaForma;
 import gui.formeZaDodavanjeIIzmenu.ServiseriForma;
+import model.ServisAutomobila;
 import model.Serviser;
 
 public class PrikazZaServisera extends JFrame {
@@ -28,7 +30,7 @@ public class PrikazZaServisera extends JFrame {
 	
 	public PrikazZaServisera(CRUDOperacije Crudoperacije) {
 		this.Crudoperacije = Crudoperacije;
-		setTitle("Serviseri");
+		setTitle("Servisi");
 		setSize(600,450);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -50,22 +52,18 @@ public class PrikazZaServisera extends JFrame {
 		add(mainToolbar, BorderLayout.NORTH);
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 		
-		String[] zaglavlje = new String[] {"id", "ime", "prezime", "jmbg", "pol", "adresa", "telefon", "korisnickoIme", "lozinka", "plata", "specijalizacija"};
-		Object[][] sadrzaj = new Object[Crudoperacije.getServisere().size()][zaglavlje.length];
+		String[] zaglavlje = new String[] {"id", "Servisirani automobil", "serviser", "Termin servisa", "Kratak opis", "Delovi", "Status servisa"};
+		Object[][] sadrzaj = new Object[Crudoperacije.getServiseAutomobila().size()][zaglavlje.length];
 		
-		for(int i = 0; i<Crudoperacije.getServisere().size(); i++) {
-			Serviser serviser = Crudoperacije.getServisere().get(i);
-			sadrzaj[i][0] = serviser.getId();
-			sadrzaj[i][1] = serviser.getIme();
-			sadrzaj[i][2] = serviser.getPrezime();
-			sadrzaj[i][3] = serviser.getJmbg();
-			sadrzaj[i][4] = serviser.getPol();
-			sadrzaj[i][5] = serviser.getAdresa();
-			sadrzaj[i][6] = serviser.getTelefon();
-			sadrzaj[i][7] = serviser.getKorisnickoIme();
-			sadrzaj[i][8] = serviser.getLozinka();
-			sadrzaj[i][9] = serviser.getPlata();
-			sadrzaj[i][10] = serviser.getSpecijalizacija();
+		for(int i = 0; i<Crudoperacije.getServiseAutomobila().size(); i++) {
+			ServisAutomobila servisautomobila = Crudoperacije.getServiseAutomobila().get(i);
+			sadrzaj[i][0] = servisautomobila.getId();
+			sadrzaj[i][1] = servisautomobila.getServisiraniAutomobil().getId() + " | " + servisautomobila.getServisiraniAutomobil().getMarka() + " " + servisautomobila.getServisiraniAutomobil().getModel();
+			sadrzaj[i][2] = servisautomobila.getServiser().getIme() + " " + servisautomobila.getServiser().getPrezime() + " | " + servisautomobila.getServiser().getKorisnickoIme();
+			sadrzaj[i][3] = servisautomobila.getTerminServisa();
+			sadrzaj[i][4] = servisautomobila.getKratakOpis();
+			sadrzaj[i][5] = servisautomobila.getDelovi();
+			sadrzaj[i][6] = servisautomobila.getStatusServisa();
 			
 		}
 		tableModel = new DefaultTableModel(sadrzaj, zaglavlje);
@@ -88,8 +86,8 @@ public class PrikazZaServisera extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ServiseriForma sf = new ServiseriForma(Crudoperacije, null);
-				sf.setVisible(true);
+				ServisAutomobilaForma saf = new ServisAutomobilaForma(Crudoperacije, null);
+				saf.setVisible(true);
 				
 			}
 		});
