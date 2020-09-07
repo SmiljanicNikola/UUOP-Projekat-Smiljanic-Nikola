@@ -1,6 +1,6 @@
-2|0|mionag|10.10.2020|Dodavanje novog tocka sa novim felna|hladjak|aktivan
-1|6|ivann|09.09.2020|Nemanesto|tqgq|aktivan
+2|1|mionag|10.10.2020|Dodavanje novog tocka sa novim felna|hladjak|aktivan
+1|1|ivann|09.09.2020|Nemanestoo|tqgq|aktivan
 3|2|ivann|07.07.2020|zamena multimedije i zamena farova|nova multimedija i polir|aktivan
-4|6|momirm|05.07.2020|rqrq|tockic|aktivan
-5|3|nikolajs|18.9.2020|Zamena turbine|turbina|aktivan
-6|12|mirkoj|05.05.2020|itqgqg|gqgqggq|aktivan
+4|4|momirm|05.07.2020|rqrq|tockic|aktivan
+5|5|nikolajs|18.9.2020|Zamena turbine|turbina|aktivan
+6|6|mirkoj|05.05.2020|itqgqg|gqgqggq|aktivan

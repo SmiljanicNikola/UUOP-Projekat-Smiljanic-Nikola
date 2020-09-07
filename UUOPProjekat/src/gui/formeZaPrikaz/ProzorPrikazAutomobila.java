@@ -134,9 +134,9 @@ public class ProzorPrikazAutomobila extends JFrame {
 					JOptionPane.showMessageDialog(null, "Morate da odabere red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
 				} else {
 					int id = (int) tableModel.getValueAt(red, 0);
-					Automobil automobil = Crudoperacije.nadjiAutomobil(id);
+					Automobil automobil = CRUDOperacije.nadjiAutomobil(id);
 					if(automobil == null) {
-						JOptionPane.showMessageDialog(null, "Greska prilikom pronalazenja administratora", "Greska", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Greska prilikom pronalazenja automobila", "Greska", JOptionPane.WARNING_MESSAGE);
 					} else {
 						AutomobiliForma af = new AutomobiliForma(Crudoperacije, automobil);
 						af.setVisible(true);

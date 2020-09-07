@@ -1,5 +1,5 @@
 1|mercedes|GLS|12000|sasija|2|1
 2|bmw|M3|18000|hladnjak|3|0
 4|mercedes|W220|12000|karburator|1|0
-5|mercedes|W220|14000|akumulator|4|0
+5|audi|A6|14000|akumulator|4|0
 3|audi|Q6|9000|turbina|3|0

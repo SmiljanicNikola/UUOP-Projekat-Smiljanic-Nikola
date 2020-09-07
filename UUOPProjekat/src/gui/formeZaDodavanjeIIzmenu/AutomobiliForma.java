@@ -114,9 +114,6 @@ public class AutomobiliForma extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (validacija()) {
 					int id = Integer.parseInt(txtId.getText().trim());
-					//String korisnickoIme = txtVlasnik.getText().trim();
-					//String servKorIme = (String) cbServiser.getSelectedItem();
-					//Serviser serviser = (Serviser) servAutomobila.nadjiKorisnikaPoKorIme(servKorIme);
 					String korisnickoIme = (String) cbVlasnik.getSelectedItem();
 					Musterija vlasnik = CRUDOperacije.nadjiMusteriju(korisnickoIme);
 					marka marka = (marka) cbMarka.getSelectedItem();
