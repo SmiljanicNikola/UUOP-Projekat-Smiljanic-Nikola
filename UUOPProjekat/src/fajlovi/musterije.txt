@@ -1,6 +1,7 @@
-5|Anja|Anjovski|0010006000890|muski|BulevaraPetrovica90|061416614|anjanj|87665|30
-4|Minder|Ivkocender|051551|zenski|Ivanovicesva22|06419419|miniv|12345678|107
-3|Stefan|Petrovic|41515131|muski|Niksicka3|06415113|stefanp|agag|44
-2|Milan|Ivanovi|4005001020|muski|Preradoviceva42|065412413|milani|12345|4
-1|Ivan|Petrovic|12356788|muski|Mikelandjelova4|064232312|ivanp|eeer|123
-6|Vedran|Vedranovic|41211111|muski|KraljaMilosa33|0642124412|vedranv|vve|34
+5|Anja|Anjovski|0010006000890|muski|BulevaraPetrovica90|061416614|anjanj|87665|30|0
+4|Minder|Ivkocender|051551|zenski|Ivanovicesva22|06419419|miniv|12345678|107|0
+3|Stefan|Petrovic|41515131|muski|Niksicka3|06415113|stefanp|agag|44|0
+2|Milan|Ivanovi|4005001020|muski|Preradoviceva42|065412413|milani|12345|4|0
+1|Ivan|Petrovic|12356788|muski|Mikelandjelova4|064232312|ivanp|eeer|123|0
+6|Vedran|Vedranovic|41211111|muski|KraljaMilosa33|0642124412|vedranv|vve|34|1
+7|ee|ee|100|muski|rr|rr|rre|123|4|1

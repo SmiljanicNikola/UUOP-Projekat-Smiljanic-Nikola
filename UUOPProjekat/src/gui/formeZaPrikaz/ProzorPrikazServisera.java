@@ -57,10 +57,10 @@ public class ProzorPrikazServisera extends JFrame {
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 		
 		String[] zaglavlje = new String[] {"id", "ime", "prezime", "jmbg", "pol", "adresa", "telefon", "korisnickoIme", "lozinka", "plata", "specijalizacija"};
-		Object[][] sadrzaj = new Object[Crudoperacije.getServisere().size()][zaglavlje.length];
+		Object[][] sadrzaj = new Object[Crudoperacije.sviNeobrisaniServiseri().size()][zaglavlje.length];
 		
-		for(int i = 0; i<Crudoperacije.getServisere().size(); i++) {
-			Serviser serviser = Crudoperacije.getServisere().get(i);
+		for(int i = 0; i<Crudoperacije.sviNeobrisaniServiseri().size(); i++) {
+			Serviser serviser = Crudoperacije.sviNeobrisaniServiseri().get(i);
 			sadrzaj[i][0] = serviser.getId();
 			sadrzaj[i][1] = serviser.getIme();
 			sadrzaj[i][2] = serviser.getPrezime();
@@ -107,11 +107,11 @@ public class ProzorPrikazServisera extends JFrame {
 				} else {
 					
 					String korisnickoIme = tableModel.getValueAt(red, 7).toString();
-					Serviser serviser = Crudoperacije.nadjiServisera(korisnickoIme);
+					Serviser serviser = CRUDOperacije.nadjiServisera(korisnickoIme);
 					
 					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da obrisete servisera?", "Potvrda", JOptionPane.YES_NO_OPTION);
 					if(izbor == JOptionPane.YES_OPTION) {
-						serviser.setId(-1);
+						serviser.setIsDeleted(1);
 						tableModel.removeRow(red);
 						Crudoperacije.snimiServisere();
 					}

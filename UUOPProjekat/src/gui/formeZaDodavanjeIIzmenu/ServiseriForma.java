@@ -135,9 +135,9 @@ public class ServiseriForma extends JFrame {
 					String sifra = new String(pfSifra.getPassword()).trim();
 					double plata = Double.parseDouble(txtPlata.getText().trim());
 					specijalizacija specijalizacija = (specijalizacija) cbSpecijalizacija.getSelectedItem();
-					
+					Integer isDeleted = 0;
 					if(serviser == null) { //Dodaj:
-					Serviser serviser = new Serviser(id, ime, prezime, jmbg, pol, adresa, telefon, korisnickoIme, sifra, plata, specijalizacija);
+					Serviser serviser = new Serviser(id, ime, prezime, jmbg, pol, adresa, telefon, korisnickoIme, sifra, plata, specijalizacija, isDeleted);
 					Crudoperacije.dodajServisera(serviser);
 					} else { //Izmeni:
 						serviser.setId(id);

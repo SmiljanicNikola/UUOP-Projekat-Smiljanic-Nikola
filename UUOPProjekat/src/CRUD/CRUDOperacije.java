@@ -136,6 +136,26 @@ public class CRUDOperacije {
 		return neobrisani;
 	}
 	
+	public ArrayList<Musterija> sveNeobrisaneMusterije(){
+		ArrayList<Musterija> neobrisani = new ArrayList<Musterija>();
+		for(Musterija musterija : ucitani) {
+			if(musterija.getIsDeleted() == 0) {
+				neobrisani.add(musterija);
+			}
+		}
+		return neobrisani;
+	}
+	
+	public ArrayList<Serviser> sviNeobrisaniServiseri(){
+		ArrayList<Serviser> neobrisani = new ArrayList<Serviser>();
+		for(Serviser serviser : ucitaniServiseri) {
+			if(serviser.getIsDeleted() == 0) {
+				neobrisani.add(serviser);
+			}
+		}
+		return neobrisani;
+	}
+	
 	public Musterija login(String korisnickoIme, String lozinka) {
 		ArrayList<Musterija> ucitaneMusterije = UcitajMusterije.prikaziMusterije();
 		for(Musterija musterija : ucitaneMusterije) {
@@ -172,7 +192,7 @@ public class CRUDOperacije {
 			BufferedWriter br = new BufferedWriter(new FileWriter(file));
 			String sadrzaj = "";
 			for(Serviser serviser : ucitaniServiseri) {
-				sadrzaj += serviser.getId() + "|" + serviser.getIme() + "|" + serviser.getPrezime() + "|" + serviser.getJmbg() + "|" + serviser.getPol() + "|" +  serviser.getAdresa() + "|" + serviser.getTelefon() + "|" + serviser.getKorisnickoIme() + "|" + serviser.getLozinka() + "|" + serviser.getPlata() + "|" + serviser.getSpecijalizacija() + "\n";
+				sadrzaj += serviser.getId() + "|" + serviser.getIme() + "|" + serviser.getPrezime() + "|" + serviser.getJmbg() + "|" + serviser.getPol() + "|" +  serviser.getAdresa() + "|" + serviser.getTelefon() + "|" + serviser.getKorisnickoIme() + "|" + serviser.getLozinka() + "|" + serviser.getPlata() + "|" + serviser.getSpecijalizacija() + "|" + serviser.getIsDeleted() + "\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -217,7 +237,7 @@ public class CRUDOperacije {
 			BufferedWriter br = new BufferedWriter(new FileWriter(file));
 			String sadrzaj = "";
 			for(Musterija musterija : ucitani) {
-				sadrzaj += musterija.getId() + "|" + musterija.getIme() + "|" + musterija.getPrezime() + "|" + musterija.getJmbg() + "|" + musterija.getPol() + "|" +  musterija.getAdresa() + "|" + musterija.getTelefon() + "|" + musterija.getKorisnickoIme() + "|" + musterija.getLozinka() + "|" + musterija.getNagradniBodovi() + "\n";
+				sadrzaj += musterija.getId() + "|" + musterija.getIme() + "|" + musterija.getPrezime() + "|" + musterija.getJmbg() + "|" + musterija.getPol() + "|" +  musterija.getAdresa() + "|" + musterija.getTelefon() + "|" + musterija.getKorisnickoIme() + "|" + musterija.getLozinka() + "|" + musterija.getNagradniBodovi() + "|" + musterija.getIsDeleted() + "\n";
 			}
 			br.write(sadrzaj);
 			br.close();

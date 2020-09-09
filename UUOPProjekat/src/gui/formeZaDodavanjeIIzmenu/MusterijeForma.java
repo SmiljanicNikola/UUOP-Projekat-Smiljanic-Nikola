@@ -119,9 +119,10 @@ public class MusterijeForma extends JFrame {
 					String korisnickoIme = txtkorisnickoIme.getText().trim();
 					String sifra = new String(pfSifra.getPassword()).trim();
 					int nagradniBodovi = Integer.parseInt(txtnagradniBodovi.getText().trim());
+					Integer isDeleted = 0;
 					
 					if(musterija == null) { //Dodaj:
-					Musterija musterija = new Musterija(id, ime, prezime, jmbg, pol, adresa, telefon, korisnickoIme, sifra, nagradniBodovi);
+					Musterija musterija = new Musterija(id, ime, prezime, jmbg, pol, adresa, telefon, korisnickoIme, sifra, nagradniBodovi, isDeleted);
 					Crudoperacije.dodajMusteriju(musterija);
 					} else { //Izmeni:
 						musterija.setId(id);

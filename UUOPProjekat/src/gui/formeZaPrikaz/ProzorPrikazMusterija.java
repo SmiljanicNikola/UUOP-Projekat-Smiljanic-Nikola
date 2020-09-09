@@ -56,10 +56,10 @@ public class ProzorPrikazMusterija extends JFrame {
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 		
 		String[] zaglavlje = new String[] {"id", "ime", "prezime", "jmbg", "pol", "adresa", "telefon", "korisnickoIme", "lozinka", "nagradniBodovi"};
-		Object[][] sadrzaj = new Object[Crudoperacije.getMusterije().size()][zaglavlje.length];
+		Object[][] sadrzaj = new Object[Crudoperacije.sveNeobrisaneMusterije().size()][zaglavlje.length];
 		
-		for(int i = 0; i<Crudoperacije.getMusterije().size(); i++) {
-			Musterija musterija = Crudoperacije.getMusterije().get(i);
+		for(int i = 0; i<Crudoperacije.sveNeobrisaneMusterije().size(); i++) {
+			Musterija musterija = Crudoperacije.sveNeobrisaneMusterije().get(i);
 			sadrzaj[i][0] = musterija.getId();
 			sadrzaj[i][1] = musterija.getIme();
 			sadrzaj[i][2] = musterija.getPrezime();
@@ -97,11 +97,11 @@ public class ProzorPrikazMusterija extends JFrame {
 					JOptionPane.showMessageDialog(null, "Morate selektovati zeljeni red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
 				} else {
 					String korisnickoIme = tableModel.getValueAt(red, 7).toString();
-					Musterija musterija = Crudoperacije.nadjiMusteriju(korisnickoIme);
+					Musterija musterija = CRUDOperacije.nadjiMusteriju(korisnickoIme); // ODAOODOADODAOAODDL
 			
 					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da obrisete musteriju ?", "Potvrda brisanja", JOptionPane.YES_NO_OPTION);
 					if(izbor == JOptionPane.YES_OPTION) {
-						musterija.setId(-1);
+						musterija.setIsDeleted(1); 
 						tableModel.removeRow(red);
 						Crudoperacije.snimiMusterije();
 						

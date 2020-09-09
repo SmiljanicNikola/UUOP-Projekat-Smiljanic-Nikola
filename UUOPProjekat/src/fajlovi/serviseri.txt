@@ -1,6 +1,7 @@
-1|Ivan|Nikolajevic|415919591|zenski|Ivanovska42|065413122|ivann|98765|40000.0|autoelektricar
-2|Miona|Grkovic|0900410400|zenski|Okolinska40|069-302023|mionag|56789|30000.0|autoelektricar
-3|Momir|Momirovski|403000020|muski|Adresovska30|069538182|momirm|1234|32000.0|limar
-4|Nikolaj|Sergejevic|104000300|muski|Ivkovska30|065-43920124|nikolajs|12345|47900.0|automehanicar
-5|Milovan|Stefanovic|19004040|muski|Narodnog fronta 39|069322399|milovans|135|40000.0|limar
-6|Mirko|Jurkovic|90010004000|muski|Prerdiri43|065915123|mirkoj|12345|50000.0|vulkanizer
+1|Ivan|Nikolajevic|415919591|zenski|Ivanovska42|065413122|ivann|98765|40000.0|autoelektricar|0
+2|Miona|Grkovic|0900410400|zenski|Okolinska40|069-302023|mionag|56789|30000.0|autoelektricar|0
+3|Momir|Momirovski|403000020|muski|Adresovska30|069538182|momirm|1234|32000.0|limar|0
+4|Nikolaj|Sergejevic|104000300|muski|Ivkovska30|065-43920124|nikolajs|12345|47900.0|automehanicar|0
+5|Milovan|Stefanovic|19004040|muski|Narodnog fronta 39|069322399|milovans|135|40000.0|limar|0
+6|Mirko|Jurkovic|90010004000|muski|Prerdiri43|065915123|mirkoj|12345|50000.0|vulkanizer|0
+7|ee|rre|4151|muski|tqgq|gqgq|ggqgq|gqgq|32000.0|vulkanizer|1

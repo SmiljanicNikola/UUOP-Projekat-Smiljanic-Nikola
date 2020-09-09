@@ -31,8 +31,9 @@ public class UcitajMusterije {
 			String brojTelefona = lineSplit[6];
 			String korisnickoIme = lineSplit[7];
 			String lozinka = lineSplit[8];
-			int nagradniBodovi = Integer.parseInt(lineSplit[9]);	
-			Musterija musterija1 = new Musterija(id, ime, prezime, jmbg, pol, adresa, brojTelefona, korisnickoIme, lozinka, nagradniBodovi);
+			int nagradniBodovi = Integer.parseInt(lineSplit[9]);
+			int isDeleted = Integer.parseInt(lineSplit[10]);
+			Musterija musterija1 = new Musterija(id, ime, prezime, jmbg, pol, adresa, brojTelefona, korisnickoIme, lozinka, nagradniBodovi, isDeleted);
 			musterije.add(musterija1);
 		}
 		reader.close(); 
