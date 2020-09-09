@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import gui.formeZaDodavanjeIIzmenu.ServisneKnjiziceForma;
@@ -391,7 +393,13 @@ public class CRUDOperacije {
 		return null;
 	}
 
-	
+	public String genDeoOznaka() {
+		//Comparator<ServisniDeo> porediPoOznaci = (ServisniDeo d1, ServisniDeo d2) -> (d1 = d1.getId()) = d2.getId();
+		ArrayList<ServisniDeo> delovi = this.getServisniDeo();
+		//Collections.sort(delovi, porediPoOznaci);
+		int noviId = Integer.parseInt(null, delovi.get(delovi.size() - 1).getId() + 1);
+		return Integer.toString(noviId);
+	}
 
 
 	

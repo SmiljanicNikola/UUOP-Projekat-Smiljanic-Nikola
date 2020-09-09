@@ -38,6 +38,7 @@ public class ServisniDeloviForma extends JFrame {
 	
 	private JButton btnOk = new JButton("Ok");
 	private JButton btnCancel = new JButton("Cancel");
+	private JButton btnSimetricanDeo = new JButton("Kreiraj simetrican deo");
 	
 	CRUDOperacije Crudoperacije = new CRUDOperacije();
 	private ServisniDeo servisnideo;
@@ -85,6 +86,7 @@ public class ServisniDeloviForma extends JFrame {
 		add(cbServis);
 		add(btnOk, "split 2");
 		add(btnCancel);
+		add(btnSimetricanDeo);
 	}
 	
 	public void initActions(){
@@ -116,7 +118,7 @@ public class ServisniDeloviForma extends JFrame {
 					 Crudoperacije.snimiServisneDelove();
 					 ServisniDeloviForma.this.dispose();
 					 ServisniDeloviForma.this.setVisible(false);
-					
+					 
 				}
 			}
 		});
@@ -127,6 +129,40 @@ public class ServisniDeloviForma extends JFrame {
 				ServisniDeloviForma.this.dispose();
 				ServisniDeloviForma.this.setVisible(false);
 				
+			}
+		});
+		btnSimetricanDeo.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				int id = Integer.parseInt(txtId.getText().trim());
+				marka marka = (enumeracije.marka) cbMarka.getSelectedItem();
+				model model = (enumeracije.model) cbModel.getSelectedItem();
+				int cena = Integer.parseInt(txtCena.getText().trim());
+				
+				Integer servisId = (Integer) cbServis.getSelectedItem();
+				ServisAutomobila servis = CRUDOperacije.nadjiServiseAutomobila2(servisId);
+				Integer isDeleted = 0;
+				
+				if(servisnideo.getNazivDela().contains("Leva strana") || servisnideo.getNazivDela().contains("Desna strana")) {
+					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da unesete simetrican deo, dela: " + servisnideo.getNazivDela(),
+							"Simetrican deo", JOptionPane.YES_NO_OPTION);
+					
+					if(izbor == JOptionPane.YES_OPTION) {
+						
+						String[] deloviNaziva = servisnideo.getNazivDela().split("\\-");
+						String simNaziv = "";
+						if(deloviNaziva[1].trim().equals("Leva strana")) simNaziv = deloviNaziva[0].trim() + " - " + "Desna strana";
+						else simNaziv = deloviNaziva[0].trim() + " - " + "Leva strana";
+						
+					    ServisniDeo simetricanDeo = new ServisniDeo(id, marka, model, cena, simNaziv, servis, 0);
+						Crudoperacije.dodajServisniDeo(simetricanDeo);
+						Crudoperacije.snimiServisneDelove();
+						ServisniDeloviForma.this.dispose();
+						ServisniDeloviForma.this.setVisible(false);	
+				}
+				}
 			}
 		});
 	}

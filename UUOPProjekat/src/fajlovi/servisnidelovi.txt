@@ -3,4 +3,5 @@
 3|mercedes|W220|12000|karburator|1|0
 4|audi|W220|14000|akumulator|4|0
 5|audi|W220|9000|turbina|6|0
-6|bmw|X5|7000|Katadiopter - Leva strana|5|0
+7|bmw|W220|7000|katadiopter - Leva strana|5|0
+6|bmw|W220|7000|katadiopter - Desna strana|5|0

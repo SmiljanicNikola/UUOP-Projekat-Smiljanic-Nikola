@@ -13,12 +13,16 @@ import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
+import enumeracije.*;
 
 import CRUD.CRUDOperacije;
+import enumeracije.marka;
 import gui.formeZaDodavanjeIIzmenu.AdministratoriForma;
 import gui.formeZaDodavanjeIIzmenu.ServisniDeloviForma;
 import model.Administrator;
 import model.Automobil;
+import enumeracije.marka;
+import enumeracije.model;
 import model.ServisAutomobila;
 import model.ServisniDeo;
 
@@ -35,7 +39,7 @@ public class ProzorPrikazServisnihDelova extends JFrame {
 	CRUDOperacije Crudoperacije = new CRUDOperacije();
 	//public Administrator admin;
 	//public ServisAutomobila servisauta;
-	//private ServisniDeo servisnideo;
+	private ServisniDeo servisnideo;
 	
 	public ProzorPrikazServisnihDelova(CRUDOperacije Crudoperacije) {
 		this.Crudoperacije = Crudoperacije;
@@ -59,6 +63,7 @@ public class ProzorPrikazServisnihDelova extends JFrame {
 		mainToolbar.add(btnAdd);
 		mainToolbar.add(btnEdit);
 		mainToolbar.add(btnDelete);
+		
 		add(mainToolbar, BorderLayout.NORTH);
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 		
@@ -140,6 +145,7 @@ public class ProzorPrikazServisnihDelova extends JFrame {
 				
 			}
 		});
+		
 	}
 	
 	
