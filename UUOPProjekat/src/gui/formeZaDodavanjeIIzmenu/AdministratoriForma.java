@@ -113,10 +113,11 @@ public class AdministratoriForma extends JFrame {
 					String korisnickoIme = txtkorisnickoIme.getText().trim();
 					String sifra = new String(pfSifra.getPassword()).trim();
 					double plata = Double.parseDouble(txtPlata.getText().trim());
-
+					Integer isDeleted = 0;
+					
 					if (administrator == null) { 
 						Administrator administrator = new Administrator(id, ime, prezime, jmbg, pol, adresa, telefon,
-								korisnickoIme, sifra, plata);
+								korisnickoIme, sifra, plata, isDeleted);
 								Crudoperacije.DodajAdministratora(administrator);
 					} else { 
 						administrator.setId(id);

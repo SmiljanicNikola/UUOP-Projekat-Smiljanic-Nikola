@@ -31,7 +31,8 @@ public class UcitajAdministratore {
 				String korisnickoIme = lineSplit[7];
 				String lozinka = lineSplit[8];
 				double plata = Double.parseDouble(lineSplit[9]);
-				Administrator administrator1 = new Administrator(id, ime, prezime, jmbg, pol, adresa, telefon, korisnickoIme, lozinka, plata);
+				int isDeleted = Integer.parseInt(lineSplit[10]);
+				Administrator administrator1 = new Administrator(id, ime, prezime, jmbg, pol, adresa, telefon, korisnickoIme, lozinka, plata, isDeleted);
 				administratori.add(administrator1);
 				
 				

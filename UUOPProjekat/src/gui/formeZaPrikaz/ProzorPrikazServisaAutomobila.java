@@ -74,10 +74,11 @@ public class ProzorPrikazServisaAutomobila extends JFrame {
 			//	delovi += deo.getNazivDela() + ", ";
 			//}
 			String delovi = "";
-			for(ServisniDeo deo : Crudoperacije.getServisniDeo()) {
-				//if(deo.getServis().equals(servisautomobila)) {
+			for(ServisniDeo deo : Crudoperacije.getServisniDeo(0)) {
+				if(deo.getServis().getId() == servisautomobila.getId()) {
 					delovi = deo.getNazivDela();
-				//}
+				}
+				
 			}
 			sadrzaj[i][5] = delovi;
 			sadrzaj[i][6] = servisautomobila.getStatusServisa();
@@ -94,6 +95,7 @@ public class ProzorPrikazServisaAutomobila extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane(servisiAutomobilaTabela);
 		add(scrollPane, BorderLayout.CENTER);
+		
 	}
 	
 	public void initActions() {

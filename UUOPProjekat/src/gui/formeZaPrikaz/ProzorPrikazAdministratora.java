@@ -59,10 +59,10 @@ public class ProzorPrikazAdministratora extends JFrame {
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 		
 		String[] zaglavlje = new String[] {"id", "ime", "prezime", "jmbg", "pol", "adresa", "telefon", "korisnickoIme", "lozinka", "plata"};
-		Object[][] sadrzaj = new Object[Crudoperacije.getAdministratore().size()][zaglavlje.length];
+		Object[][] sadrzaj = new Object[Crudoperacije.sviNeobrisaniAdministratori().size()][zaglavlje.length];
 		
-		for(int i = 0; i<Crudoperacije.getAdministratore().size(); i++) {
-			Administrator administrator = Crudoperacije.getAdministratore().get(i);
+		for(int i = 0; i<Crudoperacije.sviNeobrisaniAdministratori().size(); i++) {
+			Administrator administrator = Crudoperacije.sviNeobrisaniAdministratori().get(i);
 			sadrzaj[i][0] = administrator.getId();
 			sadrzaj[i][1] = administrator.getIme();
 			sadrzaj[i][2] = administrator.getPrezime();
@@ -111,7 +111,7 @@ public class ProzorPrikazAdministratora extends JFrame {
 					
 					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da obrisete administratora?", "Potvrda", JOptionPane.YES_NO_OPTION);
 					if(izbor == JOptionPane.YES_OPTION) {
-						administrator.setId(-1);
+						administrator.setIsDeleted(1);
 						tableModel.removeRow(red);
 						Crudoperacije.snimiAdministratore();
 					}

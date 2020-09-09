@@ -98,17 +98,17 @@ public class ServisniDeo {
 		this.isDeleted = isDeleted;
 	}
 
-	
-	public void delete() {
-		setIsDeleted(1);
-	}
+
 
 	@Override
 	public String toString() {
 		return "ServisniDeo [id=" + id + ", markaAutomobila=" + markaAutomobila + ", modelAutomobila=" + modelAutomobila
-				+ ", cena=" + cena + ", nazivDela=" + nazivDela + "]";
+				+ ", cena=" + cena + ", nazivDela=" + nazivDela + ", servis=" + servis + ", isDeleted=" + isDeleted
+				+ "]";
 	}
 
+
+	
 
 
 

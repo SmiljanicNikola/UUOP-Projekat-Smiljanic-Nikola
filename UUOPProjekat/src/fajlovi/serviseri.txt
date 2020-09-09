@@ -3,5 +3,6 @@
 3|Momir|Momirovski|403000020|muski|Adresovska30|069538182|momirm|1234|32000.0|limar|0
 4|Nikolaj|Sergejevic|104000300|muski|Ivkovska30|065-43920124|nikolajs|12345|47900.0|automehanicar|0
 5|Milovan|Stefanovic|19004040|muski|Narodnog fronta 39|069322399|milovans|135|40000.0|limar|0
-6|Mirko|Jurkovic|90010004000|muski|Prerdiri43|065915123|mirkoj|12345|50000.0|vulkanizer|0
+6|Mirko|Jurkovic|90010004000|muski|Preradoviceva14|065915123|mirkoj|12345|50000.0|vulkanizer|0
 7|ee|rre|4151|muski|tqgq|gqgq|ggqgq|gqgq|32000.0|vulkanizer|1
+7|nenad|hhgsgs|1050600541|muski|gqhhjqj|jqjjsgssv|rre|123|30000.0|limar|1

@@ -156,6 +156,16 @@ public class CRUDOperacije {
 		return neobrisani;
 	}
 	
+	public ArrayList<Administrator> sviNeobrisaniAdministratori(){
+		ArrayList<Administrator> neobrisani = new ArrayList<Administrator>();
+		for(Administrator administrator : ucitaniAdministratori) {
+			if(administrator.getIsDeleted() == 0) {
+				neobrisani.add(administrator);
+			}
+		}
+		return neobrisani;
+	}
+	
 	public Musterija login(String korisnickoIme, String lozinka) {
 		ArrayList<Musterija> ucitaneMusterije = UcitajMusterije.prikaziMusterije();
 		for(Musterija musterija : ucitaneMusterije) {
@@ -165,6 +175,7 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
+	
 	
 	
 	public Serviser loginServiser(String korisnickoIme, String lozinka) {
@@ -282,7 +293,7 @@ public class CRUDOperacije {
 			BufferedWriter br = new BufferedWriter(new FileWriter(file));
 			String sadrzaj = "";
 			for(Administrator administrator : ucitaniAdministratori) {
-				sadrzaj += administrator.getId() + "|" + administrator.getIme() + "|" + administrator.getPrezime() + "|" + administrator.getJmbg() + "|" + administrator.getPol() + "|" +  administrator.getAdresa() + "|" + administrator.getTelefon() + "|" + administrator.getKorisnickoIme() + "|" + administrator.getLozinka() + "|" + administrator.getPlata() + "\n";
+				sadrzaj += administrator.getId() + "|" + administrator.getIme() + "|" + administrator.getPrezime() + "|" + administrator.getJmbg() + "|" + administrator.getPol() + "|" +  administrator.getAdresa() + "|" + administrator.getTelefon() + "|" + administrator.getKorisnickoIme() + "|" + administrator.getLozinka() + "|" + administrator.getPlata() + "|" + administrator.getIsDeleted() +  "\n";
 			}
 			br.write(sadrzaj);
 			br.close();
