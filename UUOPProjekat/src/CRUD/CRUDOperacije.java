@@ -72,7 +72,7 @@ public class CRUDOperacije {
 		return ucitaniAutomobili;
 	}
 	
-	public ArrayList<Automobil> getAutomobile(int i) {
+	public ArrayList<Automobil> getAutomobile(int id) {
 		return ucitaniAutomobili;
 	}
 
@@ -279,6 +279,8 @@ public class CRUDOperacije {
 		return null;
 	}
 	
+
+	
 	public Musterija nadjiMusteriju2(String vlasnikId) {
 		
 		ArrayList<Musterija> musterije = UcitajMusterije.prikaziMusterije();
@@ -319,6 +321,13 @@ public class CRUDOperacije {
 		return null;
 	}
 	
+	public Automobil nadjiAutomobil2(int id) {
+		for(Automobil automobil : getAutomobile()) {
+				if(automobil.getId() == id) return automobil;
+		}
+	return null;
+}
+	
 	public Administrator nadjiAdministratora(String korisnickoIme) {
 		for(Administrator administrator : ucitaniAdministratori) {
 			if(administrator.getKorisnickoIme().equals(korisnickoIme)) {
@@ -355,12 +364,6 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
-	//public Musterija nadjiMusteriju(String oznaka) {
-	//	for(Korisnik musterija : korisnici) {
-	//		if(musterija.getOznaka().equals(oznaka) && musterija instanceof Musterija) return (Musterija) musterija;
-	////	}
-		//return null;
-	//}
 
 	public static Musterija nadjiMusteriju(String korisnickoIme) {
 		for(Musterija musterija : ucitani) {

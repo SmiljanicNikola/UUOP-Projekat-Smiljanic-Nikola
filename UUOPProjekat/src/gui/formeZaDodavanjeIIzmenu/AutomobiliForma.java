@@ -127,14 +127,15 @@ public class AutomobiliForma extends JFrame {
 						Automobil automobil = new Automobil(id, vlasnik, marka, model, godinaProizvodnje, zapreminaMotora, snagaMotora, vrstaGoriva);
 						Crudoperacije.dodajAutomobil(automobil);
 					} else { 
-						automobil.setId(id);
+						//automobil.setId(id);
 						automobil.setVlasnik(vlasnik);
-						automobil.setMarka(marka);
+					    automobil.setMarka(marka);
 						automobil.setModel(model);
 						automobil.setGodinaProizvodnje(godinaProizvodnje);
 						automobil.setZapreminaMotora(zapreminaMotora);
 						automobil.setSnagaMotora(snagaMotora);
 						automobil.setVrstaGoriva(vrstaGoriva);
+						//automobil.izmenaAutomobila(vlasnik, marka, model, godinaProizvodnje, zapreminaMotora, snagaMotora, vrstaGoriva);
 					}
 					 Crudoperacije.snimiAutomobile();
 					 AutomobiliForma.this.dispose();

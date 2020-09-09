@@ -1,6 +1,7 @@
 1|anjanj|bmw|X5|2014|3000cm3|290KS|dizel
 2|milani|mercedes|W220|2013|2500cm3|190KS|dizel
-3|stefanp|bmw|X5|2005|2500|300KS|dizel
-4|milani|bmw|X5|2004|2997|200kW|dizel
+3|stefanp|bmw|X5|2008|2500cm3|300KS|dizel
+4|milani|bmw|X5|2009|2997cm3|200kW|dizel
 5|vedranv|audi|A6|2010|2999cm3|200kW|dizel
-6|ivanp|mercedes|GLS|2018|3000|300HP|dizel
+6|ivanp|mercedes|GLS|2018|3000cm3|300HP|dizel
+7|stefanp|audi|Q6|2014|3999cm3|300kW|dizel

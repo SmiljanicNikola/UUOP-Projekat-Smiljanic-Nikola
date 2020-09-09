@@ -12,6 +12,7 @@ import CRUD.CRUDOperacije;
 import gui.zaMusteriju.PrikazZaMusteriju;
 import gui.zaServisera.PrikazZaServisera;
 import model.Administrator;
+import model.Automobil;
 import model.Musterija;
 import model.Serviser;
 
@@ -26,15 +27,15 @@ public class GlavniProzorMusterija extends JFrame {
 
 	
 	private CRUDOperacije crudoperacije;
-	private Musterija prijavljeni;
+	private Musterija prijavljenaMusterija;
 	private Serviser prijavljeniServiser;
 	private Administrator prijavljeniAdministrator;
-	private Musterija prijavljenaMusterija;
+	private Automobil automobil;
 	
-	public GlavniProzorMusterija(CRUDOperacije crudoperacije, Musterija prijavljeni) {
+	public GlavniProzorMusterija(CRUDOperacije crudoperacije, Musterija prijavljenaMusterija) {
 		this.crudoperacije = crudoperacije;
-		this.prijavljeni = prijavljeni;
-		setTitle("Musterija: " + prijavljeni.getKorisnickoIme());
+		this.prijavljenaMusterija = prijavljenaMusterija;
+		setTitle("Musterija: " + prijavljenaMusterija.getKorisnickoIme());
 		setSize(500, 500);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -65,7 +66,7 @@ public class GlavniProzorMusterija extends JFrame {
 		prikazivanjeAutomobilaMusterijeItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PrikazZaMusteriju pzm = new PrikazZaMusteriju(crudoperacije, prijavljenaMusterija);
+				gui.zaMusteriju.PrikazZaMusteriju pzm = new gui.zaMusteriju.PrikazZaMusteriju(crudoperacije, prijavljenaMusterija, automobil);
 				pzm.setVisible(true);
 				
 			}

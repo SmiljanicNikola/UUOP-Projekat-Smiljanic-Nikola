@@ -1,5 +1,6 @@
 package model;
 
+
 public class Automobil {
 	
 	public int id;
@@ -115,6 +116,17 @@ public class Automobil {
 				+ snagaMotora + ", vrstaGoriva=" + vrstaGoriva + "]";
 	}
 
+	public void izmenaAutomobila(Musterija vlasnik, enumeracije.marka marka, enumeracije.model model, int godinaProizvodnje,
+			String zapreminaMotora, String snagaMotora, enumeracije.vrstaGoriva vrstaGoriva) {
+		
+		this.vlasnik = vlasnik;
+		this.marka = marka;
+		this.model = model;
+		this.godinaProizvodnje = godinaProizvodnje;
+		this.zapreminaMotora = zapreminaMotora;
+		this.snagaMotora = snagaMotora;
+		this.vrstaGoriva = vrstaGoriva;
+	}
 	
 	//public String toFile() {
 		//return String.format("%d|%s|%s|%s|%d|%s|%s|%d", id, vlasnik.korisnickoIme, marka, model, godinaProizvodnje, zapreminaMotora,

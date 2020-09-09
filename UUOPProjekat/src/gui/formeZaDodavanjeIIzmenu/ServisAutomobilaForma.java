@@ -129,7 +129,7 @@ public class ServisAutomobilaForma extends JFrame {
 						ServisAutomobila servisautomobila = new ServisAutomobila(id, servisiraniAutomobil, serviser, terminServisa, kratakOpis, new ArrayList<ServisniDeo>(), statusServisa);
 								Crudoperacije.dodajServisAutomobila(servisautomobila);
 					}  else { 
-						servisautomobila.setId(automobilId);
+						servisautomobila.setId(id);
 						servisautomobila.setServisiraniAutomobil(servisiraniAutomobil);
 						servisautomobila.setServiser(serviser);
 						servisautomobila.setTerminServisa(terminServisa);

@@ -24,16 +24,19 @@ public class PrikazZaMusteriju extends JFrame {
 	
 	CRUDOperacije Crudoperacije = new CRUDOperacije();
 	public Musterija prijavljenaMusterija;
+	public Automobil automobil;
 	
-	public PrikazZaMusteriju(CRUDOperacije Crudoperacije, Musterija prijavljenaMusterija) {
+	public PrikazZaMusteriju(CRUDOperacije Crudoperacije, Musterija prijavljenaMusterija, Automobil automobil) {
 		this.Crudoperacije = Crudoperacije;
 		this.prijavljenaMusterija = prijavljenaMusterija;
+		this.automobil = automobil;
 		setTitle("Automobili od prijavljene musterije");
 		setSize(600,450);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		initGUI();
 		initActions();
+		pack();
 		
 	}
 
