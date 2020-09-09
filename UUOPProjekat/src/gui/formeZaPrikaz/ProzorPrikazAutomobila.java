@@ -35,10 +35,12 @@ public class ProzorPrikazAutomobila extends JFrame {
 	public Automobil automobil;
 	public ServisAutomobila servisautomobila;
 	public Administrator admin;
+	public Musterija musterija;
 	
 	public ProzorPrikazAutomobila(CRUDOperacije Crudoperacije, Administrator admin, Musterija musterija) {
 		this.Crudoperacije = Crudoperacije;
 		this.admin = admin;
+		this.musterija = musterija;
 		setTitle("Automobili");
 		setSize(850,450);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -77,6 +79,8 @@ public class ProzorPrikazAutomobila extends JFrame {
 			sadrzaj[i][7] = automobil.getVrstaGoriva();
 			
 		}
+			
+	
 		
 		tableModel = new DefaultTableModel(sadrzaj, zaglavlje);
 		automobiliTabela = new JTable(tableModel);

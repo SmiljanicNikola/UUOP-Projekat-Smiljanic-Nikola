@@ -49,6 +49,7 @@ public class GlavniProzorAdministrator extends JFrame {
 	public GlavniProzorAdministrator(CRUDOperacije crudoperacije, Administrator prijavljeniAdministrator, Musterija musterija) {
 		this.crudoperacije = crudoperacije;
 		this.prijavljeniAdministrator = prijavljeniAdministrator;
+		this.musterija = musterija;
 		setTitle("Administrator: " + prijavljeniAdministrator.getKorisnickoIme());
 		setSize(500, 500);
 		setResizable(false);

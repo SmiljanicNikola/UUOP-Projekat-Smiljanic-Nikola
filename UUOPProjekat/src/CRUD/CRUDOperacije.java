@@ -55,6 +55,11 @@ public class CRUDOperacije {
 		return ucitaniServisi;
 	}
 	
+	public ArrayList<ServisniDeo> getServisniDeo(int i) {
+	
+		return ucitaniDelovi;
+	}
+	
 	public ArrayList<ServisniDeo> getServisniDeo(){
 		return ucitaniDelovi;
 	}
@@ -66,6 +71,11 @@ public class CRUDOperacije {
 	public ArrayList<Automobil> getAutomobile(){
 		return ucitaniAutomobili;
 	}
+	
+	public ArrayList<Automobil> getAutomobile(int i) {
+		return ucitaniAutomobili;
+	}
+
 	
 	public ArrayList<Administrator> getAdministratore(){
 		return ucitaniAdministratori;
@@ -260,7 +270,14 @@ public class CRUDOperacije {
 		//}
 	
 	
-	
+	public ServisniDeo nadjiDeo2(int id) {
+			for(ServisAutomobila servis : getServiseAutomobila()) {
+				for(ServisniDeo deo : getServisniDeo()) {
+					if(deo.getId() == id) return deo;
+				}
+			}
+		return null;
+	}
 	
 	public Musterija nadjiMusteriju2(String vlasnikId) {
 		
@@ -370,6 +387,8 @@ public class CRUDOperacije {
 		}
 		return null;
 	}
+
+	
 
 
 	

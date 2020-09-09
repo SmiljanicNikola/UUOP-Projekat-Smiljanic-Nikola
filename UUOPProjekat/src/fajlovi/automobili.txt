@@ -2,5 +2,5 @@
 2|milani|mercedes|W220|2013|2500cm3|190KS|dizel
 3|stefanp|bmw|X5|2005|2500|300KS|dizel
 4|milani|bmw|X5|2004|2997|200kW|dizel
-5|stefanp|audi|A6|2010|2999cm3|200kW|dizel
+5|vedranv|audi|A6|2010|2999cm3|200kW|dizel
 6|ivanp|mercedes|GLS|2018|3000|300HP|dizel

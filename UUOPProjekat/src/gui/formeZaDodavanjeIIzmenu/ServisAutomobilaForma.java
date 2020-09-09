@@ -2,6 +2,7 @@ package gui.formeZaDodavanjeIIzmenu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,6 +18,7 @@ import model.Automobil;
 import model.Musterija;
 import model.ServisAutomobila;
 import model.Serviser;
+import model.ServisniDeo;
 import net.miginfocom.swing.MigLayout;
 import enumeracije.Pol;
 
@@ -96,7 +98,7 @@ public class ServisAutomobilaForma extends JFrame {
 		add(lblKratakOpis);
 		add(txtKratakOpis);
 		add(lblDelovi);
-		add(txtDelovi);
+		//add(txtDelovi);
 		add(lblStatusServisa);
 		add(cbStatusServisa);
 		add(new JLabel());
@@ -120,11 +122,11 @@ public class ServisAutomobilaForma extends JFrame {
 					Serviser serviser = CRUDOperacije.nadjiServisera(korisnickoIme);
 					String terminServisa = txtTerminServisa.getText().trim();
 					String kratakOpis = txtKratakOpis.getText().trim();
-					String delovi = txtDelovi.getText().trim();
+					//String delovi = txtDelovi.getText().trim();
 					enumeracije.statusServisa statusServisa =  (enumeracije.statusServisa) cbStatusServisa.getSelectedItem();
 
 					if (servisautomobila == null) { 
-						ServisAutomobila servisautomobila = new ServisAutomobila(id, servisiraniAutomobil, serviser, terminServisa, kratakOpis, delovi, statusServisa);
+						ServisAutomobila servisautomobila = new ServisAutomobila(id, servisiraniAutomobil, serviser, terminServisa, kratakOpis, new ArrayList<ServisniDeo>(), statusServisa);
 								Crudoperacije.dodajServisAutomobila(servisautomobila);
 					}  else { 
 						servisautomobila.setId(automobilId);
@@ -132,7 +134,7 @@ public class ServisAutomobilaForma extends JFrame {
 						servisautomobila.setServiser(serviser);
 						servisautomobila.setTerminServisa(terminServisa);
 						servisautomobila.setKratakOpis(kratakOpis);
-						servisautomobila.setDelovi(delovi);
+						//servisautomobila.setDelovi(delovi);
 						servisautomobila.setStatusServisa(statusServisa);
 				
 					}
@@ -160,7 +162,7 @@ public class ServisAutomobilaForma extends JFrame {
 		}
 		txtTerminServisa.setText(servisautomobila.getTerminServisa());
 		txtKratakOpis.setText(servisautomobila.getKratakOpis());
-		txtDelovi.setText(servisautomobila.getDelovi());
+		//txtDelovi.setText(servisautomobila.getDelovi());
 		cbStatusServisa.setSelectedItem(servisautomobila.getStatusServisa());
 	}
 	private boolean validacija() {
@@ -192,10 +194,10 @@ public class ServisAutomobilaForma extends JFrame {
 			poruka += "Unesite KratakOpis \n";
 			ok = false;
 		}
-		if (txtDelovi.getText().trim().equals("")) {
-			poruka += "Unesite delove \n";
-			ok = false;
-		}
+		//if (txtDelovi.getText().trim().equals("")) {
+		//	poruka += "Unesite delove \n";
+		//	ok = false;
+		//}
 		
 		if (ok == false) {
 			JOptionPane.showMessageDialog(null, poruka, "neispravni podaci", JOptionPane.WARNING_MESSAGE);

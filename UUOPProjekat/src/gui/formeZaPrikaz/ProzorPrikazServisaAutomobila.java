@@ -20,6 +20,7 @@ import gui.formeZaDodavanjeIIzmenu.ServisAutomobilaForma;
 import model.Administrator;
 import model.Automobil;
 import model.ServisAutomobila;
+import model.ServisniDeo;
 
 public class ProzorPrikazServisaAutomobila extends JFrame {
 
@@ -68,7 +69,17 @@ public class ProzorPrikazServisaAutomobila extends JFrame {
 			sadrzaj[i][2] = servisautomobila.getServiser().getIme() + " " + servisautomobila.getServiser().getPrezime() + " | " + servisautomobila.getServiser().getKorisnickoIme();
 			sadrzaj[i][3] = servisautomobila.getTerminServisa();
 			sadrzaj[i][4] = servisautomobila.getKratakOpis();
-			sadrzaj[i][5] = servisautomobila.getDelovi();
+			//String delovi = "";
+			//for(ServisniDeo deo : servisautomobila.getDelovi()) {
+			//	delovi += deo.getNazivDela() + ", ";
+			//}
+			String delovi = "";
+			for(ServisniDeo deo : Crudoperacije.getServisniDeo()) {
+				//if(deo.getServis().equals(servisautomobila)) {
+					delovi = deo.getNazivDela();
+				//}
+			}
+			sadrzaj[i][5] = delovi;
 			sadrzaj[i][6] = servisautomobila.getStatusServisa();
 		}
 		tableModel = new DefaultTableModel(sadrzaj, zaglavlje);

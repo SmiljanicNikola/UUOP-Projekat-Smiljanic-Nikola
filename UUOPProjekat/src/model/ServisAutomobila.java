@@ -11,7 +11,7 @@ public class ServisAutomobila {
 	public Serviser serviser;
 	public String terminServisa;
 	public String kratakOpis;
-	public String delovi;
+	private ArrayList<ServisniDeo> delovi;
 	public enumeracije.statusServisa statusServisa;
 	
 	public ServisAutomobila() {
@@ -19,13 +19,13 @@ public class ServisAutomobila {
 		this.servisiraniAutomobil = new Automobil();
 		this.serviser = new Serviser();
 		this.kratakOpis = "";
-		this.delovi = "";
+		this.delovi = new ArrayList<ServisniDeo>();
 		this.statusServisa = enumeracije.statusServisa.aktivan;
 	}
 
 
 	public ServisAutomobila(int id, Automobil servisiraniAutomobil, Serviser serviser, String terminServisa,
-			String kratakOpis, String delovi, enumeracije.statusServisa statusServisa) {
+			String kratakOpis, ArrayList<ServisniDeo> delovi, enumeracije.statusServisa statusServisa) {
 		super();
 		this.id = id;
 		this.servisiraniAutomobil = servisiraniAutomobil;
@@ -76,7 +76,23 @@ public class ServisAutomobila {
 		this.kratakOpis = kratakOpis;
 	}
 
+	public ArrayList<ServisniDeo> getDelovi() {
+		return delovi;
+	}
 
+
+	public void setDelovi(ArrayList<ServisniDeo> delovi) {
+		this.delovi = delovi;
+	}
+
+	public ArrayList<ServisniDeo> getDelovi(int del) {
+		ArrayList<ServisniDeo> delovi = new ArrayList<ServisniDeo>();
+		for(ServisniDeo deo : this.delovi) {
+			if(deo.getIsDeleted() == del) delovi.add(deo);
+		}
+		return delovi;
+	}
+	
 	public enumeracije.statusServisa getStatusServisa() {
 		return statusServisa;
 	}
@@ -84,16 +100,6 @@ public class ServisAutomobila {
 	public void setStatusServisa(enumeracije.statusServisa statusServisa) {
 		this.statusServisa = statusServisa;
 	}
-
-	public String getDelovi() {
-		return delovi;
-	}
-
-
-	public void setDelovi(String delovi) {
-		this.delovi = delovi;
-	}
-
 
 	@Override
 	public String toString() {
@@ -107,6 +113,15 @@ public class ServisAutomobila {
 				terminServisa, kratakOpis, delovi, statusServisa);
 	}
 	
+	public void dodajDeo(ServisniDeo deo) {
+		if(deo != null) delovi.add(deo);
+	}
+
+
+	public Object getServisniDeo(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	
 	

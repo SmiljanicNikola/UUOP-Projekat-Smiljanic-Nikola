@@ -34,7 +34,8 @@ public static ArrayList<ServisAutomobila> prikaziServiseAutomobila() {
 			Serviser serviser = CRUDOperacije.nadjiServisera(korisnickoIme);
 			String terminServisa = lineSplit[3];
 			String kratakOpis = lineSplit[4];
-			String delovi = lineSplit[5];
+			//int deoId = Integer.parseInt(lineSplit[5]);
+			ArrayList<ServisniDeo> delovi= new ArrayList<ServisniDeo>();
 			statusServisa statusServisa = enumeracije.statusServisa.valueOf(lineSplit[6]);
 			ServisAutomobila servisautomobila1 = new ServisAutomobila(id, servisiraniAutomobil, serviser, terminServisa, kratakOpis, delovi, statusServisa);
 			servisiautomobila.add(servisautomobila1);

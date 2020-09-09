@@ -9,6 +9,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import CRUD.CRUDOperacije;
+import gui.zaMusteriju.PrikazZaMusteriju;
+import gui.zaServisera.PrikazZaServisera;
 import model.Administrator;
 import model.Musterija;
 import model.Serviser;
@@ -18,6 +20,7 @@ public class GlavniProzorMusterija extends JFrame {
 	private JMenuBar mainMenu = new JMenuBar();
 	private JMenu mogucnostiMenu = new JMenu("Mogucnosti");
 	private JMenuItem zakaziteservisItem = new JMenuItem("Zakazite Servis");
+	private JMenuItem prikazivanjeAutomobilaMusterijeItem = new JMenuItem("Prikazi automobile od musterije");
 	private JMenu izlazMenu= new JMenu("Izlaz");
 	private JMenuItem izlazItem = new JMenuItem("Izlaz"); 
 
@@ -26,6 +29,7 @@ public class GlavniProzorMusterija extends JFrame {
 	private Musterija prijavljeni;
 	private Serviser prijavljeniServiser;
 	private Administrator prijavljeniAdministrator;
+	private Musterija prijavljenaMusterija;
 	
 	public GlavniProzorMusterija(CRUDOperacije crudoperacije, Musterija prijavljeni) {
 		this.crudoperacije = crudoperacije;
@@ -43,6 +47,7 @@ public class GlavniProzorMusterija extends JFrame {
 		setJMenuBar(mainMenu);
 		mainMenu.add(mogucnostiMenu);
 		mogucnostiMenu.add(zakaziteservisItem);
+		mogucnostiMenu.add(prikazivanjeAutomobilaMusterijeItem);
 		mainMenu.add(izlazMenu);
 		izlazMenu.add(izlazItem);
 	}
@@ -54,6 +59,14 @@ public class GlavniProzorMusterija extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				GlavniProzorMusterija.this.dispose();
 				GlavniProzorMusterija.this.setVisible(false);
+				
+			}
+		});
+		prikazivanjeAutomobilaMusterijeItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PrikazZaMusteriju pzm = new PrikazZaMusteriju(crudoperacije, prijavljenaMusterija);
+				pzm.setVisible(true);
 				
 			}
 		});

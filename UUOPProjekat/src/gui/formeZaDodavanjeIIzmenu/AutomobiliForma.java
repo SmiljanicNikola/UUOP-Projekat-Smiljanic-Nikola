@@ -54,7 +54,7 @@ public class AutomobiliForma extends JFrame {
 	
 
 	CRUDOperacije Crudoperacije = new CRUDOperacije();
-	private Automobil automobil;
+	public Automobil automobil;
 	
 	
 	public AutomobiliForma(CRUDOperacije Crudoperacije, Automobil automobil) {
@@ -156,7 +156,7 @@ public class AutomobiliForma extends JFrame {
 	private void popuniPolja() {
 		txtId.setText(String.valueOf(automobil.getId()));
 		if(automobil.getVlasnik() == null) {
-			cbVlasnik.setSelectedItem("--");
+			cbVlasnik.setSelectedItem("///");
 		} else {
 			cbVlasnik.setSelectedItem(automobil.getVlasnik().getKorisnickoIme());
 		}
