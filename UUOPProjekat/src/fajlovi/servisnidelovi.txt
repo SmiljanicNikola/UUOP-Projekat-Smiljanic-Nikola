@@ -1,6 +1,6 @@
 1|mercedes|W220|120000|sasija|2|0
 2|bmw|M3|18000|hladnjak|3|0
-3|mercedes|W220|12000|karburator|1|0
+3|mercedes|W220|12000|karburator|1|1
 4|audi|W220|14000|akumulator|4|0
 5|audi|W220|9000|turbina|6|0
 7|bmw|W220|7000|katadiopter - Leva strana|5|0

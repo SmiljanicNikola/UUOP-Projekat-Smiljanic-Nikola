@@ -98,7 +98,10 @@ public class ServisniDeo {
 		this.isDeleted = isDeleted;
 	}
 
-
+	
+	public void delete() {
+		setIsDeleted(1);
+	}
 
 	@Override
 	public String toString() {

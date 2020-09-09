@@ -131,6 +131,7 @@ public class ServisniDeloviForma extends JFrame {
 				
 			}
 		});
+		
 		btnSimetricanDeo.addActionListener(new ActionListener() {
 			
 			@Override

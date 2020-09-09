@@ -68,10 +68,10 @@ public class ProzorPrikazServisnihDelova extends JFrame {
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 		
 		String[] zaglavlje = new String[] {"id", "Marka automobila", "Model automobila", "cena", "naziv dela", "servisId", "Kratak opis"};
-		Object[][] sadrzaj = new Object[Crudoperacije.getServisniDeo().size()][zaglavlje.length];
+		Object[][] sadrzaj = new Object[Crudoperacije.sviNeobrisaniServisniDelovi().size()][zaglavlje.length];
 		
-		for(int i = 0; i<Crudoperacije.getServisniDeo().size(); i++) {
-			ServisniDeo servisnideo = Crudoperacije.getServisniDeo().get(i);
+		for(int i = 0; i<Crudoperacije.sviNeobrisaniServisniDelovi().size(); i++) {
+			ServisniDeo servisnideo = Crudoperacije.sviNeobrisaniServisniDelovi().get(i);
 			sadrzaj[i][0] = servisnideo.getId();
 			sadrzaj[i][1] = servisnideo.getMarkaAutomobila();
 			sadrzaj[i][2] = servisnideo.getModelAutomobila();
@@ -137,7 +137,7 @@ public class ProzorPrikazServisnihDelova extends JFrame {
 					
 					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da obrisete deo?", "Potvrda", JOptionPane.YES_NO_OPTION);
 					if(izbor == JOptionPane.YES_OPTION) {
-						servisnideo.setId(-1);
+						servisnideo.setIsDeleted(1);
 						tableModel.removeRow(red);
 						Crudoperacije.snimiServisneDelove();
 					}

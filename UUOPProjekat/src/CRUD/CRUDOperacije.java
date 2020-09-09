@@ -126,6 +126,15 @@ public class CRUDOperacije {
 		this.ucitani.remove(musterija1);
 	}
 	
+	public ArrayList<ServisniDeo> sviNeobrisaniServisniDelovi() {
+		ArrayList<ServisniDeo> neobrisani = new ArrayList<ServisniDeo>();
+		for (ServisniDeo servisnideo : ucitaniDelovi) {
+			if(servisnideo.getIsDeleted() == 0) {
+				neobrisani.add(servisnideo);
+			}
+		}
+		return neobrisani;
+	}
 	
 	public Musterija login(String korisnickoIme, String lozinka) {
 		ArrayList<Musterija> ucitaneMusterije = UcitajMusterije.prikaziMusterije();
