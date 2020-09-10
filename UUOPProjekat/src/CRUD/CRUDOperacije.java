@@ -386,12 +386,21 @@ public class CRUDOperacije {
 	public static Automobil nadjiAutomobil(String automobilId) {
 		ArrayList<Automobil> automobili = UcitajAutomobile.prikaziAutomobile();
 		for(Automobil automobil : automobili) {
-			if((automobil.getId() == Integer.parseInt(automobilId))) {
+			if(automobil.getId() == Integer.parseInt(automobilId)) {
 				return automobil;
 			}
 		}
 		return null;
 	}
+	public Automobil nadjiAutomobil2(String automobilId) {
+		for(Automobil automobil : ucitaniAutomobili) {
+			if(automobil.getId() == Integer.parseInt(automobilId)) {
+				return automobil;
+			}
+		}
+		return null;
+	}
+	
 	public ServisniDeo nadjiDeo(int id) {
 		for(ServisniDeo servisnideo : ucitaniDelovi) {
 			if(servisnideo.getId() == id) {

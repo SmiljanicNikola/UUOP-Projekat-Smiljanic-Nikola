@@ -7,17 +7,17 @@ public class ServisnaKnjizica {
 	
 	public int id;
 	public Automobil vlasnistvo;
-	public String obavljeniServisi;
+	private ArrayList<ServisAutomobila> obavljeniServisi;
 	public int isDeleted;
 	
 	public ServisnaKnjizica() {
 		this.id = 0;
 		this.vlasnistvo = new Automobil();
-		this.obavljeniServisi = "";
+		this.obavljeniServisi = new ArrayList<ServisAutomobila>();
 		this.isDeleted = 0;
 
 	}
-	public ServisnaKnjizica(int id, Automobil vlasnistvo, String obavljeniServisi, int isDeleted) {
+	public ServisnaKnjizica(int id, Automobil vlasnistvo, ArrayList<ServisAutomobila> obavljeniServisi, int isDeleted) {
 		super();
 		this.id = id;
 		this.vlasnistvo = vlasnistvo;
@@ -43,14 +43,13 @@ public class ServisnaKnjizica {
 	}
 
 
-	public String getObavljeniServisi() {
+	public ArrayList<ServisAutomobila> getObavljeniServisi() {
 		return obavljeniServisi;
 	}
-	public void setObavljeniServisi(String obavljeniServisi) {
+	
+	public void setObavljeniServisi(ArrayList<ServisAutomobila> obavljeniServisi) {
 		this.obavljeniServisi = obavljeniServisi;
 	}
-	
-	
 	
 	public int getIsDeleted() {
 		return isDeleted;
@@ -58,11 +57,14 @@ public class ServisnaKnjizica {
 	public void setIsDeleted(int isDeleted) {
 		this.isDeleted = isDeleted;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "ServisnaKnjizica [id=" + id + ", vlasnistvo=" + vlasnistvo + ", obavljeniServisi=" + obavljeniServisi
 				+ ", isDeleted=" + isDeleted + "]";
 	}
+	
 	
 	
 	

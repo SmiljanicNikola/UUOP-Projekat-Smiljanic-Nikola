@@ -59,13 +59,13 @@ public class ProzorPrikazServisnihKnjizica extends JFrame {
 		add(mainToolbar, BorderLayout.NORTH);
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 	
-		String[] zaglavlje = new String[] {"id", "vlasnistvo", "Lista obavljenih servisa"};
+		String[] zaglavlje = new String[] {"id", "Vlasnistvo(Auto)", "Lista obavljenih servisa"};
 		Object[][] sadrzaj = new Object[Crudoperacije.sveNeobrisaneKnjizice().size()][zaglavlje.length];
 		
 		for(int i = 0; i<Crudoperacije.sveNeobrisaneKnjizice().size(); i++) {
 			ServisnaKnjizica servisnaknjizica = Crudoperacije.sveNeobrisaneKnjizice().get(i);
 			sadrzaj[i][0] = servisnaknjizica.getId();
-			sadrzaj[i][1] = servisnaknjizica.getVlasnistvo().getMarka() + " " + servisnaknjizica.getVlasnistvo().getModel();
+			sadrzaj[i][1] = servisnaknjizica.getVlasnistvo().getId() + "-" + servisnaknjizica.getVlasnistvo().getMarka() + " " + servisnaknjizica.getVlasnistvo().getModel();
 			sadrzaj[i][2] = servisnaknjizica.getObavljeniServisi();
 		}
 		tableModel = new DefaultTableModel(sadrzaj, zaglavlje);

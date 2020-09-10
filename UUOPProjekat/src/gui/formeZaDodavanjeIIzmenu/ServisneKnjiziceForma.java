@@ -2,9 +2,11 @@ package gui.formeZaDodavanjeIIzmenu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -17,6 +19,7 @@ import model.Administrator;
 import model.Automobil;
 import model.ServisAutomobila;
 import model.ServisnaKnjizica;
+import model.ServisniDeo;
 import net.miginfocom.swing.MigLayout;
 
 public class ServisneKnjiziceForma extends JFrame {
@@ -24,9 +27,9 @@ public class ServisneKnjiziceForma extends JFrame {
 	private JLabel lblId = new JLabel("Id");
 	private JTextField txtId = new JTextField(8);
 	private JLabel lblVlasnistvo = new JLabel("Vlasnistvo");
-	private JTextField txtVlasnistvo = new JTextField(20);
-	private JLabel lblOdradjeniServisi = new JLabel("Odradjeni servisi");
-	private JTextField txtOdradjeniServisi = new JTextField(20);
+	private JComboBox<String> cbAutomobil = new JComboBox<String>();
+	//private JLabel lblOdradjeniServisi = new JLabel("Odradjeni servisi");
+	//private JTextField txtOdradjeniServisi = new JTextField(20);
 	private JButton btnOk = new JButton("Ok");
 	private JButton btnCancel = new JButton("Cancel");
 	
@@ -54,6 +57,10 @@ public class ServisneKnjiziceForma extends JFrame {
 		MigLayout layout = new MigLayout("wrap 2", "[][]", "[][][][][]20[]");
 		setLayout(layout);
 
+		for(Automobil servisiraniautomobil : Crudoperacije.getAutomobile()) {
+			if(servisiraniautomobil instanceof Automobil) cbAutomobil.addItem(servisiraniautomobil.getId() + "-" + servisiraniautomobil.getMarka() + servisiraniautomobil.getModel());
+		}
+		
 		if (servisnaknjizica != null) {
 			popuniPolja();
 		}
@@ -61,9 +68,9 @@ public class ServisneKnjiziceForma extends JFrame {
 		add(lblId);
 		add(txtId);
 		add(lblVlasnistvo);
-		add(txtVlasnistvo);
-		add(lblOdradjeniServisi);
-		add(txtOdradjeniServisi);
+		add(cbAutomobil);
+		//add(lblOdradjeniServisi);
+		//add(txtOdradjeniServisi);
 		add(new JLabel());
 		add(btnOk, "split 2");
 		add(btnCancel);
@@ -76,17 +83,19 @@ public class ServisneKnjiziceForma extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (validacija()) {
 					int id = Integer.parseInt(txtId.getText().trim());
-					String automobilId = (txtVlasnistvo.getText().trim());
-					Automobil vlasnistvo = CRUDOperacije.nadjiAutomobil(automobilId);
-					String obavljeniServisi = txtOdradjeniServisi.getText().trim();
-					Integer isDeleted = 1;
+					String automobilId = ((String) cbAutomobil.getSelectedItem()).split("\\-")[0];
+					Automobil vlasnistvo = Crudoperacije.nadjiAutomobil2(automobilId);
+					//String automobilId = (txtVlasnistvo.getText().trim());
+					//Automobil vlasnistvo = CRUDOperacije.nadjiAutomobil(automobilId);
+					//String obavljeniServisi = txtOdradjeniServisi.getText().trim();
+					Integer isDeleted = 0;
 					if (servisnaknjizica == null) { 
-						ServisnaKnjizica servisnaknjizica = new ServisnaKnjizica(id, vlasnistvo, obavljeniServisi, isDeleted);
+						ServisnaKnjizica servisnaknjizica = new ServisnaKnjizica(id, vlasnistvo, new ArrayList<ServisAutomobila>(), isDeleted);
 								Crudoperacije.dodajServisnuKnjizicu(servisnaknjizica);
 					} else { 
 						servisnaknjizica.setId(id);
 						servisnaknjizica.setVlasnistvo(vlasnistvo);
-						servisnaknjizica.setObavljeniServisi(obavljeniServisi);
+						//servisnaknjizica.setObavljeniServisi(obavljeniServisi);
 						
 						
 					}
@@ -108,8 +117,12 @@ public class ServisneKnjiziceForma extends JFrame {
 	}
 	private void popuniPolja() {
 		txtId.setText(String.valueOf(servisnaknjizica.getId()));
-		txtVlasnistvo.setText(String.valueOf(servisnaknjizica.getVlasnistvo()));
-		txtOdradjeniServisi.setText(String.valueOf(servisnaknjizica.getObavljeniServisi()));
+		if(servisnaknjizica.getVlasnistvo() == null) {
+			cbAutomobil.setSelectedItem("--");
+		} else {
+			cbAutomobil.setSelectedItem(servisnaknjizica.getVlasnistvo().getId() + " | " + servisnaknjizica.getVlasnistvo().getMarka() + " " + servisnaknjizica.getVlasnistvo().getModel());
+		}
+		//txtOdradjeniServisi.setText(String.valueOf(servisnaknjizica.getObavljeniServisi()));
 
 	}
 	
@@ -130,14 +143,14 @@ public class ServisneKnjiziceForma extends JFrame {
 			}
 		}
 
-		if (txtVlasnistvo.getText().trim().equals("")) {
-			poruka += "Unesite vlasnistvo \n";
-			ok = false;
-		}
-		if (txtOdradjeniServisi.getText().trim().equals("")) {
-			poruka += "Unesite id-ove od odradjenih servisa \n";
-			ok = false;
-		}
+		//if (txtVlasnistvo.getText().trim().equals("")) {
+		//	poruka += "Unesite vlasnistvo \n";
+		//	ok = false;
+		//}
+		//if (txtOdradjeniServisi.getText().trim().equals("")) {
+		//	poruka += "Unesite id-ove od odradjenih servisa \n";
+		//	ok = false;
+		//}
 		if (ok == false) {
 			JOptionPane.showMessageDialog(null, poruka, "neispravni podaci", JOptionPane.WARNING_MESSAGE);
 		}

@@ -12,6 +12,7 @@ import model.Musterija;
 import model.ServisAutomobila;
 import model.Serviser;
 import model.ServisnaKnjizica;
+import model.ServisniDeo;
 
 public class UcitajServisneKnjizice {
 
@@ -28,7 +29,7 @@ public class UcitajServisneKnjizice {
 			int id = Integer.parseInt(lineSplit[0]);
 			String automobilId = lineSplit[1];
 			Automobil vlasnistvo = CRUDOperacije.nadjiAutomobil(automobilId);
-			String obavljeniServisi = lineSplit[2];
+			ArrayList<ServisAutomobila> obavljeniServisi = new ArrayList<ServisAutomobila>();
 			int isDeleted = Integer.parseInt(lineSplit[3]);
 			ServisnaKnjizica servisna1 = new ServisnaKnjizica(id, vlasnistvo, obavljeniServisi, isDeleted);
 			servisneknjizice.add(servisna1);	
