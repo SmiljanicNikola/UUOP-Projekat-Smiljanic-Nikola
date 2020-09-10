@@ -481,7 +481,7 @@ public class CRUDOperacije {
 		return null;
 	}
 
-	public String genDeoOznaka() {
+	public String genDeoId() {
 		//Comparator<ServisniDeo> porediPoOznaci = (ServisniDeo d1, ServisniDeo d2) -> (d1 = d1.getId()) = d2.getId();
 		ArrayList<ServisniDeo> delovi = this.getServisniDeo();
 		//Collections.sort(delovi, porediPoOznaci);
@@ -489,7 +489,11 @@ public class CRUDOperacije {
 		return Integer.toString(noviId);
 	}
 
-
 	
+	public int generisiIdServis() {
+		int noviId = (ucitaniServisi.get(ucitaniServisi.size() - 1).getId()) + 1;
+		return noviId;
+	}
+
 }
 

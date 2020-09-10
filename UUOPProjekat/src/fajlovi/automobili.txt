@@ -4,5 +4,5 @@
 4|milani|bmw|X5|2009|2997cm3|200kW|dizel|0
 5|vedranv|audi|A6|2010|2999cm3|200kW|dizel|0
 6|ivanp|mercedes|GLS|2018|3000cm3|300HP|dizel|0
-7|stefanp|audi|Q6|2014|3999cm3|300kW|dizel|0
+7|stefanp|audi|Q6|2015|3999cm3|300kW|dizel|0
 10|stefanp|mercedes|GLS|2018|3000cm3|300HP|plin|1

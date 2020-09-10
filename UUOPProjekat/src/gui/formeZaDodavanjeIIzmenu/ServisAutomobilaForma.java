@@ -200,10 +200,6 @@ public class ServisAutomobilaForma extends JFrame {
 			poruka += "Unesite KratakOpis \n";
 			ok = false;
 		}
-		//if (txtDelovi.getText().trim().equals("")) {
-		//	poruka += "Unesite delove \n";
-		//	ok = false;
-		//}
 		
 		if (ok == false) {
 			JOptionPane.showMessageDialog(null, poruka, "neispravni podaci", JOptionPane.WARNING_MESSAGE);

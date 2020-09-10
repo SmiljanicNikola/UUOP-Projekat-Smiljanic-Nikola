@@ -14,6 +14,7 @@ import gui.zaServisera.PrikazZaServisera;
 import model.Administrator;
 import model.Automobil;
 import model.Musterija;
+import model.ServisAutomobila;
 import model.Serviser;
 
 public class GlavniProzorMusterija extends JFrame {
@@ -31,6 +32,7 @@ public class GlavniProzorMusterija extends JFrame {
 	private Serviser prijavljeniServiser;
 	private Administrator prijavljeniAdministrator;
 	private Automobil automobil;
+	public ServisAutomobila servisautomobila;
 	
 	public GlavniProzorMusterija(CRUDOperacije crudoperacije, Musterija prijavljenaMusterija) {
 		this.crudoperacije = crudoperacije;
@@ -71,6 +73,16 @@ public class GlavniProzorMusterija extends JFrame {
 				
 			}
 		});
+		zakaziteservisItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gui.zaMusteriju.ZakazivanjeServisa zs = new gui.zaMusteriju.ZakazivanjeServisa(crudoperacije, prijavljenaMusterija, servisautomobila);
+				zs.setVisible(true);
+				
+			}
+		});
+		
 	}
 	
 }
