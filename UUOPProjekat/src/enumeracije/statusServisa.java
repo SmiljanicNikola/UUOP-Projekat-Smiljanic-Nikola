@@ -1,6 +1,8 @@
 package enumeracije;
 
 public enum statusServisa {
-	aktivan, 
-	neaktivan
+	zakazan,
+	aktivan,
+	zavrsen
+	
 }

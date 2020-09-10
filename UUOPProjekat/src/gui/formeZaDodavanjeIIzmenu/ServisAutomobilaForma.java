@@ -40,8 +40,8 @@ public class ServisAutomobilaForma extends JFrame {
 	private JLabel lblKratakOpis= new JLabel("KratakOpis");
 	private JTextField txtKratakOpis = new JTextField(20);
 	
-	private JLabel lblDelovi = new JLabel("Delovi");
-	private JTextField txtDelovi = new JTextField(20);
+	//private JLabel lblDelovi = new JLabel("Delovi");
+	//private JTextField txtDelovi = new JTextField(20);
 	
 	private JLabel lblStatusServisa = new JLabel("StatusServisa");
 	private JComboBox<statusServisa> cbStatusServisa = new JComboBox<statusServisa>(statusServisa.values());
@@ -97,10 +97,10 @@ public class ServisAutomobilaForma extends JFrame {
 		add(txtTerminServisa);
 		add(lblKratakOpis);
 		add(txtKratakOpis);
-		add(lblDelovi);
+		//add(lblDelovi);
 		//add(txtDelovi);
 		add(lblStatusServisa);
-		add(cbStatusServisa);
+		add(cbStatusServisa).setEnabled(false);
 		add(new JLabel());
 		add(btnOk, "split 2");
 		add(btnCancel);
@@ -126,7 +126,7 @@ public class ServisAutomobilaForma extends JFrame {
 					enumeracije.statusServisa statusServisa =  (enumeracije.statusServisa) cbStatusServisa.getSelectedItem();
 					Integer isDeleted = 0;
 					if (servisautomobila == null) { 
-						ServisAutomobila servisautomobila = new ServisAutomobila(id, servisiraniAutomobil, serviser, terminServisa, kratakOpis, new ArrayList<ServisniDeo>(), statusServisa, isDeleted);
+						ServisAutomobila servisautomobila = new ServisAutomobila(id, servisiraniAutomobil, serviser, terminServisa, kratakOpis, new ArrayList<ServisniDeo>(), statusServisa.zakazan, isDeleted);
 								Crudoperacije.dodajServisAutomobila(servisautomobila);
 					}  else { 
 						servisautomobila.setId(id);
