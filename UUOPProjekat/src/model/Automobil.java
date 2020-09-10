@@ -10,7 +10,8 @@ public class Automobil {
 	public int godinaProizvodnje;
 	public String zapreminaMotora;
 	public String snagaMotora;
-	public enumeracije.vrstaGoriva vrstaGoriva;	
+	public enumeracije.vrstaGoriva vrstaGoriva;
+	public int isDeleted;
 	
 	public Automobil() {
 		this.id = 0;
@@ -21,11 +22,12 @@ public class Automobil {
 		this.zapreminaMotora = "";
 		this.snagaMotora = "";
 		this.vrstaGoriva = enumeracije.vrstaGoriva.dizel;
+		this.isDeleted = isDeleted;
 	}
 
 	
 	public Automobil(int id, Musterija vlasnik, enumeracije.marka marka, enumeracije.model model, int godinaProizvodnje,
-			String zapreminaMotora, String snagaMotora, enumeracije.vrstaGoriva vrstaGoriva) {
+			String zapreminaMotora, String snagaMotora, enumeracije.vrstaGoriva vrstaGoriva, int isDeleted) {
 		super();
 		this.id = id;
 		this.vlasnik = vlasnik;
@@ -35,6 +37,7 @@ public class Automobil {
 		this.zapreminaMotora = zapreminaMotora;
 		this.snagaMotora = snagaMotora;
 		this.vrstaGoriva = vrstaGoriva;
+		this.isDeleted = isDeleted;
 	}
 
 	public int getId() {
@@ -108,13 +111,25 @@ public class Automobil {
 		this.vrstaGoriva = vrstaGoriva;
 	}
 
+	
+	public int getIsDeleted() {
+		return isDeleted;
+	}
+
+
+	public void setIsDeleted(int isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+
 
 	@Override
 	public String toString() {
 		return "Automobil [id=" + id + ", vlasnik=" + vlasnik + ", marka=" + marka + ", model=" + model
 				+ ", godinaProizvodnje=" + godinaProizvodnje + ", zapreminaMotora=" + zapreminaMotora + ", snagaMotora="
-				+ snagaMotora + ", vrstaGoriva=" + vrstaGoriva + "]";
+				+ snagaMotora + ", vrstaGoriva=" + vrstaGoriva + ", isDeleted=" + isDeleted + "]";
 	}
+
 
 	public void izmenaAutomobila(Musterija vlasnik, enumeracije.marka marka, enumeracije.model model, int godinaProizvodnje,
 			String zapreminaMotora, String snagaMotora, enumeracije.vrstaGoriva vrstaGoriva) {

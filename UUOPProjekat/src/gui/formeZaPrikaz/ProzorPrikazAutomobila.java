@@ -65,10 +65,10 @@ public class ProzorPrikazAutomobila extends JFrame {
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 		
 		String[] zaglavlje = new String[] {"id", "vlasnik", "marka", "model", "godina proizvodnje", "zapremina", "snaga Motora",  "Vrsta goriva"};
-		Object[][] sadrzaj = new Object[Crudoperacije.getAutomobile().size()][zaglavlje.length];
+		Object[][] sadrzaj = new Object[Crudoperacije.sviNeobrisaniAutomobili().size()][zaglavlje.length];
 		
-		for(int i = 0; i<Crudoperacije.getAutomobile().size(); i++) {
-			Automobil automobil = Crudoperacije.getAutomobile().get(i);
+		for(int i = 0; i<Crudoperacije.sviNeobrisaniAutomobili().size(); i++) {
+			Automobil automobil = Crudoperacije.sviNeobrisaniAutomobili().get(i);
 			sadrzaj[i][0] = automobil.getId();
 			sadrzaj[i][1] = automobil.getVlasnik().getKorisnickoIme();
 			sadrzaj[i][2] = automobil.getMarka();
@@ -117,11 +117,11 @@ public class ProzorPrikazAutomobila extends JFrame {
 					JOptionPane.showMessageDialog(null, "Morate da odabere red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
 				} else {
 					int id = (int) tableModel.getValueAt(red, 0);
-					Automobil automobil = Crudoperacije.nadjiAutomobil(id);
+					Automobil automobil = Crudoperacije.nadjiAutomobil2(id);
 					
 					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da obrisete automobil?", "Potvrda", JOptionPane.YES_NO_OPTION);
 					if(izbor == JOptionPane.YES_OPTION) {
-						automobil.setId(-1);
+						automobil.setIsDeleted(1);
 						tableModel.removeRow(red);
 						Crudoperacije.snimiAutomobile();
 					}

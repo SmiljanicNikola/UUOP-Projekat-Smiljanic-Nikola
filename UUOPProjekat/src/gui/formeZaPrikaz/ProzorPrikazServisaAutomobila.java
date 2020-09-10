@@ -60,10 +60,10 @@ public class ProzorPrikazServisaAutomobila extends JFrame {
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 		
 		String[] zaglavlje = new String[] {"id", "Servisirani automobil", "serviser", "Termin servisa", "Kratak opis", "Delovi", "Status servisa"};
-		Object[][] sadrzaj = new Object[Crudoperacije.getServiseAutomobila().size()][zaglavlje.length];
+		Object[][] sadrzaj = new Object[Crudoperacije.sviNeobrisaniServisi().size()][zaglavlje.length];
 		
-		for(int i = 0; i<Crudoperacije.getServiseAutomobila().size(); i++) {
-			ServisAutomobila servisautomobila = Crudoperacije.getServiseAutomobila().get(i);
+		for(int i = 0; i<Crudoperacije.sviNeobrisaniServisi().size(); i++) {
+			ServisAutomobila servisautomobila = Crudoperacije.sviNeobrisaniServisi().get(i);
 			sadrzaj[i][0] = servisautomobila.getId();
 			sadrzaj[i][1] = servisautomobila.getServisiraniAutomobil().getId() + " | " + servisautomobila.getServisiraniAutomobil().getMarka() + " " + servisautomobila.getServisiraniAutomobil().getModel();
 			sadrzaj[i][2] = servisautomobila.getServiser().getIme() + " " + servisautomobila.getServiser().getPrezime() + " | " + servisautomobila.getServiser().getKorisnickoIme();
@@ -139,9 +139,9 @@ public class ProzorPrikazServisaAutomobila extends JFrame {
 					int id = (int) tableModel.getValueAt(red, 0);
 					ServisAutomobila servisautomobila = Crudoperacije.nadjiServiseAutomobila(id);
 				
-					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da obrisete servis automobila?", "Potvrda", JOptionPane.YES_NO_OPTION);
+					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da obrisete servis?", "Potvrda", JOptionPane.YES_NO_OPTION);
 					if(izbor == JOptionPane.YES_OPTION) {
-						servisautomobila.setId(-1);
+						servisautomobila.setIsDeleted(1);
 						tableModel.removeRow(red);
 						Crudoperacije.snimiServiseAutomobila();
 					}

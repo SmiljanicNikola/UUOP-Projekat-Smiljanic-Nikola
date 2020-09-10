@@ -19,6 +19,7 @@ import gui.formeZaDodavanjeIIzmenu.AdministratoriForma;
 import gui.formeZaDodavanjeIIzmenu.ServisneKnjiziceForma;
 import model.Administrator;
 import model.Automobil;
+import model.ServisAutomobila;
 import model.ServisnaKnjizica;
 
 public class ProzorPrikazServisnihKnjizica extends JFrame {
@@ -59,10 +60,10 @@ public class ProzorPrikazServisnihKnjizica extends JFrame {
 		mainToolbar.setFloatable(false); //Onemogucava korisniku da pomera Toolbar za akcije
 	
 		String[] zaglavlje = new String[] {"id", "vlasnistvo", "Lista obavljenih servisa"};
-		Object[][] sadrzaj = new Object[Crudoperacije.getServisneKnjizice().size()][zaglavlje.length];
+		Object[][] sadrzaj = new Object[Crudoperacije.sveNeobrisaneKnjizice().size()][zaglavlje.length];
 		
-		for(int i = 0; i<Crudoperacije.getServisneKnjizice().size(); i++) {
-			ServisnaKnjizica servisnaknjizica = Crudoperacije.getServisneKnjizice().get(i);
+		for(int i = 0; i<Crudoperacije.sveNeobrisaneKnjizice().size(); i++) {
+			ServisnaKnjizica servisnaknjizica = Crudoperacije.sveNeobrisaneKnjizice().get(i);
 			sadrzaj[i][0] = servisnaknjizica.getId();
 			sadrzaj[i][1] = servisnaknjizica.getVlasnistvo().getMarka() + " " + servisnaknjizica.getVlasnistvo().getModel();
 			sadrzaj[i][2] = servisnaknjizica.getObavljeniServisi();
@@ -107,6 +108,27 @@ public class ProzorPrikazServisnihKnjizica extends JFrame {
 					} else {
 						ServisneKnjiziceForma skf = new ServisneKnjiziceForma(Crudoperacije, servisnaknjizica);
 						skf.setVisible(true);
+					}
+				}
+				
+			}
+		});
+		btnDelete.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int red = servisneKnjiziceTabela.getSelectedRow();
+				if(red == -1) {
+					JOptionPane.showMessageDialog(null, "Morate da odaberete red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
+				} else {
+					int id = (int) tableModel.getValueAt(red, 0);
+					ServisnaKnjizica knjizica = Crudoperacije.nadjiServisnuKnjizicu(id);
+				
+					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da obrisete servisnu knjizicu?", "Potvrda", JOptionPane.YES_NO_OPTION);
+					if(izbor == JOptionPane.YES_OPTION) {
+						knjizica.setIsDeleted(1);
+						tableModel.removeRow(red);
+						Crudoperacije.snimiServisneKnjizice();
 					}
 				}
 				

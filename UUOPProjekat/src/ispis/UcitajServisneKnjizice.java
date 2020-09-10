@@ -29,7 +29,8 @@ public class UcitajServisneKnjizice {
 			String automobilId = lineSplit[1];
 			Automobil vlasnistvo = CRUDOperacije.nadjiAutomobil(automobilId);
 			String obavljeniServisi = lineSplit[2];
-			ServisnaKnjizica servisna1 = new ServisnaKnjizica(id, vlasnistvo, obavljeniServisi);
+			int isDeleted = Integer.parseInt(lineSplit[3]);
+			ServisnaKnjizica servisna1 = new ServisnaKnjizica(id, vlasnistvo, obavljeniServisi, isDeleted);
 			servisneknjizice.add(servisna1);	
 		}
 			reader.close();

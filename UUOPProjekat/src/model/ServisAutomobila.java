@@ -13,6 +13,7 @@ public class ServisAutomobila {
 	public String kratakOpis;
 	private ArrayList<ServisniDeo> delovi;
 	public enumeracije.statusServisa statusServisa;
+	public int isDeleted;
 	
 	public ServisAutomobila() {
 		this.id = 0;
@@ -21,11 +22,12 @@ public class ServisAutomobila {
 		this.kratakOpis = "";
 		this.delovi = new ArrayList<ServisniDeo>();
 		this.statusServisa = enumeracije.statusServisa.aktivan;
+		this.isDeleted = 0;
 	}
 
 
 	public ServisAutomobila(int id, Automobil servisiraniAutomobil, Serviser serviser, String terminServisa,
-			String kratakOpis, ArrayList<ServisniDeo> delovi, enumeracije.statusServisa statusServisa) {
+			String kratakOpis, ArrayList<ServisniDeo> delovi, enumeracije.statusServisa statusServisa, int isDeleted) {
 		super();
 		this.id = id;
 		this.servisiraniAutomobil = servisiraniAutomobil;
@@ -34,6 +36,7 @@ public class ServisAutomobila {
 		this.kratakOpis = kratakOpis;
 		this.delovi = delovi;
 		this.statusServisa = statusServisa;
+		this.isDeleted = isDeleted;
 	}
 
 	public int getId() {
@@ -100,13 +103,26 @@ public class ServisAutomobila {
 	public void setStatusServisa(enumeracije.statusServisa statusServisa) {
 		this.statusServisa = statusServisa;
 	}
+	
+	public int getIsDeleted() {
+		return isDeleted;
+	}
+
+
+	public void setIsDeleted(int isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+
+	
 
 	@Override
 	public String toString() {
 		return "ServisAutomobila [id=" + id + ", servisiraniAutomobil=" + servisiraniAutomobil + ", serviser="
 				+ serviser + ", terminServisa=" + terminServisa + ", kratakOpis=" + kratakOpis + ", delovi=" + delovi
-				+ ", statusServisa=" + statusServisa + "]";
+				+ ", statusServisa=" + statusServisa + ", isDeleted=" + isDeleted + "]";
 	}
+
 
 	public String toFile() {
 		return String.format("%s|%s|%s|%s|%s|%s|%.2f|%d", id, servisiraniAutomobil.getId(), serviser.getKorisnickoIme(), 
@@ -117,11 +133,6 @@ public class ServisAutomobila {
 		if(deo != null) delovi.add(deo);
 	}
 
-
-	public Object getServisniDeo(int i) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	
 	

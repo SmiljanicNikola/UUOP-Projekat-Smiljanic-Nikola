@@ -77,10 +77,11 @@ public class ServisneKnjiziceForma extends JFrame {
 				if (validacija()) {
 					int id = Integer.parseInt(txtId.getText().trim());
 					String automobilId = (txtVlasnistvo.getText().trim());
-					Automobil vlasnistvo = Crudoperacije.nadjiAutomobil(automobilId);
+					Automobil vlasnistvo = CRUDOperacije.nadjiAutomobil(automobilId);
 					String obavljeniServisi = txtOdradjeniServisi.getText().trim();
+					Integer isDeleted = 1;
 					if (servisnaknjizica == null) { 
-						ServisnaKnjizica servisnaknjizica = new ServisnaKnjizica(id, vlasnistvo, obavljeniServisi);
+						ServisnaKnjizica servisnaknjizica = new ServisnaKnjizica(id, vlasnistvo, obavljeniServisi, isDeleted);
 								Crudoperacije.dodajServisnuKnjizicu(servisnaknjizica);
 					} else { 
 						servisnaknjizica.setId(id);

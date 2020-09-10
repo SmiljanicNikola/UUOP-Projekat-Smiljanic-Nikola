@@ -37,8 +37,10 @@ public static ArrayList<ServisAutomobila> prikaziServiseAutomobila() {
 			//int deoId = Integer.parseInt(lineSplit[5]);
 			ArrayList<ServisniDeo> delovi= new ArrayList<ServisniDeo>();
 			statusServisa statusServisa = enumeracije.statusServisa.valueOf(lineSplit[6]);
-			ServisAutomobila servisautomobila1 = new ServisAutomobila(id, servisiraniAutomobil, serviser, terminServisa, kratakOpis, delovi, statusServisa);
+			int isDeleted = Integer.parseInt(lineSplit[7]);
+			ServisAutomobila servisautomobila1 = new ServisAutomobila(id, servisiraniAutomobil, serviser, terminServisa, kratakOpis, delovi, statusServisa, isDeleted);
 			servisiautomobila.add(servisautomobila1);
+			
 		}
 			reader.close();
 		} catch(IOException e) {

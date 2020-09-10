@@ -124,9 +124,9 @@ public class ServisAutomobilaForma extends JFrame {
 					String kratakOpis = txtKratakOpis.getText().trim();
 					//String delovi = txtDelovi.getText().trim();
 					enumeracije.statusServisa statusServisa =  (enumeracije.statusServisa) cbStatusServisa.getSelectedItem();
-
+					Integer isDeleted = 0;
 					if (servisautomobila == null) { 
-						ServisAutomobila servisautomobila = new ServisAutomobila(id, servisiraniAutomobil, serviser, terminServisa, kratakOpis, new ArrayList<ServisniDeo>(), statusServisa);
+						ServisAutomobila servisautomobila = new ServisAutomobila(id, servisiraniAutomobil, serviser, terminServisa, kratakOpis, new ArrayList<ServisniDeo>(), statusServisa, isDeleted);
 								Crudoperacije.dodajServisAutomobila(servisautomobila);
 					}  else { 
 						servisautomobila.setId(id);

@@ -36,7 +36,8 @@ public class UcitajAutomobile {
 				String zapreminaMotora = lineSplit[5];
 				String snagaMotora = lineSplit[6];
 				vrstaGoriva vrstaGoriva = enumeracije.vrstaGoriva.valueOf(lineSplit[7]);
-				Automobil automobil1 = new Automobil(id, vlasnik, marka, model, godinaProizvodnje, zapreminaMotora, snagaMotora,vrstaGoriva);
+				int isDeleted = Integer.parseInt(lineSplit[8]);
+				Automobil automobil1 = new Automobil(id, vlasnik, marka, model, godinaProizvodnje, zapreminaMotora, snagaMotora,vrstaGoriva, isDeleted);
 				automobili.add(automobil1);
 			}
 			reader.close();

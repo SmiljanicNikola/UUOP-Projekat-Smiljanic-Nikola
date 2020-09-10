@@ -122,9 +122,10 @@ public class AutomobiliForma extends JFrame {
 					String zapreminaMotora = txtzapreminaMotora.getText().trim();
 					String snagaMotora = txtsnagaMotora.getText().trim();
 					vrstaGoriva vrstaGoriva = (vrstaGoriva) cbvrstaGoriva.getSelectedItem();
+					Integer isDeleted = 0;
 
 					if (automobil == null) { 
-						Automobil automobil = new Automobil(id, vlasnik, marka, model, godinaProizvodnje, zapreminaMotora, snagaMotora, vrstaGoriva);
+						Automobil automobil = new Automobil(id, vlasnik, marka, model, godinaProizvodnje, zapreminaMotora, snagaMotora, vrstaGoriva, isDeleted);
 						Crudoperacije.dodajAutomobil(automobil);
 					} else { 
 						//automobil.setId(id);
