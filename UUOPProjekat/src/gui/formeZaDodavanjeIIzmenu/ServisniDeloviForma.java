@@ -147,17 +147,20 @@ public class ServisniDeloviForma extends JFrame {
 				Integer isDeleted = 0;
 				
 				if(servisnideo.getNazivDela().contains("Leva strana") || servisnideo.getNazivDela().contains("Desna strana")) {
-					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da unesete simetrican deo, dela: " + servisnideo.getNazivDela(),
-							"Simetrican deo", JOptionPane.YES_NO_OPTION);
+					
+					
+					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da unesete simetrican deo?",
+							"Potvrda", JOptionPane.YES_NO_OPTION);
+					
 					
 					if(izbor == JOptionPane.YES_OPTION) {
 						
 						String[] deloviNaziva = servisnideo.getNazivDela().split("\\-");
-						String simNaziv = "";
-						if(deloviNaziva[1].trim().equals("Leva strana")) simNaziv = deloviNaziva[0].trim() + " - " + "Desna strana";
-						else simNaziv = deloviNaziva[0].trim() + " - " + "Leva strana";
+						String kontraNaziv = "";
+						if(deloviNaziva[1].trim().equals("Leva strana")) kontraNaziv = deloviNaziva[0].trim() + " - " + "Desna strana";
+						else kontraNaziv = deloviNaziva[0].trim() + " - " + "Leva strana";
 						
-					    ServisniDeo simetricanDeo = new ServisniDeo(id, marka, model, cena, simNaziv, servis, 0);
+					    ServisniDeo simetricanDeo = new ServisniDeo(Crudoperacije.generisiIdServis(), marka, model, cena, kontraNaziv, servis, 0);
 						Crudoperacije.dodajServisniDeo(simetricanDeo);
 						Crudoperacije.snimiServisneDelove();
 						ServisniDeloviForma.this.dispose();
