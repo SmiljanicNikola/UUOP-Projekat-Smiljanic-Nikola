@@ -29,7 +29,7 @@ public class ServisAutomobilaForma extends JFrame {
 	private JTextField txtId = new JTextField(8);
 	
 	private JLabel lblServisiraniAutomobil = new JLabel("Servisirani Automobil");
-	private JComboBox<Integer> cbAutomobil = new JComboBox<Integer>();
+	private JComboBox<String> cbAutomobil = new JComboBox<String>();
 	
 	private JLabel lblServiser = new JLabel("Serviser");
 	private JComboBox<String> cbServiser = new JComboBox<String>();
@@ -75,8 +75,8 @@ public class ServisAutomobilaForma extends JFrame {
 		
 		
 		
-		for(Automobil servisiraniautomobil : Crudoperacije.getAutomobile()) {
-			if(servisiraniautomobil instanceof Automobil) cbAutomobil.addItem(servisiraniautomobil.getId());
+		for(Automobil servisiraniautomobil : Crudoperacije.sviNeobrisaniAutomobili()) {
+			if(servisiraniautomobil instanceof Automobil) cbAutomobil.addItem(servisiraniautomobil.getId() + "-" + servisiraniautomobil.getMarka() + "-" + servisiraniautomobil.getModel());
 		}
 		
 		for(Serviser serviser : Crudoperacije.getServisere()) {
@@ -115,8 +115,12 @@ public class ServisAutomobilaForma extends JFrame {
 					int id = Integer.parseInt(txtId.getText().trim());
 					//String automobilId = txtServisiraniAutomobil.getText().trim();
 					//Automobil servisiraniAutomobil = CRUDOperacije.nadjiAutomobil(automobilId);
-					Integer automobilId = (Integer) cbAutomobil.getSelectedItem();
-					Automobil servisiraniAutomobil = CRUDOperacije.nadjiAutomobil(automobilId);
+					
+					String automobilId = ((String) cbAutomobil.getSelectedItem()).split("\\-")[0];
+					Automobil servisiraniAutomobil = Crudoperacije.nadjiAutomobil2(automobilId);
+					
+					//Integer automobilId = (Integer) cbAutomobil.getSelectedItem();
+					//Automobil servisiraniAutomobil = CRUDOperacije.nadjiAutomobil(automobilId);
 
 					String korisnickoIme = (String) cbServiser.getSelectedItem();
 					Serviser serviser = CRUDOperacije.nadjiServisera(korisnickoIme);

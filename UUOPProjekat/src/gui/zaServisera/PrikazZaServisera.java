@@ -21,6 +21,7 @@ import model.Automobil;
 import model.Musterija;
 import model.ServisAutomobila;
 import model.Serviser;
+import model.ServisniDeo;
 
 public class PrikazZaServisera extends JFrame {
 	private JToolBar mainToolbar = new JToolBar();
@@ -76,7 +77,15 @@ public class PrikazZaServisera extends JFrame {
 			sadrzaj[i][2] = servisautomobila.getServiser().getIme() + " " + servisautomobila.getServiser().getPrezime() + " | " + servisautomobila.getServiser().getKorisnickoIme();
 			sadrzaj[i][3] = servisautomobila.getTerminServisa();
 			sadrzaj[i][4] = servisautomobila.getKratakOpis();
-			sadrzaj[i][5] = servisautomobila.getDelovi();
+			String delovi = "";
+			for(ServisniDeo deo : Crudoperacije.sviNeobrisaniServisniDelovi()) {
+				if(deo.getServis().getId() == servisautomobila.getId()) {
+					delovi += deo.getNazivDela() + "|";
+				}
+			
+			}
+			sadrzaj[i][5] = delovi;
+			//sadrzaj[i][5] = servisautomobila.getDelovi();
 			sadrzaj[i][6] = servisautomobila.getStatusServisa();
 			
 		}
