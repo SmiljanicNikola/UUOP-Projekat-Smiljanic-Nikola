@@ -364,6 +364,24 @@ public class CRUDOperacije {
 		return null;
 	}
 	
+	public Administrator nadjiAdministratora(int id) {
+		for(Administrator administrator : ucitaniAdministratori) {
+			if(administrator.getId() == id && administrator instanceof Administrator) {
+				return administrator;
+			}
+		}
+		return null;
+	}
+	
+	public Serviser nadjiServisera(int id) {
+		for(Serviser serviser : ucitaniServiseri) {
+			if(serviser.getId() == id && serviser instanceof Serviser) {
+				return serviser;
+			}
+		}
+		return null;
+	}
+	
 	//
 	public static Automobil nadjiAutomobil(String automobilId) {
 		ArrayList<Automobil> automobili = UcitajAutomobile.prikaziAutomobile();

@@ -1,5 +1,5 @@
-4|Nenad|Mihajlovski|4058811|muski|Kaplareva9|0649838131|nenadm|987654|48000.0|0
-3|Mirko|Mirkovic|09485885|muski|PetrovMol4|064948833|mirkom|1234567|48000.0|0
-2|Janjos|Hemberdii|70004000|muski|Kaptulska30|0695838131|janjosh|1235|41000.0|0
+4|Nenad|Mihajlovski|4058811|muski|Kaplareva9|0649838131|nenadm|12345|48000.0|0
+3|Mirko|Mirkovic|09485885|muski|PetrovMol4|064948833|mirkom|12345|48000.0|0
+2|Janjos|Hemberdii|70004000|muski|Kaptulska30|0695838131|janjosh|12345|41000.0|0
 1|Tesa|Tesanovicc|5004002000|muski|Tesanoviceva20|069304403|tesat|teso|89000.0|0
 50|eer|ree|155611444|muski|gqgqgq|064141254|tqgq|gqgq|41212.0|1

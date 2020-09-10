@@ -5,3 +5,4 @@
 5|audi|W220|9000|turbina|6|0
 7|bmw|W220|7000|katadiopter - Leva strana|5|0
 6|bmw|W220|7000|katadiopter - Desna strana|5|0
+44|mercedes|W220|444|rrr|4|1

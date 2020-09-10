@@ -6,3 +6,4 @@
 6|Mirko|Jurkovic|90010004000|muski|Preradoviceva14|065915123|mirkoj|12345|50000.0|vulkanizer|0
 7|ee|rre|4151|muski|tqgq|gqgq|ggqgq|gqgq|32000.0|vulkanizer|1
 7|nenad|hhgsgs|1050600541|muski|gqhhjqj|jqjjsgssv|rre|123|30000.0|limar|1
+8|rqgg|gqgq|gqgq|muski|gqgqg|gqg|qggqq|gqg|444.0|automehanicar|1

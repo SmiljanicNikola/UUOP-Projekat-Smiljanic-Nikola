@@ -174,11 +174,17 @@ public class ServiseriForma extends JFrame {
 		boolean ok = true;
 		String poruka = "Molimo popraviti sledece greske u unosu: \n";
 		
-		try {
-			Integer.parseInt(txtId.getText().trim());
-		} catch(NumberFormatException e) {
+		if(txtId.getText().trim().equals("")) {
 			poruka += "Id mora biti broj \n";
 			ok = false;
+		}
+		else if(serviser == null) {
+			int id = Integer.parseInt(txtId.getText().trim());
+			Serviser serviser = Crudoperacije.nadjiServisera(id);
+			if(serviser != null) {
+				poruka += "Serviser sa tim id-om vec postoji \n";
+				ok = false;
+			}
 		}
 		
 		if(txtIme.getText().trim().equals("")) {

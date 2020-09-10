@@ -66,7 +66,7 @@ public class GlavniProzorMusterija extends JFrame {
 		prikazivanjeAutomobilaMusterijeItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.zaMusteriju.PrikazZaMusteriju pzm = new gui.zaMusteriju.PrikazZaMusteriju(crudoperacije, prijavljenaMusterija, automobil);
+				gui.zaMusteriju.PrikazZaMusteriju pzm = new gui.zaMusteriju.PrikazZaMusteriju(crudoperacije, prijavljenaMusterija);
 				pzm.setVisible(true);
 				
 			}

@@ -167,11 +167,17 @@ public class AdministratoriForma extends JFrame {
 		boolean ok = true;
 		String poruka = "Molimo popraviti sledece greske u unosu: \n";
 
-		try {
-			Integer.parseInt(txtId.getText().trim());
-		} catch (NumberFormatException e) {
+		if(txtId.getText().trim().equals("")) {
 			poruka += "Id mora biti broj \n";
 			ok = false;
+		}
+		else if(administrator == null) {
+			int id = Integer.parseInt(txtId.getText().trim());
+			Administrator administrator = Crudoperacije.nadjiAdministratora(id);
+			if(administrator != null) {
+				poruka += "Administrator sa tim id-om vec postoji \n";
+				ok = false;
+			}
 		}
 
 		if (txtIme.getText().trim().equals("")) {

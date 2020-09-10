@@ -185,11 +185,17 @@ public class ServisniDeloviForma extends JFrame {
 		boolean ok = true;
 		String poruka = "Molimo popraviti sledece greske u unosu: \n";
 
-		try {
-			Integer.parseInt(txtId.getText().trim());
-		} catch (NumberFormatException e) {
+		if(txtId.getText().trim().equals("")) {
 			poruka += "Id mora biti broj \n";
 			ok = false;
+		}
+		else if(servisnideo == null) {
+			int id = Integer.parseInt(txtId.getText().trim());
+			ServisniDeo servisnideo = Crudoperacije.nadjiDeo(id);
+			if(servisnideo != null) {
+				poruka += "Servisni deo sa tim id-om vec postoji \n";
+				ok = false;
+			}
 		}
 
 		if (txtnazivDela.getText().trim().equals("")) {

@@ -172,12 +172,19 @@ public class MusterijeForma extends JFrame {
 		boolean ok = true;
 		String poruka = "Molimo popraviti sledece greske u unosu: \n";
 		
-		try {
-			Integer.parseInt(txtId.getText().trim());
-		} catch(NumberFormatException e) {
+		if(txtId.getText().trim().equals("")) {
 			poruka += "Id mora biti broj \n";
 			ok = false;
 		}
+		else if(musterija == null) {
+			String vlasnikId = txtId.getText().trim();
+			Musterija musterija = Crudoperacije.nadjiMusteriju2(vlasnikId);
+			if(musterija != null) {
+				poruka += "Musterija sa tim id-om vec postoji \n";
+				ok = false;
+			}
+		}
+			
 		
 		if(txtIme.getText().trim().equals("")) {
 			poruka += "Unesite ime \n";
@@ -208,6 +215,12 @@ public class MusterijeForma extends JFrame {
 			poruka += "Unesite sifru \n";
 			ok = false;
 		}
+		
+		//if(Integer.parseInt(txtId.getText().trim()) == musterija.getId()) {
+		//	poruka += "Musterija sa takvim id-om vec postoji \n";
+		//	ok = true;
+		//}
+		
 		try {
 			Integer.parseInt(txtnagradniBodovi.getText().trim());
 		} catch(NumberFormatException e) {

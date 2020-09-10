@@ -24,12 +24,10 @@ public class PrikazZaMusteriju extends JFrame {
 	
 	CRUDOperacije Crudoperacije = new CRUDOperacije();
 	public Musterija prijavljenaMusterija;
-	public Automobil automobil;
 	
-	public PrikazZaMusteriju(CRUDOperacije Crudoperacije, Musterija prijavljenaMusterija, Automobil automobil) {
+	public PrikazZaMusteriju(CRUDOperacije Crudoperacije, Musterija prijavljenaMusterija) {
 		this.Crudoperacije = Crudoperacije;
 		this.prijavljenaMusterija = prijavljenaMusterija;
-		this.automobil = automobil;
 		setTitle("Automobili od prijavljene musterije");
 		setSize(600,450);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -41,15 +39,16 @@ public class PrikazZaMusteriju extends JFrame {
 	}
 
 	public void initGUI() {
+		
 		ArrayList<Automobil> automobili = null;
 		if(prijavljenaMusterija instanceof Musterija) {
 			automobili = new ArrayList<Automobil>();
-			for(Automobil auto : Crudoperacije.getAutomobile(0)) {
-				if(auto.getVlasnik().getKorisnickoIme().equals(prijavljenaMusterija.getKorisnickoIme()));
+			for(Automobil auto : Crudoperacije.sviNeobrisaniAutomobili()) {
+				if(auto.getVlasnik().getId() == prijavljenaMusterija.getId()) {
 					automobili.add(auto);
+				}
 			}
 		}
-		
 		String[] zaglavlje = new String[] {"id", "vlasnik", "marka", "model", "godina proizvodnje", "zapremina", "snaga Motora",  "Vrsta goriva"};
 		Object[][] sadrzaj = new Object[automobili.size()][zaglavlje.length];
 		

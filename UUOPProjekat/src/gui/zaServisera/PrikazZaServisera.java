@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import CRUD.CRUDOperacije;
 import gui.formeZaDodavanjeIIzmenu.ServisAutomobilaForma;
 import gui.formeZaDodavanjeIIzmenu.ServiseriForma;
+import model.Automobil;
 import model.Musterija;
 import model.ServisAutomobila;
 import model.Serviser;
@@ -59,7 +60,7 @@ public class PrikazZaServisera extends JFrame {
 		ArrayList<ServisAutomobila> servisi = null;
 		if(prijavljeniServiser instanceof Serviser) {
 			servisi = new ArrayList<ServisAutomobila>();
-			for(ServisAutomobila servis : Crudoperacije.getServiseAutomobila2(0)) {
+			for(ServisAutomobila servis : Crudoperacije.sviNeobrisaniServisi()) {
 				if(servis.getServiser().getKorisnickoIme().equals(prijavljeniServiser.getKorisnickoIme()))
 					servisi.add(servis);
 			}

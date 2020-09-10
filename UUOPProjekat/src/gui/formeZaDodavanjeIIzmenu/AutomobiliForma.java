@@ -178,11 +178,17 @@ public class AutomobiliForma extends JFrame {
 		boolean ok = true;
 		String poruka = "Molimo popraviti sledece greske u unosu: \n";
 
-		try {
-			Integer.parseInt(txtId.getText().trim());
-		} catch (NumberFormatException e) {
+		if(txtId.getText().trim().equals("")) {
 			poruka += "Id mora biti broj \n";
 			ok = false;
+		}
+		else if(automobil == null) {
+			int id = Integer.parseInt(txtId.getText().trim());
+			Automobil automobil = Crudoperacije.nadjiAutomobil2(id);
+			if(automobil != null) {
+				poruka += "Automobil sa tim id-om vec postoji \n";
+				ok = false;
+			}
 		}
 
 		//if (txtVlasnik.getText().trim().equals("")) {
