@@ -6,5 +6,7 @@ public enum model {
 	Q6,
 	GLS,
 	X5,
-	M3
+	M3,
+	E220,
+	E63
 }

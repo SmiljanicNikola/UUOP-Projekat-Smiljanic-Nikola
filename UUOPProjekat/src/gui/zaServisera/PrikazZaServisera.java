@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
@@ -114,7 +115,26 @@ public class PrikazZaServisera extends JFrame {
 				
 			}
 		});
-		
+		btnEdit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int red = serviseriTabela.getSelectedRow();
+				if(red == -1) {
+					JOptionPane.showMessageDialog(null, "Morate da odaberete red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
+				} else {
+					int id = (int) tableModel.getValueAt(red, 0);
+					ServisAutomobila servisautomobila = Crudoperacije.nadjiServiseAutomobila(id);
+					if(servisautomobila == null) {
+						JOptionPane.showMessageDialog(null, "Greska prilikom pronalazenja servisa automobila", "Greska", JOptionPane.WARNING_MESSAGE);
+					} else {
+						ServisAutomobilaForma aaf = new ServisAutomobilaForma(Crudoperacije, servisautomobila);
+						aaf.setVisible(true);
+					}
+				}
+				
+			}
+		});
 	}
 	
 }
