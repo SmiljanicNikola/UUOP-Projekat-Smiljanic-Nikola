@@ -1,7 +1,7 @@
-1|1|mionag|10.10.2020|Dodavanje novog tocka sa novim felna|[]|zakazan|0
+1|1|mionag|10.10.2020|Dodavanje novog tocka sa novim felna|[]|zavrsen|0
 2|3|ivann|09.09.2020|Nemanestooo|[]|aktivan|0
-3|2|ivann|07.07.2020|zamena multimedije i zamena farova|[]|zakazan|0
-4|5|momirm|05.07.2020|Zamena ulja i filtera|[]|aktivan|0
+3|2|ivann|07.07.2020|zamena multimedije i zamena farova|[]|zavrsen|0
+4|5|momirm|05.07.2020|Zamena ulja i filtera|[]|zavrsen|0
 5|4|nikolajs|18.9.2020|Zamena turbine|[]|zakazan|0
 6|1|mirkoj|05.05.2020|Zamena kocionih celjusti|[]|aktivan|0
 13|7|milovans|10.15.2020|Poliranje farova|[]|aktivan|1
